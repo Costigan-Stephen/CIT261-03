@@ -1,8 +1,6 @@
 ## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/Costigan-Stephen/CIT261-03-Lessons/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This contains a collection of the content for the lessons and materials taught in CIT261, click on a topic to view the content.
 
 ### Markdown
 
