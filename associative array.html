@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>More Array Stuff</title>
+<script type="text/javascript">
+
+	// 		L03 COVERING
+	// ------------------------
+	// Loops, 
+	// Conditional Statements, 
+	// Functions, 
+	// Variables, 
+	// Parameters, 
+	// Arrays, 
+	// Associative Arrays (HERE)
+	// ------------------------	
+
+	function template(){
+	
+		var t1 = document.getElementById('txt1').value;
+		var t2 = document.getElementById('txt2').value;
+		var t3 = document.getElementById('txt3').value;
+		var t4 = document.getElementById('txt4').value;
+		t4 = parseFloat(t4);
+		
+		var output;
+		
+		//Regular Array >> var cars = ["Ford", "Falcon", "2010", 80000];
+		//var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
+		var cars = {Make: t1, Model: t2, Year: t3, Mileage: t4};
+		
+		if(cars.Mileage > 100000){
+			output = "You might want to start saving up for a new car";
+		}else{
+			output = "You're still good";
+		}
+		
+		document.getElementById('output').innerHTML = output;
+	}
+</script>
+</head>
+
+<body>
+	<h1>Associative Arrays:</h1> 
+
+		Make : <input type="text" id="txt1" size="6"> 
+		Model : <input type="text" id="txt2" size="6"> 
+		Year : <input type="text" id="txt3" size="6"> 
+		Miles : <input type="text" id="txt4" size="6"> 
+		<br>
+		<br>
+		
+		<button type="button" onclick="template()">Vehicle Assessment</button>
+		<br><br>
+	<div id="output"></div>
+</body>
+</html>
