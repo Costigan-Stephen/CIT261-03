@@ -11,11 +11,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body>
+	<body class="landing">
 
 		<!-- Header -->
-			<header id="header">
-				<h1><strong><a href="index.html">JavaScript</a></strong> by Stephen Costigan</h1>
+			<header id="header" class="alt">
+				<h1><strong><a href="index.html">Lessons 1-13</a></strong> by Stephen Costigan</h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html">HOME</a></li>
@@ -29,310 +29,101 @@
 
 			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
-		<!-- Main -->
-			<section id="main" class="wrapper">
-				<div class="container">
-					<header class="major special">
-						<section id="two" class="wrapper style2 special">
-							<div class="container">
-								<h2>JavaScript</h2>
-								<p>
-									<h4>This section discusses the lessons 1, 2, and 9.  The sections that this will cover are:</h4>
-									<ul class="alt">
-									<li></li>
-									<li>Lesson 1: Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays.</li>
-									<li>Lesson 2: Object Creation Functions, Inheritance, Properties, Methods, Instantiation.</li>
-									<li>Lesson 9: Standard JavaScript Events Including those for Mobile Devices and Animation and Transition Events.</li>
-									<li></li>
-								</p>
-							</ul>
+		<!-- Banner -->
+			<section id="banner">
+				<h2>Stephen costigan</h2>
+				<p>CIT 261:03 L1-13 <br/></p>
+			</section>
+
+			<!-- One -->
+				<script>
+					function scrollTo() {
+						var elmnt = document.getElementById("three");
+						elmnt.scrollIntoView();
+					}
+				</script>
+				<section id="one" class="wrapper style1">
+					<div class="container 75%">
+						<div class="row 200%">
+							<div class="6u 12u$(medium)">
+								<header class="major">
+									<h2>About</h2>
+									<p>some disclaimers about the theme used here</p>
+								</header>
 							</div>
-						</section>
-					</header>
-				</div>
-				<!-- Text -->
-				<section id="three" class="wrapper style1">
+							<div class="6u$ 12u$(medium)">
+								<p>The objects here are intended to display competency in a series of subjects ranging from HTML to JavaScript to JSON and CSS.  It must be first acknowledged that the theme used in this project was created from an existing template and modified to suit the purposes of this assignment.</p>
+								<p>That said, all other HTML and CSS were created in accordance to the requirements of the lessons so as to present a level of competency required by this course.  Any similarities in the latter code with existing code is purely coincidental and the result of serendipity.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+			<!-- Two -->
+				<section id="three" class="wrapper style2 special">
 					<div class="container">
-						<header>
-							<h2>Lesson 1</h2>
-							<p>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</p>
-							
+						<header class="major special">
+							<h2>Topic Selector</h2>
+							<p>Pick a topic to learn more about it</p>
 						</header>
-							<p>This lesson can be best understood by a few short scripts written for a few different outcomes.  The first script is written to better look at all 
-							elements of the lesson except for Arrays and Associative Arrays, which we will cover hereafter.  The script will ask the user to input a number that 
-							will be raised to the power of 2 and then display all iterations of that calculation until we reach the answer.  This is done so that the repetitions
-							can be seen and understood as they happen rather than simply assuming they were or having to follow them in a script debugger.</p>
-							
-							<p>In the spirit of simplification, we will look at the scripts as two different elements, JavaScript and HTML.  The files can be combined by replacing
-							the reference to an external script with the script itself, but for our purposes we will look at them separately.  If you look at the JavaScript function,
-							to which there is only one in this JavaScript, you will notice the condition asking if the input (t1) is greater than 0.  If the statement is true, it
-							will begin a while loop, which could just as easily be substituted for a For loop , but I like While loops and so this was done with that.  The loop uses
-							a temporary variable of i to increment each time until it is the same as t1 and then it quits.
-							
-							<h5>JavaScript - (PowersOf2.js)</h5>
-						<pre><code>
-function calc() {
-
-   	/* 		Defining Table
-	* Input: 		None.
-	* Processing: 	Determine all values between 2^0 to 2^31.
-	* Output: 		Display result of calculation.
-	*/     
-	var cal = 0;
-	var i = 0;
-	var output = "";
-	var t1 = document.getElementById('txt1').value;
-	t1 = parseFloat(t1);
-	
-	//Only run when t1 > 0
-	if (t1 > 0){
-		while(i <= t1){
-			cal = Math.pow(2, i);
-			output += "2^" + i + " = " + cal + "<br/>";
-			i += 1;
-		}
-	}
-
-	document.getElementById('outputDiv').innerHTML = output;
-}
-						</code></pre>
-							<h5>HTML</h5>
-						<pre><code>
-&lt!DOCTYPE HTML&gt;
-&lthtml lang="en-us"&gt;
-&lthead&gt;
-&ltmeta charset="utf-8"&gt;
-&lttitle&gt;Powers of Two and Binary&lt/title&gt;
-&ltscript src="PowersOf2.js"&gt;&lt/script&gt;
-&lt/head&gt;
-
-&ltbody&gt;
-	&lth1&gt;Powers Of Two&lt/h1&gt;
-    &ltp&gt;
-	What is 2^&ltinput type="text" id="txt1" size="3"&gt;? &ltbutton type="button" onclick="calc()"&gt;GO&lt/button&gt;
-	&lt/p&gt;
-	&ltdiv id="outputDiv"&gt;&lt;/div&gt;
-&lt/body&gt;
-&lt/html&gt;
-						</code></pre>
-
-							<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
-							
-							<pre><code>
-								<script src="PowersOf2.js"></script>
-								
-								What is 2^ <input type="text" align="center" name="name" id="txt1" value="" placeholder="" />
-								<a href="JavaScript:calc()" class="button" align="center">GO</a>
-
-								<div id="outputDiv"></div>
-								
-							</pre></code>
-						
-						<p>NEXT let's look more into functions and see how a series of functions can work together to perform a series of calculations.  In this example we will be
-						separating JavaScript and HTML again, but pay attention to the number of functions that are present in the JavaScript!  This script will take a user input and
-						turn it into an array and then perform some minor calculations based on the inputs.  Feel free to also mess with the script below so you can get an idea on how
-						it works.  Also note that the two codes can be pieced together relatively simply by replacing the section between &ltscript&gt and &lt/script&gt with the javascript
-						below.</p>
-						
-							<h5>JavaScript - (Array.js)</h5>
-						<pre><code>
-	/* 
-	* Input: 		Take string of text from user
-	* Processing: 	Convert text into string, separate by commas, clear spaces
-					Put into function addEnds to find sum of each end of array
-	* Output: 		display calculated value in text field
-	*/
-function main(press){
-	
-	var list = document.getElementById('numb').value;
-	list = list.replace(/\s+/g, '');		// Clear Spaces
-	list = list.split(",");					// Convert comma separated values to string
-	
-	if (press == "ends"){
-		var sumVal = addEnds(list);
-	}else if (press == "mid") {
-		var sumVal = getMiddle(list);
-	}
-
-	document.getElementById('answ').value = sumVal;
-
-}
-function addEnds(list){
-		
-		var len = list.length - 1 ;
-		var num1 = parseFloat ( list[0] );
-		var num2 = parseFloat ( list[len] );
-		var answ = num1 + num2;
-		
-		return (answ);
-
-}
-function getMiddle(list){
-		
-	if (list.length %2 == 0) {
-										// Find average of 2 middle numbers
-		var mid = parseFloat(list.length) / 2;
-		var mid2 = parseFloat (mid) - 1;
-		var num1 = parseFloat ( list[mid] );
-		var num2 = parseFloat ( list[mid2] );
-		var answ = ( num1 + num2 )/ 2;
-	} else {
-										// Only one middle number, minus 0.5 to reach it.
-		var len = parseFloat(list.length);
-		var mid = ((len) / 2 )- 0.5;
-		var answ = list[mid];
-	}
-	return (answ);
-}
-function clearText(){
-	
-										// clear text fields
-	document.getElementById('numb').value = "";
-	document.getElementById('answ').value = "";		
-}		
-						</pre></code>
-							<h5>HTML</h5>
-						<pre><code>
-&lt!DOCTYPE HTML&gt;
-&lthtml lang="en-us"&gt;
-&lthead&gt;
-&ltmeta charset="utf-8"&gt;
-
-&lttitle>Array Functions&lt/title&gt
-&ltscript src="Array.js"&gt&lt/script&gt
-&lt/head&gt
-
-&ltbody&gt
-	&lth1&gtHaving Fun with Arrays&lt/h1&gt
-	&ltp&gt
-		Please enter a series of numbers separated by commas &ltbr&gt
-		&ltinput type="text" id="numb" size="55"&gt &ltbr&gt
-		&ltbr&gt
-		&ltbutton type="button" onclick="main('ends')"&gtAdd First and Last&lt/button&gt
-		&ltbutton type="button" onclick="main('mid')"&gtFind Middle Value&lt/button&gt &ltbr&gt
-		&ltbr&gt
-		Result: &ltinput type="text" id="answ" size="8"&gt &ltbr&gt&ltbr&gt
-		&ltbutton type="reset" value="reset" onclick="clearText()"&gtReset&lt/button&gt &ltbr&gt&ltbr&gt
-	&lt/p&gt
-&lt/body&gt
-&lt/html&gt
-						</pre></code>
-						
-						<p>Let's give it a try!</p>
-							
-							<pre><code>
-							<script src="Array.js"></script>
-										<p>
-						      Please enter a series of numbers separated by commas <br>
-											<input type="text" id="numb" size="55"> <br>
-											<br>
-							<button type="button" onclick="main('ends')">Add First and Last</button> <button type="button" onclick="main('mid')">Find Middle Value</button> <br>
-											<br>
-									    Result: <input type="text" id="answ" size="8"> <br><br>
-									  <button type="reset" value="reset" onclick="clearText()">Reset</button> <br><br>
-										</p>
-								
-							</pre></code>
-						
-						<p>Now that we are familiar with Arrays, let's understand the difference between Arrays and Associative Arrays.  Associative Arrays are array values that hold properties
-						and for this reason we will combine Associative Arrays with the next subject, "Object Creation Functions, Inheritance, Properties, Methods, Instantiation" in Lesson 2</p>
-						
-						
+						<div class="feature-grid">
+							<div class="feature">
+								<div class="image rounded"><a href="JavaScript.html"><img src="images/JS.png" alt="" /></a></div>
+								<div class="content">
+									<header>
+										<a href="JavaScript.html"><h4>JavaScript</h4></a>
+										<p>Loops, Arrays, Objects and Events</p>
+									</header>
+									<p>Covers Lessons 1, 2, and 9</p>
+								</div>
+							</div>
+							<div class="feature">
+								<div class="image rounded"><a href="JSON.html"><img src="images/JSON.png" alt="" /></a></div>
+								<div class="content">
+									<header>
+										<a href="JSON.html"><h4>JSON</h4></a>
+										<p>Strings and Storage</p>
+									</header>
+									<p>Covers Lessons 3, and 4</p>
+								</div>
+							</div>
+							<div class="feature">
+								<div class="image rounded"><a href="HTML.html"><img src="images/HTML.png" alt="" /></a></div>
+								<div class="content">
+									<header>
+										<a href="HTML.html"><h4>HTML</h4></a>
+										<p>Layout elements and Storage</p>
+									</header>
+									<p>Covers Lessons 5, 6, and 10</p>
+								</div>
+							</div>
+							<div class="feature">
+								<div class="image rounded"><a href="CSS.html"><img src="images/CSS.png" alt="" /></a></div>
+								<div class="content">
+									<header>
+										<a href="CSS.html"><h4>CSS</h4></a>
+										<p>Layout Design and objects</p>
+									</header>
+									<p>Lessons 7, 8, 11, 12, and 13.</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</section>
-				<section id="two" class="wrapper style2 special">
-					<div class="container" align="left">
-						<header>
-						<h2>Lesson 2</h2>
-							<p>Object Creation Functions, Inheritance, Properties, Methods, Instantiation</p>
-						</header>
-						
-						<p>Let us consider the following array:</p>
-						<pre><code>
-var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
-						</pre></code>
-						
-						<p>You may notice that each variable in the Array has this format X:"Y", this is where the array becomes no more a series of values, but a series of objects.  The car 
-						is no longer comprised of {ford,falcon,2010,80000}, but of a Make, Model, Year, and Mileage that can be parsed as objects that are associated with the array and not simply
-						as destinations in an array (such as cars[1] and cars[2]...).</p>
-						
-						<p>So let's look at this in terms of a script.  If we were to create a very simple script that took the values of the vehicle and determined if you needed to start saving
-						for a new car, what would it look for?  For arguments sake, lets say that regardless of vehicle Make or Model, the yardstick was the mileage of the vehicle.  When the vehicle
-						went over 100,000 miles it would alert the driver that they should start saving for a new car.  Ideally you might want to start much sooner, but for our purposes of simplicity
-						let's assume this is an acceptable time to do this.  The script for such an event might look something like this:</p>
-						
-						<h5>JavaScript - (assocArray.js)</h5>
-						<pre><code>
 
-function miles(){
-	
-	var t1 = document.getElementById('txt1').value;
-	var t2 = document.getElementById('txt2').value;
-	var t3 = document.getElementById('txt3').value;
-	var t4 = document.getElementById('txt4').value;
-	t4 = parseFloat(t4);
-	
-	var output;
-	
-	//Regular Array >> var cars = ["Ford", "Falcon", "2010", 80000];
-	//var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
-	var cars = {Make: t1, Model: t2, Year: t3, Mileage: t4};
-	
-	if(cars.Mileage > 100000){
-		output = "You might want to start saving up for a new car";
-	}else{
-		output = "You're still good";
-	}
-	
-	document.getElementById('output').innerHTML = output;
-}
-						</pre></code>
-						
-						<h5>HTML</h5>
-						<pre><code>
-&lt!DOCTYPE HTML&gt;
-&lthtml lang="en-us"&gt;
-&lthead&gt;
-&ltmeta charset="utf-8"&gt;
-
-&lttitle>More fun with Arrays&lt/title&gt
-&ltscript src="assocArray.js"&gt&lt/script&gt
-&lt/head&gt
-
-&ltbody&gt
-	&lth1&gtAssociative Arrays&lt/h1&gt
-	&ltp&gt
-
-		Make :  &ltinput type="text" id="txt1" size="6"&gt 
-		Model : &ltinput type="text" id="txt2" size="6"&gt
-		Year :  &ltinput type="text" id="txt3" size="6"&gt
-		Miles : &ltinput type="text" id="txt4" size="6"&gt
-		&ltbr&gt
-		&ltbr&gt
-		
-		&ltbutton type="button" onclick="miles()"&gtVehicle Assessment&lt/button&gt
-		&ltbr>&ltbr&gt
-	&ltdiv id="output"&gt&lt/div&gt
-	&lt/p&gt
-&lt/body&gt
-&lt/html&gt
-						</pre></code>
-						
-						<p>Something that needs to be understood here is that the array "Cars" can be used to make more objects of the same type after the same manner as a form of Template.  There are
-						a number of ways that this can be done, which we will go into below.</p>
-						
-						<pre><code>
-
-						</pre></code>
-					</div>
-				</section>
-				
-				<section id="three" class="wrapper style1">
+			<!-- Four -->
+				<section id="four" class="wrapper style3 special">
 					<div class="container">
-					
+						<header class="major">
+							<h2>Thanks for Viewing</h2>
+							<p>You're Awesome!</p>
+						</header>
+						<ul class="actions">
+							<li><a href="#" class="button special big" onclick="scrollTo()">Scroll Up</a></li>
+						</ul>
 					</div>
 				</section>
-				
+
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="copyright">
@@ -356,6 +147,6 @@ function miles(){
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			</footer>
+
 	</body>
 </html>
