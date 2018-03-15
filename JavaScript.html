@@ -51,26 +51,26 @@
 					</header>
 				</div>
 				<!-- Text -->
-				<section id="three" class="wrapper style1">
-					<div class="container">
-						<header>
-							<h2>Lesson 1</h2>
-							<p>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</p>
+			<section id="three" class="wrapper style1">
+				<div class="container">
+					<header>
+						<h2>Lesson 1</h2>
+						<p>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</p>
 							
-						</header>
-							<p>This lesson can be best understood by a few short scripts written for a few different outcomes.  The first script is written to better look at all 
-							elements of the lesson except for Arrays and Associative Arrays, which we will cover hereafter.  The script will ask the user to input a number that 
-							will be raised to the power of 2 and then display all iterations of that calculation until we reach the answer.  This is done so that the repetitions
-							can be seen and understood as they happen rather than simply assuming they were or having to follow them in a script debugger.</p>
-							
-							<p>In the spirit of simplification, we will look at the scripts as two different elements, JavaScript and HTML.  The files can be combined by replacing
-							the reference to an external script with the script itself, but for our purposes we will look at them separately.  If you look at the JavaScript function,
-							to which there is only one in this JavaScript, you will notice the condition asking if the input (t1) is greater than 0.  If the statement is true, it
-							will begin a while loop, which could just as easily be substituted for a For loop , but I like While loops and so this was done with that.  The loop uses
-							a temporary variable of i to increment each time until it is the same as t1 and then it quits.
-							
-							<h5>JavaScript - (PowersOf2.js)</h5>
-						<pre><code>
+					</header>
+						<p>This lesson can be best understood by a few short scripts written for a few different outcomes.  The first script is written to better look at all 
+						elements of the lesson except for Arrays and Associative Arrays, which we will cover hereafter.  The script will ask the user to input a number that 
+						will be raised to the power of 2 and then display all iterations of that calculation until we reach the answer.  This is done so that the repetitions
+						can be seen and understood as they happen rather than simply assuming they were or having to follow them in a script debugger.</p>
+						
+						<p>In the spirit of simplification, we will look at the scripts as two different elements, JavaScript and HTML.  The files can be combined by replacing
+						the reference to an external script with the script itself, but for our purposes we will look at them separately.  If you look at the JavaScript function,
+						to which there is only one in this JavaScript, you will notice the condition asking if the input (t1) is greater than 0.  If the statement is true, it
+						will begin a while loop, which could just as easily be substituted for a For loop , but I like While loops and so this was done with that.  The loop uses
+						a temporary variable of i to increment each time until it is the same as t1 and then it quits.
+						
+						<h5>JavaScript - (PowersOf2.js)</h5>
+					<pre><code>
 function calc() {
 
    	/* 		Defining Table
@@ -96,8 +96,8 @@ function calc() {
 	document.getElementById('outputDiv').innerHTML = output;
 }
 						</code></pre>
-							<h5>HTML</h5>
-						<pre><code>
+						<h5>HTML</h5>
+					<pre><code>
 &lt!DOCTYPE HTML&gt;
 &lthtml lang="en-us"&gt;
 &lthead&gt;
@@ -116,9 +116,9 @@ function calc() {
 &lt/html&gt;
 						</code></pre>
 
-							<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
-							
-							<pre><code>
+						<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
+						
+						<pre><code>
 								<script src="PowersOf2.js"></script>
 								
 								What is 2^ <input type="text" align="center" name="name" id="txt1" value="" placeholder="" />
@@ -128,14 +128,14 @@ function calc() {
 								
 							</pre></code>
 						
-						<p>NEXT let's look more into functions and see how a series of functions can work together to perform a series of calculations.  In this example we will be
-						separating JavaScript and HTML again, but pay attention to the number of functions that are present in the JavaScript!  This script will take a user input and
-						turn it into an array and then perform some minor calculations based on the inputs.  Feel free to also mess with the script below so you can get an idea on how
-						it works.  Also note that the two codes can be pieced together relatively simply by replacing the section between &ltscript&gt and &lt/script&gt with the javascript
-						below.</p>
+					<p>NEXT let's look more into functions and see how a series of functions can work together to perform a series of calculations.  In this example we will be
+					separating JavaScript and HTML again, but pay attention to the number of functions that are present in the JavaScript!  This script will take a user input and
+					turn it into an array and then perform some minor calculations based on the inputs.  Feel free to also mess with the script below so you can get an idea on how
+					it works.  Also note that the two codes can be pieced together relatively simply by replacing the section between &ltscript&gt and &lt/script&gt with the javascript
+					below.</p>
 						
-							<h5>JavaScript - (Array.js)</h5>
-						<pre><code>
+						<h5>JavaScript - (Array.js)</h5>
+					<pre><code>
 	/* 
 	* Input: 		Take string of text from user
 	* Processing: 	Convert text into string, separate by commas, clear spaces
@@ -191,8 +191,8 @@ function clearText(){
 	document.getElementById('answ').value = "";		
 }		
 						</pre></code>
-							<h5>HTML</h5>
-						<pre><code>
+						<h5>HTML</h5>
+					<pre><code>
 &lt!DOCTYPE HTML&gt;
 &lthtml lang="en-us"&gt;
 &lthead&gt;
@@ -218,9 +218,9 @@ function clearText(){
 &lt/html&gt
 						</pre></code>
 						
-						<p>Let's give it a try!</p>
+					<p>Let's give it a try!</p>
 							
-							<pre><code>
+						<pre><code>
 							<script src="Array.js"></script>
 										<p>
 						      Please enter a series of numbers separated by commas <br>
@@ -234,62 +234,65 @@ function clearText(){
 								
 							</pre></code>
 						
-						<p>Now that we are familiar with Arrays, let's understand the difference between Arrays and Associative Arrays.  Associative Arrays are array values that hold properties
-						and for this reason we will combine Associative Arrays with the next subject, "Object Creation Functions, Inheritance, Properties, Methods, Instantiation" in Lesson 2</p>
+					<p>Now that we are familiar with Arrays, let's understand the difference between Arrays and Associative Arrays.  Associative Arrays are array values that hold properties
+					and for this reason we will combine Associative Arrays with the next subject, "Object Creation Functions, Inheritance, Properties, Methods, Instantiation" in Lesson 2</p>
+												
+				</div>
+			</section>
+			
+			<section id="two" class="wrapper style2 special">
+				<div class="container" align="left">
+					<header>
+					<h2>Lesson 2</h2>
+						<p>Object Creation Functions, Inheritance, Properties, Methods, Instantiation</p>
+					</header>
 						
-						
-					</div>
-				</section>
-				<section id="two" class="wrapper style2 special">
-					<div class="container" align="left">
-						<header>
-						<h2>Lesson 2</h2>
-							<p>Object Creation Functions, Inheritance, Properties, Methods, Instantiation</p>
-						</header>
-						
-						<p>Let us consider the following array:</p>
-						<pre><code>
+					<p>Let us consider the following array:</p>
+					<pre><code>
 var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
 						</pre></code>
 						
-						<p>You may notice that each variable in the Array has this format X:"Y", this is where the array becomes no more a series of values, but a series of objects.  The car 
-						is no longer comprised of {ford,falcon,2010,80000}, but of a Make, Model, Year, and Mileage that can be parsed as objects that are associated with the array and not simply
-						as destinations in an array (such as cars[1] and cars[2]...).</p>
+					<p>You may notice that each variable in the Array has this format X:"Y", this is where the array becomes no more a series of values, but a series of objects.  The car 
+					is no longer comprised of {ford,falcon,2010,80000}, but of a Make, Model, Year, and Mileage that can be parsed as objects that are associated with the array and not simply
+					as destinations in an array (such as cars[1] and cars[2]...).</p>
+					
+					<p>So let's look at this in terms of a script.  If we were to create a very simple script that took the values of the vehicle and determined if you needed to start saving
+					for a new car, what would it look for?  For arguments sake, lets say that regardless of vehicle Make or Model, the yardstick was the mileage of the vehicle.  When the vehicle
+					went over 100,000 miles it would alert the driver that they should start saving for a new car.  Ideally you might want to start much sooner, but for our purposes of simplicity
+					let's assume this is an acceptable time to do this.  The script for such an event might look something like this:</p>
 						
-						<p>So let's look at this in terms of a script.  If we were to create a very simple script that took the values of the vehicle and determined if you needed to start saving
-						for a new car, what would it look for?  For arguments sake, lets say that regardless of vehicle Make or Model, the yardstick was the mileage of the vehicle.  When the vehicle
-						went over 100,000 miles it would alert the driver that they should start saving for a new car.  Ideally you might want to start much sooner, but for our purposes of simplicity
-						let's assume this is an acceptable time to do this.  The script for such an event might look something like this:</p>
-						
-						<h5>JavaScript - (assocArray.js)</h5>
-						<pre><code>
-
+					<h5>JavaScript - (assocArray.js)</h5>
+					<pre><code>
 function miles(){
 	
 	var t1 = document.getElementById('txt1').value;
 	var t2 = document.getElementById('txt2').value;
 	var t3 = document.getElementById('txt3').value;
 	var t4 = document.getElementById('txt4').value;
-	t4 = parseFloat(t4);
 	
+	if(t4.length > 0){
+		t4 = parseFloat(t4);
+	}
 	var output;
-	
+		
 	//Regular Array >> var cars = ["Ford", "Falcon", "2010", 80000];
 	//var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
 	var cars = {Make: t1, Model: t2, Year: t3, Mileage: t4};
 	
 	if(cars.Mileage > 100000){
-		output = "You might want to start saving up for a new car";
+		output = "Wow, over 100,000 miles! You might want to start saving up for a new car";
+	}else if(cars.Mileage.length == 0){
+		output = "";
 	}else{
-		output = "You're still good";
+		output = "Only " + cars.Mileage + " miles, You're still good";
 	}
 	
 	document.getElementById('output').innerHTML = output;
 }
 						</pre></code>
 						
-						<h5>HTML</h5>
-						<pre><code>
+					<h5>HTML</h5>
+					<pre><code>
 &lt!DOCTYPE HTML&gt;
 &lthtml lang="en-us"&gt;
 &lthead&gt;
@@ -318,44 +321,126 @@ function miles(){
 &lt/html&gt
 						</pre></code>
 						
-						<p>Something that needs to be understood here is that the array "Cars" can be used to make more objects of the same type after the same manner as a form of Template.  There are
-						a number of ways that this can be done, which we will go into below.</p>
-						
-						<pre><code>
-
+					<p>So, let's put it to the test!  Why not, right?</p>
+					<pre><code>
+							<script src="assocArray.js"></script>
+									Make : <input type="text" id="txt1" size="6"> 
+									Model : <input type="text" id="txt2" size="6"> 
+									Year : <input type="text" id="txt3" size="6"> 
+									Miles : <input type="text" id="txt4" size="6"> 
+								<button type="button" onclick="miles()">Vehicle Assessment</button>
+							<div id="output"></div>
 						</pre></code>
-					</div>
-				</section>
-				
-				<section id="three" class="wrapper style1">
-					<div class="container">
+						
+					<p>Something that needs to be understood here is that the array "Cars" can be used to make more objects of the same type after the same manner as a form of Template.  There are
+					a number of ways that this can be done, which we will go into below.</p>
 					
-					</div>
-				</section>
+					<p>FIRST, we can simply create an object with pre-set values.  For lack of a better example, we will use the car array above as our template object.  We will be able to take this
+					first object and make variations of it as we need to, which we will go into in a moment.  For now, simply understand that the object we have made can be duplicated to make more.</p>
+					<pre><code>
+var cars = {
+    Make:"Ford",
+    Model:"Falcon",
+    Year:"2010",
+    Mileage:"80000"
+};
+						</pre></code>
+						
+					<p>The above JavaScript initialized and created the object cars and gave it 4 properties of Make, Model, Year, and Mileage, which we can fill with input values or duplicate for 
+					use with other objects if we so chose.  If we decide that we want to duplicate these properties into another object, there are a few different methods to do this.</p>
+					
+					<p>The SECOND method utilizes the Object.create method and looks like this:</p>
+					<pre><code>
+var newCar = Object.create(cars);
+	newCar.Make = "Toyota";
+	newCar.Model = "Camry";
+	newCar.Year = "2012";
+	newCar.Mileage = "60000";
+						</pre></code>
+						
+					<p>You may notice that the new array "newCar" now has the same properties of Make, Model, Year, and Mileage as Cars did, but with entirely different values.  This can be an effective
+					method of creating a series of values based on the same properties.  An example of where this might be useful is on occasions where you might want to compare two different cars online
+					in a car buying scenario or otherwise.  In these occasions there would likely be more properties to the vehicle such as asking price and condition.</p>
+						
+					<p>Next, the THIRD method utilizes functions to create objects:</p>
+					<pre><code>
+function objCar(Make,Model,Year,Mileage) {
+	this.Make = Make;
+	this.Model = Model;
+	this.Year = Year;
+	this.Mileage = Mileage;
+}
+						</pre></code>
+						
+					<p>What just happened here is that the object objCar accepted 4 entries of Make, Model, Year, Mileage as property values for it's own fields.  There are a number of reasons why you might
+					want to copy existing values, but the main point is that these properties are either initialized or populated by the values entered into the function.</p>
+						
+					<p>Bottom line, objects are very useful!  being able to associate a property with an object can be a lot better than trying to remember where we stored the value in an array.</p>
+				</div>
+			</section>
 				
+			<section id="three" class="wrapper style1">
+				<div class="container">
+					<header>
+						<h2>Lesson 9</h2>
+						<p>Standard JavaScript Events Including those for Mobile Devices and Animation and Transition Events</p>
+					</header>
+						
+					<p>Now to the fun part!</p>
+					<pre><code>
+					</pre></code>
+				</div>
+			</section>
+			
+			<section id="two" class="wrapper style2 special">
+				<div class="container" align="left">
+						<section id="two" class="wrapper style2 special">
+							<div class="container">
+								<h2>Resources</h2>
+								<p>
+									<h4>While the code that was used was my own, some parts were influenced by:</h4>
+									<ul class="alt">
+									<li></li>
+									<li><a href="https://www.w3schools.com/js/default.asp">W3 SCHOOLS - JavaScript</a></li>
+									<li><a href="index.html">PLACEHOLDER</a></li>
+									<li><a href="index.html">PLACEHOLDER</a></li>
+									<li></li>
+								</p>
+							</ul>
+							</div>
+						</section>
+				</div>
+			</section>
+			
+			<section id="three" class="wrapper style1">
+				<div class="container">
+				<!-- Separator so that the footer doesn't have the same color as the text above! -->
+				</div>
+			</section>
+			
 		<!-- Footer -->
-			<footer id="footer">
-				<div class="copyright">
-					<ul>
+		<footer id="footer">
+			<div class="copyright">
+				<ul>
 						<li><a href="index.html">HOME</a></li>
 						<li><a href="JavaScript.html">JAVASCRIPT</a></li>
 						<li><a href="JSON.html">JSON</a></li>
 						<li><a href="HTML.html">HTML</a></li>
 						<li><a href="CSS.html">CSS</a></li>
 					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled</li>
-						<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
-						<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
-					</ul>
-				</div>
-			</footer>
+				<ul class="copyright">
+					<li>&copy; Untitled</li>
+					<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+					<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+				</ul>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			</footer>
+
+			</div>
+		</footer>
 	</body>
 </html>
