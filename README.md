@@ -1,70 +1,37 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>CIT261 Stephen Costigan</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div>
-            <h1>CIT 261 03 Stephen Costigan</h1>
-            <p>
-            <h2>WEEK 3</h2>
-                Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays <br>
-                Object Creation Functions, Inheritance, Properties, Methods, Instantiation <br> <br>
-                <div id="links">
-                <b>EXAMPLE 1</b> - <a href="Arrays.html">Arrays</a><br>
-                <b>EXAMPLE 2</b> - <a href="Associative Array.html">Associative Arrays</a> <br>
-                <b>EXAMPLE 3</b> - <a href="PowersOf2.html">Loops</a> <br> <br> 
-                </div>
-            </p> 
-            <h2>WEEK 4</h2>
-                JSON Parse, Stringify<br>			
-                Using XML HTTP Request to Consume a JSON Web Service <br> <br>
-                <b>EXAMPLE 1</b> - <a href="name">title</a> <br>
-                <b>EXAMPLE 2</b> - <a href="name">title</a> <br>
-                <b>EXAMPLE 3</b> - <a href="name">title</a> <br> <br> 
-            </p>            
-            <h2>WEEK 5</h2>
-                Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects<br>			
-                DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.<br> <br>
-                <b>EXAMPLE 1</b> - <a href="name">title</a> <br> 
-                <b>EXAMPLE 2</b> - <a href="name">title</a> <br>
-                <b>EXAMPLE 3</b> - <a href="name">title</a> <br> <br> 
-            </p>
-            <h2>WEEK 6</h2>
-                Manipulating CSS Class Properties Using JavaScript<br>			
-                Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript<br> <br>
-                <b>EXAMPLE 1</b> - <a href="name">title</a> <br> 
-                <b>EXAMPLE 2</b> - <a href="name">title</a> <br>
-                <b>EXAMPLE 3</b> - <a href="name">title</a> <br> <br> 
-            </p>
-            <h2>WEEK 7</h2>
-                Standard JavaScript Events Including those for Mobile Devices ( Ex. onTouchBegin, onLoad, etc.) and Animation and Transition Events<br> <br>
-                <b>EXAMPLE 1</b> - <a href="name">title</a> <br> 
-                <b>EXAMPLE 2</b> - <a href="name">title</a> <br>
-                <b>EXAMPLE 3</b> - <a href="name">title</a> <br> <br> 
-            </p>
-            <h2>WEEK 8</h2>
-                HTML5 Tags - Video, Audio, and Canvas<br> <br>
-                <b>EXAMPLE 1</b> - <a href="name">title</a> <br>
-                <b>EXAMPLE 2</b> - <a href="name">title</a> <br>
-                <b>EXAMPLE 3</b> - <a href="name">title</a> <br> <br> 
-            </p>
-            <h2>WEEK 9</h2>
-                 Designing, Defining, and Triggering CSS3 Transitions without Custom Libraries (Thought Library) <br>			
-                Designing, Defining, and Triggering CSS3 Animations without Custom Libraries (Thought Library)<br>			
-                Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries (Thought Library) <br> <br>
-                <b>EXAMPLE 1</b> - <a href="name">title</a> <br>
-                <b>EXAMPLE 2</b> - <a href="name">title</a> <br>
-                <b>EXAMPLE 3</b> - <a href="name">title</a> <br> <br> 
-            </p>
-        </div>
-    </body>
-</html>
+## Welcome to GitHub Pages
+
+You can use the [editor on GitHub](https://github.com/Costigan-Stephen/CIT261-03-Lessons/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+
+Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+
+### Markdown
+
+Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+
+```markdown
+Syntax highlighted code block
+
+# Header 1
+## Header 2
+### Header 3
+
+- Bulleted
+- List
+
+1. Numbered
+2. List
+
+**Bold** and _Italic_ and `Code` text
+
+[Link](url) and ![Image](src)
+```
+
+For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+
+### Jekyll Themes
+
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Costigan-Stephen/CIT261-03-Lessons/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+
+### Support or Contact
+
+Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
