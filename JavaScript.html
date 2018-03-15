@@ -385,9 +385,31 @@ function objCar(Make,Model,Year,Mileage) {
 						<p>Standard JavaScript Events Including those for Mobile Devices and Animation and Transition Events</p>
 					</header>
 						
-					<p>Now to the fun part!</p>
+					<p>In this section we will be focusing a lot JavaScript events that work on Mobile devices.  The events that we are referencing consist of onTouchBegin, onLoad, etc.  Mozilla Developer tells us  
+					that "Touch events consist of three interfaces (Touch, TouchEvent and TouchList)" -<a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events/Using_Touch_Events">Source</a>. 
+					To start, let's look at all the possible event types that are built for touch devices only.</p>
 					<pre><code>
+<b>touchstart</b> - fired when a touch point is placed on the touch surface.
+<b>touchmove</b> - fired when a touch point is moved along the touch surface.
+<b>touchend</b> - fired when a touch point is removed from the touch surface.
+<b>touchcancel</b> - fired when a touch point has been disrupted in an implementation-specific manner (for example, too many touch points are created).
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events/Using_Touch_Events">Source</a>
 					</pre></code>
+					
+					<p>Mozilla developer goes a little further than that to explain the touchEvents that are available to a touch device.  They are as follows:</p>
+					<pre><code>
+• <b>touches</b> - a list of all of the touch points currently on the screen.
+• <b>targetTouches</b> - a list of the touch points on the target DOM element.
+• <b>changedTouches</b> - a list of the touch points whose items depends on the associated event type:
+	- For the <b>touchstart</b> event, it is a list of the touch points that became active with the current event.
+	- For the <b>touchmove</b> event, it is a list of the touch points that have changed since the last event.
+	- For the <b>touchend</b> event, it is a list of the touch points that have been removed from the surface 
+	  (that is, the set of touch points corresponding to fingers no longer touching the surface).
+					</pre></code>
+					
+					<p>Based on these events a programmer is able to utilize touch gestures to allow a user to interact with a layout and make things happen.  For our purposes, we will look into some basic
+					examples that can be utilized on a mobile device.</p>
+					
 				</div>
 			</section>
 			
@@ -400,9 +422,9 @@ function objCar(Make,Model,Year,Mileage) {
 									<h4>While the code that was used was my own, some parts were influenced by:</h4>
 									<ul class="alt">
 									<li></li>
-									<li><a href="https://www.w3schools.com/js/default.asp">W3 SCHOOLS - JavaScript</a></li>
-									<li><a href="index.html">PLACEHOLDER</a></li>
-									<li><a href="index.html">PLACEHOLDER</a></li>
+									<li><a href="https://www.w3schools.com/default.asp">W3 Schools - Working code with SandBox functions</a></li>
+									<li><a href="https://www.kirupa.com/">Kirupa - Great tutorials in laymans terms</a></li>
+									<li><a href="https://developer.mozilla.org">Mozilla - "Resources for developers, by developers".</a></li>
 									<li></li>
 								</p>
 							</ul>
