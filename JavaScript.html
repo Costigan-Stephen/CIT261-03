@@ -119,13 +119,13 @@ function calc() {
 						<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
 						
 						<pre><code>
-								<script src="PowersOf2.js"></script>
-								
-								What is 2^ <input type="text" align="center" name="name" id="txt1" value="" placeholder="" />
-								<a href="JavaScript:calc()" class="button" align="center">GO</a>
+<script src="PowersOf2.js"></script>
+<div align="Center">
+What is 2^ <input type="text" align="center" name="name" id="txt1" value="" placeholder="" />
+<a href="JavaScript:calc()" class="button" align="center">GO</a>
 
-								<div id="outputDiv"></div>
-								
+<div id="outputDiv"></div>
+							</div>
 							</pre></code>
 						
 					<p>NEXT let's look more into functions and see how a series of functions can work together to perform a series of calculations.  In this example we will be
@@ -221,17 +221,17 @@ function clearText(){
 					<p>Let's give it a try!</p>
 							
 						<pre><code>
-							<script src="Array.js"></script>
-										<p>
-						      Please enter a series of numbers separated by commas <br>
-											<input type="text" id="numb" size="55"> <br>
-											<br>
-							<button type="button" onclick="main('ends')">Add First and Last</button> <button type="button" onclick="main('mid')">Find Middle Value</button> <br>
-											<br>
-									    Result: <input type="text" id="answ" size="8"> <br><br>
-									  <button type="reset" value="reset" onclick="clearText()">Reset</button> <br><br>
-										</p>
-								
+<script src="Array.js"></script>
+<div align="Center"><p>
+Please enter a series of numbers separated by commas <br>
+<input type="text" id="numb" size="55"> <br>
+<br>
+<button type="button" onclick="main('ends')">Add First and Last</button> <button type="button" onclick="main('mid')">Find Middle Value</button> <br>
+<br>
+Result: <input type="text" id="answ" size="8"> <br><br>
+<button type="reset" value="reset" onclick="clearText()">Reset</button> <br><br>
+</p>
+</div>				
 							</pre></code>
 						
 					<p>Now that we are familiar with Arrays, let's understand the difference between Arrays and Associative Arrays.  Associative Arrays are array values that hold properties
@@ -323,14 +323,15 @@ function miles(){
 						
 					<p>So, let's put it to the test!  Why not, right?</p>
 					<pre><code>
-							<script src="assocArray.js"></script>
-									Make : <input type="text" id="txt1" size="6"> 
-									Model : <input type="text" id="txt2" size="6"> 
-									Year : <input type="text" id="txt3" size="6"> 
-									Miles : <input type="text" id="txt4" size="6"> 
-								<button type="button" onclick="miles()">Vehicle Assessment</button>
-							<div id="output"></div>
-						</pre></code>
+<script src="assocArray.js"></script>
+<div align="Center">
+Make : <input type="text" id="txt1" size="6"> 
+Model : <input type="text" id="txt2" size="6"> 
+Year : <input type="text" id="txt3" size="6"> 
+Miles : <input type="text" id="txt4" size="6"> 
+<button type="button" onclick="miles()">Vehicle Assessment</button>
+<div id="output"></div></div>
+</pre></code>
 						
 					<p>Something that needs to be understood here is that the array "Cars" can be used to make more objects of the same type after the same manner as a form of Template.  There are
 					a number of ways that this can be done, which we will go into below.</p>
