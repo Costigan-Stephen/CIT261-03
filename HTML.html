@@ -51,84 +51,135 @@
 					</header>
 				</div>
 				<!-- Text -->
-			<section id="three" class="wrapper style1"> <!--Lesson 3 -->
+			<section id="three" class="wrapper style1"> <!--Lesson 5 -->
 				<div class="container">
 					<header>
 						<h2>Lesson 5</h2>
-						<p>Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</p>
-							
+						<p>Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</p>	
 					</header>
-						<p>This lesson can be best understood by a few short scripts written for a few different outcomes.  The first script is written to better look at all 
-						elements of the lesson except for Arrays and Associative Arrays, which we will cover hereafter.  The script will ask the user to input a number that 
-						will be raised to the power of 2 and then display all iterations of that calculation until we reach the answer.  This is done so that the repetitions
-						can be seen and understood as they happen rather than simply assuming they were or having to follow them in a script debugger.</p>
+					
+					<p>So there's some good fun to be had with Local Storage API's, but first we need to understand what they are.  There are primarily 2 variations of that
+					storage.  First, Local Storage (obviously), secondly Session Storage.  Both Local Storage and Session Storage serve different purposes and can store up to
+					5 MB of text.  That may not seem like much, but when you consider that 1 character is equal to 1 byte, you realize that 5MB is about 5 Million characters.
+					When you consider that the average book has about 350 words a page (1500 to 1800 characters per page), that's only about 400,000 - 500,000 characters (bytes),
+					on average, which is about a tenth of the storage that either Local or Session storage provide.
+					</p>
 						
-						<p>In the spirit of simplification, we will look at the scripts as two different elements, JavaScript and HTML.  The files can be combined by replacing
-						the reference to an external script with the script itself, but for our purposes we will look at them separately.  If you look at the JavaScript function,
-						to which there is only one in this JavaScript, you will notice the condition asking if the input (t1) is greater than 0.  If the statement is true, it
-						will begin a while loop, which could just as easily be substituted for a For loop , but I like While loops and so this was done with that.  The loop uses
-						a temporary variable of i to increment each time until it is the same as t1 and then it quits.
+					<p>So, what is Session Storage, and how does it differ from Local Storage?  Simply put, Session storage is information that is stored only during your current
+					session of browsing.  This could be something like your shopping cart on a website or field entries when registering for something.  Local storage, on the other
+					hand, is information that exists beyond your current session.  This can be just about anything, but a good example might be the chrome function that auto fills
+					your information or remembers your passwords when you allow it to.</p>
+					
+					<p>It's important to know that the commands for Local Storage and Session Storage are completely interchangeable, which is nice, so as we go through I will introduce
+					both of them, but focus entirely on only one of them for the sake of simplicity.  It's also worth noting that this will tie in to some more JSON, so make sure you
+					check that out first!  So what are the commands?  Let's have a look!</p>
 						
-						<h5>JavaScript - (PowersOf2.js)</h5>
 					<pre><code>
-function calc() {
+(replace Local for Session if you need Session Storage)
 
-   	/* 		Defining Table
-	* Input: 		None.
-	* Processing: 	Determine all values between 2^0 to 2^31.
-	* Output: 		Display result of calculation.
-	*/     
-	var cal = 0;
-	var i = 0;
-	var output = "";
-	var t1 = document.getElementById('txt1').value;
-	t1 = parseFloat(t1);
+//Storing Data methods 
+1. localStorage.setItem("key", "value");
+2. localStorage["key"] = value; 
+
+//Example:
+1. localStorage.setItem("Make", "Nissan");
+2. localStorage["Make"] = "Nissan"; 
+
+//Retrieving Stored Data
+var myData = localStorage["key"];
+
+//Example
+var Make = localStorage["Make"]; //Not Nissan, notice the difference
+
+//Removing Stored Data
+localStorage.clear(); //Removes EVERYTHING!  Not advisable
+localStorage.removeItem("key");
+
+You can also store strings using Stringify, just so we are clear.
+					</code></pre>
+					
+					<p>I know I said it in there, but I need to reiterate that localStorage.clear is NOT recommended.  It's known as a scorched earth approach for a reason because it removes
+					all stored local files, even ones you may not have wanted to remove.  Also worth noting, you can store a string of variables using <b>JSON Stringify</b>, or you can store
+					just one value, whatever you desire.  For the purposes of our examples here we will only be storing individual values.</p>
+					
+					<p>Now that we know the commands, let's mess with it a little bit.  What do you say?</p>
+					
+					<h5>JavaScript - (storage.js)</h5>
+					<pre><code>
+function Local() {
+	var data = document.getElementById('input').value;
+	localStorage.setItem("key", data); 
 	
-	//Only run when t1 > 0
-	if (t1 > 0){
-		while(i <= t1){
-			cal = Math.pow(2, i);
-			output += "2^" + i + " = " + cal + "<br/>";
-			i += 1;
-		}
-	}
-
-	document.getElementById('outputDiv').innerHTML = output;
-}
-						</code></pre>
-						<h5>HTML</h5>
+	var test = localStorage.getItem("key");
+    document.getElementById('local').value = test;
+}	
+function Session() {
+	var data = document.getElementById('input').value;
+	sessionStorage.setItem("key", data); 
+	
+	var test = sessionStorage.getItem("key");
+    document.getElementById('session').value = test;
+}					
+					</pre></code>
+					
+					<h5>HTML</h5>
 					<pre><code>
 &lt!DOCTYPE HTML&gt;
 &lthtml lang="en-us"&gt;
 &lthead&gt;
 &ltmeta charset="utf-8"&gt;
-&lttitle&gt;Powers of Two and Binary&lt/title&gt;
-&ltscript src="PowersOf2.js"&gt;&lt/script&gt;
+&lttitle&gt;Local and Session Storage&lt/title&gt;
+&ltscript src="storage.js"&gt;&lt/script&gt;
 &lt/head&gt;
 
 &ltbody&gt;
-	&lth1&gt;Powers Of Two&lt/h1&gt;
-    &ltp&gt;
-	What is 2^&ltinput type="text" id="txt1" size="3"&gt;? &ltbutton type="button" onclick="calc()"&gt;GO&lt/button&gt;
-	&lt/p&gt;
-	&ltdiv id="outputDiv"&gt;&lt;/div&gt;
+	Stored Information : 
+	&ltinput type="text" id="input" size="6"&gt 
+	&ltli&gt&lta href="JavaScript:Local()" class="button"&gtLocal Storage&lt/a&gt&lt/li&gt
+	&ltli&gt&lta href="JavaScript:Session()" class="button"&gtSession Storage&lt/a&gt&lt/li&gt
+	
+	Local Storage
+	&ltinput type="text" id="local" size="6"&gt
+	Session Storage
+	&ltinput type="text" id="session" size="6"&gt 
 &lt/body&gt;
 &lt/html&gt;
-						</code></pre>
+					</code></pre>
 
-						<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
+					<p>This program will allow you, the user, to put information into a field and then select whether you wish to store it locally or
+					in the session storage.  You will also see the stored information for that storage in the fields below.  Want to mess with it? I know
+					that I do!</p>
+					
+					<pre><code>
+<div align="center">
+<script src="storage.js"></script>
+Stored Information : 
+<input type="text" id="input" size="6"> 
+<a href="JavaScript:Local()" class="button">Local Storage</a>  <a href="JavaScript:Session()" class="button">Session Storage</a>
 
+Local Storage
+<input type="text" id="local" size="6"> 
+Session Storage
+<input type="text" id="session" size="6"> </div>
+					</pre></code>
+					
 				</div>
 			</section>
 			
-			<section id="two" class="wrapper style2 special"> <!--Lesson 4 -->
+			<section id="two" class="wrapper style2 special"> <!--Lesson 6 -->
 				<div class="container" align="left">
 					<header>
 						<h2>Lesson 6</h2>
 						<p>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc</p>
 					</header>
 						
-					<p>Let us consider the following array:</p>
+					<p>Do you know what you are looking at right now?  A DOM.  The DOM of this page is pretty great right?  objects that make up my 
+					layout are part of a structure, a Document Object Model.  What you might not know though is that the DOM can be CHANGED!  Woah right?  
+					<u>But what exactly does it mean?</u></p>
+					
+					<div align="center"><iframe width="800" height="600" src="https://www.youtube.com/embed/OQSNhk5ICTI?t=76" frameborder="0"; encrypted-media" allowfullscreen></iframe></div>
+					<br>
+					<p>It means that we can reorganize the objects on the layout! Or more than that, make new ones or remove them entirely!</p>
 					<pre><code>
 var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
 						</pre></code>
