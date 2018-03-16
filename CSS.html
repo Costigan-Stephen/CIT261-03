@@ -64,7 +64,7 @@
 					<p>Coming into this semester I must admit, CSS was my weakest subject.  I am happy to say though, after some time learning it more, that I truly overestimated
 					how complicated it is.  This section represents not only some cool CSS, but my growth with CSS as a whole.  So strap yourself in, we're in for a wild ride.</p>
 						
-					<p>First, let's look at some simple text manipulation.  Let's have some fun with it.,  </p>
+					<p>First, let's look at some simple text manipulation.  Let's have some fun with it.</p>
 						
 					<pre><code>
 
@@ -99,8 +99,79 @@ Random innocuous statement about how mondays are the worst.
 </div>					
 					</code></pre>
 					
-					<p>We can do all of those things with JavaScript too, we can change the CSS of that object using JavaScript and flip flop between different types of JavaScript.  The next example is of
-					that, flip flopping between two different styles, or classes, when the user clicks on the object.</p>
+					<p>That was fun!  We could have done those changes with JavaScript without much difficulty, but I was having fun with it anyway.  To demonstrate how we can
+					change the class of an object with javaScript, lets look at a new example.  This next example will turn an object from a box into a circle.  It will do this
+					by changing the CSS class of the object.  Want to see how that works?  Let's take a look!</p>
+					
+					<h5>JAVASCRIPT - CircleClass.js</h5>
+					<pre><code>
+function cir(x) {
+	
+	if (x.className == "BoxA"){
+		x.className = "BoxB";
+
+	}else if(x.className == "BoxB"){
+		x.className = "BoxA";
+		
+	}
+}
+					</code></pre>
+					
+					<h5>HTML</h5>
+					<pre><code>
+&lt!DOCTYPE HTML&gt
+&lthtml lang="en-us"&gt
+&lthead&gt
+&ltstyle&gt 
+.BoxA {
+  background-color: green;
+  height: 100px;
+  width: 100px;
+  left:0px; top:0px;
+  border-radius: 2px;
+}
+.BoxB {
+  background-color: blue;
+  height: 100px;
+  width: 100px;
+  left:0px; top:0px;
+  border-radius: 55px;
+}
+&lt/style&gt
+&ltmeta charset="utf-8"&gt
+&lttitle&gtBoxToCircle&lt/title&gt
+&ltscript src="circleClass.js"&gt&lt/script&gt
+&lt/head&gt
+
+&ltbody&gt
+	&ltdiv class="BoxA" id="ShapeChange" onClick="cir(this)"&gt&lt;/div&gt
+&lt/body&gt
+&lt/html&gt
+					</code></pre>
+					
+					<p>Let's look at this in action!</p>
+					
+					<pre><code>
+<script src="circleClass.js"></script>
+<div align="center"><div class="BoxA" id="ShapeChange" onClick="cir(this)"></div></div>
+					</code></pre>
+					
+					<p>This brings us to the end of Lesson 7, however, which is a bummer.  Let's move on to Lesson 8 where we cover initially some similar stuff!</p>
+					
+				</div>
+			</section>
+			
+			<section id="two" class="wrapper style2 special"> <!--Lesson 8 -->
+				<div class="container" align="left">
+					<header>
+					<h2>Lesson 8</h2>
+					<p>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</p>
+					</header>
+						
+					<p>Let us first look into Triggers and Transitions.  The code you are about to look at is for a simple button that changes color each time it is
+					pressed and when the mouse is hovered/not hovered over it.  The button triggers a change in the CSS class of the object back and forth and could
+					just as easily be tied into an animation if we feel like it.  To keep it simple, we will post the animation after this.  You will notice the javaScript
+					is similar to the example in the previous lesson.  Turns out it's a good simple way to flip flop styles.</p>				
 					
 					<h5>JavaScript - text.js</h5>
 					<pre><code>
@@ -146,91 +217,14 @@ function change(x) {
 &lt/html&gt
 						</code></pre>
 
-					<p>Let's see that in action then shall we?  Remember, click on it and watch the magic happen.</p>
+					<p>Let's see that in action then shall we?  Click on it and watch the magic happen.  It has a hover effect and a click change, which is worth mentioning.</p>
 						
 					<pre><code>
 <script src="text.js"></script>
 <div align="center"><h2 id="text" class="text1" onclick="change(this)">Random innocuous statement about how mondays are the worst.</h2></div>
 					</code></pre>
 				
-					<p>We could add more colors and transitions if we need to, but this is a good demonstration about using JavaScript to change CSS in a design.  This brings us to the 
-					end of Lesson 7, however, which is a bummer.  Let's move on to Lesson 8 where we cover initially some similar stuff!</p>
-					
-				</div>
-			</section>
-			
-			<section id="two" class="wrapper style2 special"> <!--Lesson 8 -->
-				<div class="container" align="left">
-					<header>
-					<h2>Lesson 8</h2>
-					<p>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</p>
-					</header>
-						
-					<p>Let us first look into Triggers and Transitions.  The code you are about to look at is for a simple button that changes color each time it is
-					pressed and when the mouse is hovered/not hovered over it.  The button triggers a change in the CSS class of the object back and forth and could
-					just as easily be tied into an animation if we feel like it.  To keep it simple, we will post the animation after this.  You will notice the javaScript
-					is similar to the example in the previous lesson.  Turns out it's a good simple way to flip flop styles.</p>
-					
-					<h5>JavaScript - text.js</h5>
-					<pre><code>
-function alternate(x) {
-	
-	if (x.className == "shape1"){
-		x.className = "shape2";
-	}else if(x.className == "shape2"){
-		x.className = "shape1";
-	}
-}
-					</code></pre>
-					
-					<h5>HTML and CSS Style</h5>
-					<pre><code>
-&lt!DOCTYPE HTML&gt;
-&lthtml lang="en-us"&gt;
-&lthead&gt;
-&ltstyle&gt 
-.shape1 {
-    width: 300px;
-    height: 100px;
-	border-radius: 10px;
-    background: #1111FF;
-	transition: background 2s;
-}
-
-.shape1:hover {
-	background: #FF1111;
-}
-.shape2 {
-    width: 300px;
-    height: 100px;
-	border-radius: 10px;
-    background: #112255;
-	transition: background 2s;
-}
-
-.shape2:hover {
-	background: #11FF11;
-}
-&lt/style&gt
-&ltmeta charset="utf-8"&gt;
-&lttitle&gt;Shapes N Stuff&lt/title&gt;
-&ltscript src="color.js"&gt;&lt/script&gt;
-&lt/head&gt;
-
-&ltbody&gt;
-	&ltdiv class="shape1" onclick="alternate(this)"&gt&lt;/div&gt;
-&lt/body&gt;
-&lt/html&gt;
-						</code></pre>
-
-					<p>Let's see that in action then shall we?  Remember, click on it and watch the magic happen.</p>
-						
-					<pre><code>
-<script src="color.js"></script>
-<div align="center"><div class="shape1" onclick="alternate(this)">Click On Me!</div></div>
-					</code></pre>
-				
-					<p>Goosebumps!  That was fun.  Now let's move on to Animations, which are just as fun!  First, we need to cover a basic concept, that of KeyFrames.
+					<p>That was fun.  Now let's move on to Animations, which are just as fun!  First, we need to cover a basic concept, that of KeyFrames.
 					KeyFrames are basically motion points for an object, which make the animation process a lot easier because we don't need to design every single frame
 					of the object.  We specify a start point, some optional middle points, and an end point and CSS does the rest.  Pretty nifty really.  This next one was a
 					lot of fun, it is literally a sphere that runs away from your mouse!  Cool right?  Let's look at
@@ -311,65 +305,153 @@ function move(x) {
 						<p>Designing, Defining, and Triggering CSS3 Transitions, Transforms, and Animations without Custom Libraries</p>
 							
 					</header>
-						<p>This lesson can be best understood by a few short scripts written for a few different outcomes.  The first script is written to better look at all 
-						elements of the lesson except for Arrays and Associative Arrays, which we will cover hereafter.  The script will ask the user to input a number that 
-						will be raised to the power of 2 and then display all iterations of that calculation until we reach the answer.  This is done so that the repetitions
-						can be seen and understood as they happen rather than simply assuming they were or having to follow them in a script debugger.</p>
+					<p>Call me crazy, but I feel like we've already covered these things.  My Transitions and Animations in the previous two sections did not rely on any
+					custom libraries and so we should be okay to cover the same kinds of things.  For that purpose, I will focus this section on Transforms, which I did not
+					give any attention to in the previous sections.  To be safe, I'll include an example of Transitions and Animations so that I don't bomb on this last topic.</p>
 						
-						<p>In the spirit of simplification, we will look at the scripts as two different elements, JavaScript and HTML.  The files can be combined by replacing
-						the reference to an external script with the script itself, but for our purposes we will look at them separately.  If you look at the JavaScript function,
-						to which there is only one in this JavaScript, you will notice the condition asking if the input (t1) is greater than 0.  If the statement is true, it
-						will begin a while loop, which could just as easily be substituted for a For loop , but I like While loops and so this was done with that.  The loop uses
-						a temporary variable of i to increment each time until it is the same as t1 and then it quits.
+					<p>to start with, let's have some fun with rotation!  That's something we have yet to cover and so it will be a fun little avenue of exploration.  the
+					program below is a circle that flips over when you hover your mouse on it.  Neat huh?  Since this utilizes the same JavaScript type of flip flop as we've seen 
+					over the past 2 examples, let's focus on the CSS.</p>
 						
-						<h5>JavaScript - (PowersOf2.js)</h5>
+					<h5>CSS</h5>
 					<pre><code>
-function calc() {
-
-   	/* 		Defining Table
-	* Input: 		None.
-	* Processing: 	Determine all values between 2^0 to 2^31.
-	* Output: 		Display result of calculation.
-	*/     
-	var cal = 0;
-	var i = 0;
-	var output = "";
-	var t1 = document.getElementById('txt1').value;
-	t1 = parseFloat(t1);
-	
-	//Only run when t1 > 0
-	if (t1 > 0){
-		while(i <= t1){
-			cal = Math.pow(2, i);
-			output += "2^" + i + " = " + cal + "<br/>";
-			i += 1;
-		}
-	}
-
-	document.getElementById('outputDiv').innerHTML = output;
+.flip {
+  background-color: Yellow;
+  height: 100px;
+  width: 100px;
+  border-radius: 55px;
 }
+
+.coin {
+	background-color:Yellow;
+	transition: 2s;
+  transform: rotateY(180deg);
+}
+
+.coin-active {
+	background-color:Orange;
+	transition: 2s;
+  transform: rotateZ(180deg);
+} 
+					</code></pre>
+						
+					<p>And here is our example! I skipped out on the HTML as it greatly resembled the previous example and so doesn't add any new information. VIOLA!</p>
+						
+					<pre><code>
+<style> 
+.flip {
+  background-color: Yellow;
+  height: 100px;
+  width: 100px;
+  border-radius: 55px;
+}
+
+.coin {
+	background-color:Yellow;
+	transition: 2s;
+  transform: rotateY(180deg);
+}
+
+.coin-active {
+	background-color:Orange;
+	transition: 2s;
+  transform: rotateZ(180deg);
+} 
+</style>
+<script src="flip.js"></script>
+<div align="center"><div class="flip coin" id="coin" onmouseover="flip(this)"></div></div>
 						</code></pre>
-						<h5>HTML</h5>
+					
+					<p>Next, we're going to look at a Animations!  We did a really awesome one last lesson, but I think we need to add a new one for this one so let's have fun with other stuff!.
+					For the sake of simplicity, I went with an animation that just goes and goes.  I did this because when I was first learning about animations I didn't realize that you could
+					have them move indefinitely.  I've gone with a nice pleasing box for our purposes here.  Since no JavaScript is used in this, I'll show the CSS and then give an example of the
+					animation itself.</p>
+					
+					<h5>CSS</h5>
+					<pre><code>
+div {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: relative;
+	animation-iteration-count: infinite;
+    animation-name: animated;
+    animation-duration: 4s;
+}
+@keyframes animated {
+    0%   {background-color:blue; left:0px; top:0px;}
+    50%  {background-color:black; left:1230px; top:0px;}
+    100% {background-color:blue; left:0px; top:0px;}
+}
+					</code></pre>					
+					
+					<pre><code>
+<div class="animate" id="sphere" onClick="move(this)"></div> 
+					</code></pre>	
+					
+					<p>Kinda soothing, I might just fall asleep on my keyboard!  Next, we're going to look at a Transition!  For this we will replicate a hover effect.</p>
+								
+					<h5>JavaScript - color.js</h5>
+					<pre><code>
+function alternate(x) {
+	
+	if (x.className == "shape1"){
+		x.className = "shape2";
+	}else if(x.className == "shape2"){
+		x.className = "shape1";
+	}
+}
+					</code></pre>
+					
+					<h5>HTML and CSS Style</h5>
 					<pre><code>
 &lt!DOCTYPE HTML&gt;
 &lthtml lang="en-us"&gt;
 &lthead&gt;
+&ltstyle&gt 
+.shape1 {
+    width: 300px;
+    height: 100px;
+	border-radius: 10px;
+    background: #1111FF;
+	transition: background 2s;
+}
+
+.shape1:hover {
+	background: #FF1111;
+}
+.shape2 {
+    width: 300px;
+    height: 100px;
+	border-radius: 10px;
+    background: #112255;
+	transition: background 2s;
+}
+
+.shape2:hover {
+	background: #11FF11;
+}
+&lt/style&gt
 &ltmeta charset="utf-8"&gt;
-&lttitle&gt;Powers of Two and Binary&lt/title&gt;
-&ltscript src="PowersOf2.js"&gt;&lt/script&gt;
+&lttitle&gt;Shapes N Stuff&lt/title&gt;
+&ltscript src="color.js"&gt;&lt/script&gt;
 &lt/head&gt;
 
 &ltbody&gt;
-	&lth1&gt;Powers Of Two&lt/h1&gt;
-    &ltp&gt;
-	What is 2^&ltinput type="text" id="txt1" size="3"&gt;? &ltbutton type="button" onclick="calc()"&gt;GO&lt/button&gt;
-	&lt/p&gt;
-	&ltdiv id="outputDiv"&gt;&lt;/div&gt;
+	&ltdiv class="shape1" onclick="alternate(this)"&gt&lt;/div&gt;
 &lt/body&gt;
 &lt/html&gt;
 						</code></pre>
 
-						<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
+					<p>Let's see that in action then shall we?  Remember, click on it and watch the magic happen.</p>
+						
+					<pre><code>
+<script src="color.js"></script>
+<div align="center"><div class="shape1" onclick="alternate(this)">Click On Me!</div></div>
+					</code></pre>
+					
+					<p>We could add more colors and transitions if we need to, but this is a good demonstration about using JavaScript to change CSS in a design. So I think 
+					that's about it.  If you think I missed anything let me know.</p>
 
 				</div>
 			</section>
