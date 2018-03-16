@@ -30,58 +30,306 @@
 			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
 		<!-- Main -->
-			<section id="main" class="wrapper">
+			<section id="main" class="wrapper"> <!--Heading with Lesson List -->
 				<div class="container">
 					<header class="major special">
-						<h2>HTML</h2>
-						<p>
-						</p>
-					</header>
-
-					<!-- Text -->
-						<section>
-							<h3>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</h3>
-							<p>lorem ipsim</p>
-
-
-							<h4>Arrays</h4>
-							<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';
-							</code></pre>
+						<section id="two" class="wrapper style2 special">
+							<div class="container">
+								<h2>HTML</h2>
+								<p>
+									<h4>This section discusses the lessons 5, 6, and 10.  The topics that this will cover are:</h4>
+									<ul class="alt">
+									<li></li>
+									<li>Lesson 5: Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects.</li>
+									<li>Lesson 6: DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</li>
+									<li>Lesson 10: HTML5 Tags - Video, Audio, and Canvas.</li>
+									<li></li>
+								</p>
+							</ul>
+							</div>
 						</section>
+					</header>
+				</div>
+				<!-- Text -->
+			<section id="three" class="wrapper style1"> <!--Lesson 3 -->
+				<div class="container">
+					<header>
+						<h2>Lesson 5</h2>
+						<p>Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</p>
+							
+					</header>
+						<p>This lesson can be best understood by a few short scripts written for a few different outcomes.  The first script is written to better look at all 
+						elements of the lesson except for Arrays and Associative Arrays, which we will cover hereafter.  The script will ask the user to input a number that 
+						will be raised to the power of 2 and then display all iterations of that calculation until we reach the answer.  This is done so that the repetitions
+						can be seen and understood as they happen rather than simply assuming they were or having to follow them in a script debugger.</p>
+						
+						<p>In the spirit of simplification, we will look at the scripts as two different elements, JavaScript and HTML.  The files can be combined by replacing
+						the reference to an external script with the script itself, but for our purposes we will look at them separately.  If you look at the JavaScript function,
+						to which there is only one in this JavaScript, you will notice the condition asking if the input (t1) is greater than 0.  If the statement is true, it
+						will begin a while loop, which could just as easily be substituted for a For loop , but I like While loops and so this was done with that.  The loop uses
+						a temporary variable of i to increment each time until it is the same as t1 and then it quits.
+						
+						<h5>JavaScript - (PowersOf2.js)</h5>
+					<pre><code>
+function calc() {
 
+   	/* 		Defining Table
+	* Input: 		None.
+	* Processing: 	Determine all values between 2^0 to 2^31.
+	* Output: 		Display result of calculation.
+	*/     
+	var cal = 0;
+	var i = 0;
+	var output = "";
+	var t1 = document.getElementById('txt1').value;
+	t1 = parseFloat(t1);
+	
+	//Only run when t1 > 0
+	if (t1 > 0){
+		while(i <= t1){
+			cal = Math.pow(2, i);
+			output += "2^" + i + " = " + cal + "<br/>";
+			i += 1;
+		}
+	}
+
+	document.getElementById('outputDiv').innerHTML = output;
+}
+						</code></pre>
+						<h5>HTML</h5>
+					<pre><code>
+&lt!DOCTYPE HTML&gt;
+&lthtml lang="en-us"&gt;
+&lthead&gt;
+&ltmeta charset="utf-8"&gt;
+&lttitle&gt;Powers of Two and Binary&lt/title&gt;
+&ltscript src="PowersOf2.js"&gt;&lt/script&gt;
+&lt/head&gt;
+
+&ltbody&gt;
+	&lth1&gt;Powers Of Two&lt/h1&gt;
+    &ltp&gt;
+	What is 2^&ltinput type="text" id="txt1" size="3"&gt;? &ltbutton type="button" onclick="calc()"&gt;GO&lt/button&gt;
+	&lt/p&gt;
+	&ltdiv id="outputDiv"&gt;&lt;/div&gt;
+&lt/body&gt;
+&lt/html&gt;
+						</code></pre>
+
+						<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
+
+				</div>
+			</section>
+			
+			<section id="two" class="wrapper style2 special"> <!--Lesson 4 -->
+				<div class="container" align="left">
+					<header>
+						<h2>Lesson 6</h2>
+						<p>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc</p>
+					</header>
+						
+					<p>Let us consider the following array:</p>
+					<pre><code>
+var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
+						</pre></code>
+						
+					<p>You may notice that each variable in the Array has this format X:"Y", this is where the array becomes no more a series of values, but a series of objects.  The car 
+					is no longer comprised of {ford,falcon,2010,80000}, but of a Make, Model, Year, and Mileage that can be parsed as objects that are associated with the array and not simply
+					as destinations in an array (such as cars[1] and cars[2]...).</p>
+					
+					<p>So let's look at this in terms of a script.  If we were to create a very simple script that took the values of the vehicle and determined if you needed to start saving
+					for a new car, what would it look for?  For arguments sake, lets say that regardless of vehicle Make or Model, the yardstick was the mileage of the vehicle.  When the vehicle
+					went over 100,000 miles it would alert the driver that they should start saving for a new car.  Ideally you might want to start much sooner, but for our purposes of simplicity
+					let's assume this is an acceptable time to do this.  The script for such an event might look something like this:</p>
+						
+					<h5>JavaScript - (assocArray.js)</h5>
+					<pre><code>
+function miles(){
+	
+	var t1 = document.getElementById('txt1').value;
+	var t2 = document.getElementById('txt2').value;
+	var t3 = document.getElementById('txt3').value;
+	var t4 = document.getElementById('txt4').value;
+	
+	if(t4.length > 0){
+		t4 = parseFloat(t4);
+	}
+	var output;
+		
+	//Regular Array >> var cars = ["Ford", "Falcon", "2010", 80000];
+	//var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
+	var cars = {Make: t1, Model: t2, Year: t3, Mileage: t4};
+	
+	if(cars.Mileage > 100000){
+		output = "Wow, over 100,000 miles! You might want to start saving up for a new car";
+	}else if(cars.Mileage.length == 0){
+		output = "";
+	}else{
+		output = "Only " + cars.Mileage + " miles, You're still good";
+	}
+	
+	document.getElementById('output').innerHTML = output;
+}
+						</pre></code>
+						
+					<h5>HTML</h5>
+					<pre><code>
+&lt!DOCTYPE HTML&gt;
+&lthtml lang="en-us"&gt;
+&lthead&gt;
+&ltmeta charset="utf-8"&gt;
+
+&lttitle>More fun with Arrays&lt/title&gt
+&ltscript src="assocArray.js"&gt&lt/script&gt
+&lt/head&gt
+
+&ltbody&gt
+	&lth1&gtAssociative Arrays&lt/h1&gt
+	&ltp&gt
+
+		Make :  &ltinput type="text" id="txt1" size="6"&gt 
+		Model : &ltinput type="text" id="txt2" size="6"&gt
+		Year :  &ltinput type="text" id="txt3" size="6"&gt
+		Miles : &ltinput type="text" id="txt4" size="6"&gt
+		&ltbr&gt
+		&ltbr&gt
+		
+		&ltbutton type="button" onclick="miles()"&gtVehicle Assessment&lt/button&gt
+		&ltbr>&ltbr&gt
+	&ltdiv id="output"&gt&lt/div&gt
+	&lt/p&gt
+&lt/body&gt
+&lt/html&gt
+						</pre></code>
+						
+					<p>So, let's put it to the test!  Why not, right?</p>
+					<pre><code>
+<script src="assocArray.js"></script>
+<div align="Center">
+Make : <input type="text" id="txt1" size="6"> 
+Model : <input type="text" id="txt2" size="6"> 
+Year : <input type="text" id="txt3" size="6"> 
+Miles : <input type="text" id="txt4" size="6"> 
+<button type="button" onclick="miles()">Vehicle Assessment</button>
+<div id="output"></div></div>
+</pre></code>
+						
 					
 				</div>
+			</section>
+			
+			<section id="three" class="wrapper style1"> <!--Lesson 10 -->
+				<div class="container">
+					<header>
+						<h2>Lesson 10</h2>
+						<p>Lesson 10: HTML5 Tags - Video, Audio, and Canvas</p>
+							
+					</header>
+						<p>This lesson can be best understood by a few short scripts written for a few different outcomes.  The first script is written to better look at all 
+						elements of the lesson except for Arrays and Associative Arrays, which we will cover hereafter.  The script will ask the user to input a number that 
+						will be raised to the power of 2 and then display all iterations of that calculation until we reach the answer.  This is done so that the repetitions
+						can be seen and understood as they happen rather than simply assuming they were or having to follow them in a script debugger.</p>
+						
+						<p>In the spirit of simplification, we will look at the scripts as two different elements, JavaScript and HTML.  The files can be combined by replacing
+						the reference to an external script with the script itself, but for our purposes we will look at them separately.  If you look at the JavaScript function,
+						to which there is only one in this JavaScript, you will notice the condition asking if the input (t1) is greater than 0.  If the statement is true, it
+						will begin a while loop, which could just as easily be substituted for a For loop , but I like While loops and so this was done with that.  The loop uses
+						a temporary variable of i to increment each time until it is the same as t1 and then it quits.
+						
+						<h5>JavaScript - (PowersOf2.js)</h5>
+					<pre><code>
+function calc() {
+
+   	/* 		Defining Table
+	* Input: 		None.
+	* Processing: 	Determine all values between 2^0 to 2^31.
+	* Output: 		Display result of calculation.
+	*/     
+	var cal = 0;
+	var i = 0;
+	var output = "";
+	var t1 = document.getElementById('txt1').value;
+	t1 = parseFloat(t1);
+	
+	//Only run when t1 > 0
+	if (t1 > 0){
+		while(i <= t1){
+			cal = Math.pow(2, i);
+			output += "2^" + i + " = " + cal + "<br/>";
+			i += 1;
+		}
+	}
+
+	document.getElementById('outputDiv').innerHTML = output;
+}
+						</code></pre>
+						<h5>HTML</h5>
+					<pre><code>
+&lt!DOCTYPE HTML&gt;
+&lthtml lang="en-us"&gt;
+&lthead&gt;
+&ltmeta charset="utf-8"&gt;
+&lttitle&gt;Powers of Two and Binary&lt/title&gt;
+&ltscript src="PowersOf2.js"&gt;&lt/script&gt;
+&lt/head&gt;
+
+&ltbody&gt;
+	&lth1&gt;Powers Of Two&lt/h1&gt;
+    &ltp&gt;
+	What is 2^&ltinput type="text" id="txt1" size="3"&gt;? &ltbutton type="button" onclick="calc()"&gt;GO&lt/button&gt;
+	&lt/p&gt;
+	&ltdiv id="outputDiv"&gt;&lt;/div&gt;
+&lt/body&gt;
+&lt/html&gt;
+						</code></pre>
+
+						<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
+
+				</div>
+			</section>
+			
+			<section id="two" class="wrapper style2 special"> <!--RESOURCES -->
+				<div class="container" align="left">
+						<section id="two" class="wrapper style2 special">
+							<div class="container">
+								<h2>[ R e s o u r c e s ]</h2>
+								<p>
+									<h4>While the code that was used is mine, some parts may have been influenced by:</h4>
+									<ul class="alt">
+									<li></li>
+									<li><a href="https://www.w3schools.com/default.asp">W3 Schools - Excellent Guides and Examples</a></li>
+									<li><a href="https://www.kirupa.com/">Kirupa - Great tutorials in laymans terms</a></li>
+									<li><a href="https://developer.mozilla.org">Mozilla - "Resources for developers, by developers".</a></li>
+									<li></li>
+								</p>
+							</ul>
+							</div>
+						</section>
+				</div>
+			</section>
+			
 		<!-- Footer -->
-			<footer id="footer">
-				<div class="copyright">
-					<ul>
+		<footer id="footer">
+			<div class="copyright">
+				<ul>
 						<li><a href="index.html">HOME</a></li>
 						<li><a href="JavaScript.html">JAVASCRIPT</a></li>
 						<li><a href="JSON.html">JSON</a></li>
 						<li><a href="HTML.html">HTML</a></li>
 						<li><a href="CSS.html">CSS</a></li>
 					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled</li>
-						<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
-						<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
-					</ul>
-				</div>
-			</footer>
+				<ul class="copyright">
+					<li>&copy; Stephen Costigan 2018</li>
+					<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+				</ul>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			</footer>
+
+			</div>
+		</footer>
 	</body>
 </html>
