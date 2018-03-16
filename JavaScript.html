@@ -30,7 +30,7 @@
 			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
 		<!-- Main -->
-			<section id="main" class="wrapper">
+			<section id="main" class="wrapper"> <!--Heading with Lesson List -->
 				<div class="container">
 					<header class="major special">
 						<section id="two" class="wrapper style2 special">
@@ -51,7 +51,7 @@
 					</header>
 				</div>
 				<!-- Text -->
-			<section id="three" class="wrapper style1">
+			<section id="three" class="wrapper style1"> <!--Lesson 1 -->
 				<div class="container">
 					<header>
 						<h2>Lesson 1</h2>
@@ -238,7 +238,7 @@ Result: <input type="text" id="answ" size="8">
 				</div>
 			</section>
 			
-			<section id="two" class="wrapper style2 special">
+			<section id="two" class="wrapper style2 special"> <!--Lesson 2 -->
 				<div class="container" align="left">
 					<header>
 					<h2>Lesson 2</h2>
@@ -378,7 +378,7 @@ function objCar(Make,Model,Year,Mileage) {
 				</div>
 			</section>
 				
-			<section id="three" class="wrapper style1">
+			<section id="three" class="wrapper style1"> <!--Lesson 9 -->
 				<div class="container">
 					<header>
 						<h2>Lesson 9</h2>
@@ -411,10 +411,72 @@ function objCar(Make,Model,Year,Mileage) {
 					<p>Based on these events a programmer is able to utilize touch gestures to allow a user to interact with a layout and make things happen.  For our purposes, we will first look into
 					some basic examples that can be utilized on a mobile device.</p>
 					
+					<p>So, how does that help us?  Well, we can attach things called <b>Listeners</b> to elements so that they can be interacted with by the user.
+					These <b>Listeners</b> are useful for recording the events listed above and must be used in this format:
+					<pre><code>
+element.addEventListener(event, function, useCapture)
+					</pre></code>
+					<p>Where <b>Event</b> can be one of those listed above if using a touch device, or can involve the Mouse or Keyboard if using a computer.  <b>Function</b> refers to when the <b>Event</b> happens
+					and can include such cases as a drag function or a finger tap etc.  Or even, for arguments sake, a finger release.  The last parameter, <b>useCapture</b>, is optional and appears as a boolean true or false value, 
+					which relates to when the action occurs.  Whether the action occurs in what is known as the <i>'capture phase'</i> or the <i>'bubbling phase'</i>.  But what is a bubbling phase?</p>
+					
+					<p><a href="https://www.w3.org/TR/2003/NOTE-DOM-Level-3-Events-20031107/events.html#Events-phases">W3 Schools has a great guide</a> to this as it relates to the DOM in which they state: 
+					<blockquote>
+					The DOM event flow is the process through which the event originates from the DOM Events implementation and is dispatched into a tree. 
+					Each event has an event target, a targeted node in the case of the DOM Event flow, toward which the event is dispatched by the DOM Events 
+					implementation.
+					</blockquote>
+					A good way to imagine this is using the following image:</p>
+					
+					<div align="center"><img src="https://www.w3.org/TR/2003/NOTE-DOM-Level-3-Events-20031107/images/eventflow.png" alt="Courtesy of W3 Schools"/></div>
+					
+					<p>As this image, <a href="https://www.w3.org/TR/2003/NOTE-DOM-Level-3-Events-20031107/events.html#Events-phases">courtesy of W3 Schools</a>, shows us, the actions are broken down in 3 phases.  Namely as follows: <br>
+					<b>1. The capture phase</b>: the event is dispatched to the target's ancestors from the root of the tree to the direct parent of the target node.  <br>
+					<b>2. The target phase</b>: the event is dispatched to the target node. <br>
+					<b>3. The bubbling phase</b>: the event is dispatched to the target's ancestors from the direct parent of the target node to the root of the tree. <br></p>
+					
+					<p>So lets get into some coding!  What if we had some text that changed color when the mouse went over it?  Hover effects are pretty fun to do.</p>
+					
+					<h5>JavaScript</h5>
+					<pre><code>
+function hoverEnter(h) {
+	document.getElementById("txt").style.color = "green" ;
+}
+function hoverExit(h) {
+	document.getElementById("txt").style.color = "black" ;
+}
+					</pre></code>
+					
+					<h5>HTML</h5>
+					<pre><code>
+&lt!DOCTYPE HTML&gt;
+&lthtml lang="en-us"&gt;
+&lthead&gt;
+&ltmeta charset="utf-8"&gt;
+
+&lttitle>Hover Over&lt/title&gt
+&ltscript src="hover.js"&gt&lt/script&gt
+&lt/head&gt
+
+&ltbody&gt
+
+	&lth1 id="txt" onmouseover="hoverEnter()" onmouseout="hoverExit()"&gtWhat Color am I thinking of?&ltbr&gtPlace your mouse here to find out!&lt/h1&gt
+
+&lt/body&gt
+&lt/html&gt
+					</pre></code>
+					
+					<p>So, shall we see how this looks?</p>
+					
+					<script src="hover.js"></script>
+					<div align="center"><h2 id="txt" onmouseover="hoverEnter()" onmouseout="hoverExit()">What Color am I thinking of?<br>Place your mouse here to find out!</h2></div>
+					
+					<p>Did you guess right?  I suppose with the code above you probably already knew what color it was going to be.  Pretty neat huh?  The commands used here, as you can see from the example code, 
+					utilize the onmouseover and onmouseout to determine when the mouse is and isn't on the text. This can also be done with objects and CSS</p>
 				</div>
 			</section>
 			
-			<section id="two" class="wrapper style2 special">
+			<section id="two" class="wrapper style2 special"> <!--RESOURCES -->
 				<div class="container" align="left">
 						<section id="two" class="wrapper style2 special">
 							<div class="container">
@@ -423,7 +485,7 @@ function objCar(Make,Model,Year,Mileage) {
 									<h4>While the code that was used is mine, some parts may have been influenced by:</h4>
 									<ul class="alt">
 									<li></li>
-									<li><a href="https://www.w3schools.com/default.asp">W3 Schools - Working code with SandBox functions</a></li>
+									<li><a href="https://www.w3schools.com/default.asp">W3 Schools - Excellent Guides and Examples</a></li>
 									<li><a href="https://www.kirupa.com/">Kirupa - Great tutorials in laymans terms</a></li>
 									<li><a href="https://developer.mozilla.org">Mozilla - "Resources for developers, by developers".</a></li>
 									<li></li>
@@ -434,7 +496,7 @@ function objCar(Make,Model,Year,Mileage) {
 				</div>
 			</section>
 			
-			<section id="three" class="wrapper style1">
+			<section id="three" class="wrapper style1"> <!--BLANK for separator -->
 				<div class="container">
 				<!-- Separator so that the footer doesn't have the same color as the text above! -->
 				</div>
