@@ -380,9 +380,9 @@ function remove() {
 &lt/html&gt;
 						</code></pre>
 
-						<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
+						<p>Shall we give it a try? Be my guest!  there are 3 buttons to play with an no limits.  Go nuts!</p>
 						
-						<pre><code>
+					<pre><code>
 <script src="element.js"></script>
 <div align="center"><button onclick="add()">Add Item</button>  <button onclick="remove()">Remove Item</button>  <button onclick="insert()">Insert  Before</button></div>
 <ul id="ItemList" align="center"><li id ="insert">JSON</li><li id="remove">JAVASCRIPT</li></ul>
@@ -397,60 +397,155 @@ function remove() {
 						<p>HTML5 Tags - Video, Audio, and Canvas</p>
 							
 					</header>
-						<p>Phew!  We're left with the easier HTML fucntions!  What a relief!  and what a wild wild rate.</p>
+					<p>Phew!  We're left with the easier HTML fucntions!  What a relief!  and what a wild wild rate.</p>
 						
-						<p>So let's kick off straignt into Video.  As you might have seen in the previous section with my fun
-						double rainbow video inclusion, this is not difficult to do.  Most websites that make videos these days
-						will even give you an embed code.  So let's look at some code!</p>
+					<p>So let's kick off straignt into Video.  As you might have seen in the previous section with my fun
+					double rainbow video inclusion, this is not difficult to do.  Most websites that make videos these days
+					will even give you an embed code.  So let's look at some code!</p>
 						
-						<h5>JavaScript - (PowersOf2.js)</h5>
 					<pre><code>
-function calc() {
+&ltvideo width="320" height="240" controls&gt
+  &ltsource src="movie.mp4" type="video/mp4"&gt
+  &ltsource src="movie.ogg" type="video/ogg"&gt
+Your browser does not support the video tag.
+&lt/video&gt
+					</code></pre>
+						
+					<p>The example above is courtesy of <a href="https://www.w3schools.com/html/html5_video.asp">W3 Schools</a>, who need no introduction.  You may notice in the example
+					that there is a 'controls' parameter.  This, like a number of other parameters, is optional, but it can also be accompanied by other commands such as 'autoplay', 'mute',
+					and 'loop', which perform functions that are equivalent to their names.  The same parameters are also true for Audio, which we will get into in a moment.  For now, here
+					is a video example since I need one of those for this section.</p>
+					
+					<pre><code>
+<div align="center"><iframe width="1000" height="600" src="https://www.youtube.com/embed/4UDnTJcjPhY?list=FLMPpYWNami4exgbXfgj_G5A" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+I chose this video because it is hilarious.</div>
+					</code></pre>
+					
+					<p>Next, let's look at some audio.  this is just as simple as the Video and just as customizable.</p>
+											
+					<pre><code>
+&ltaudio controls&gt
+  &ltsource src="horse.ogg" type="audio/ogg"&gt
+  &ltsource src="horse.mp3" type="audio/mpeg"&gt
+Your browser does not support the audio element.
+&lt/audio&gt
+					</code></pre>
+					
+					<p>You will notice from the above code that the audio also has the controls.  I have, through my own independent tests, determined that it is highly possible to
+					create an annoying and repetative sound on repeat and autoplay that has no controls to be stopped.  I do not advise this method, but it is available to you if 
+					that is your desire.  For my example, I decided not to do that and have acquired a nice seagull sound so that I do not fail this assignment on the sheer fact that it
+					drove my instructor insane.</p>
+					
+					<pre><code>
+ <div align="center"><audio controls>
+ <source src="seagulls.mp3" type="audio/mpeg">
+</audio></div>
+					</code></pre>					
+					
+					<p>The last section in this topic has a lot more to it than the first two, which may be why it was put last.  That said, it'll be some fun in the long run and a perfect
+					way to end this section.  let's start with a simple aspect of it though, the beginning.</p>
+					
+					<pre><code>
+<b>Colors, Styles, and Shadows:</b> - Different ways to create color, whether from gradients or 
+static and including possibility for shadows
 
-   	/* 		Defining Table
-	* Input: 		None.
-	* Processing: 	Determine all values between 2^0 to 2^31.
-	* Output: 		Display result of calculation.
-	*/     
-	var cal = 0;
-	var i = 0;
-	var output = "";
-	var t1 = document.getElementById('txt1').value;
-	t1 = parseFloat(t1);
-	
-	//Only run when t1 > 0
-	if (t1 > 0){
-		while(i <= t1){
-			cal = Math.pow(2, i);
-			output += "2^" + i + " = " + cal + "<br/>";
-			i += 1;
-		}
-	}
+<b>Line Styles:</b> - Creating neat designs with plotted lines, heck that even rhymed.
 
-	document.getElementById('outputDiv').innerHTML = output;
-}
-						</code></pre>
-						<h5>HTML</h5>
+<b>Rectangles:</b> - Creating rectangles (or squares) using dimensions of height and width. also,
+choices for different fill you might use with a rectangle.
+
+<b>Paths:</b> - Similar to lines, but with this you have the option of filling an area you have
+drawn over.  Also, manipulation of points can change a shape.  Also, you can create arcs, which is
+pretty cool really.  We will play with this one later as it is a lot of fun!
+
+<b>Transformations:</b> - Your basic rotation, scale, and manipulations of an existing shape.
+
+<b>Text:</b> - Self explanatory, you can change the font and style of the text as well.
+
+<b>Image Drawing:</b> - Originally thought this would be a canvas for accepting mouse drawings,
+but turns out it's a place you can put in an image (i.e a painting).
+
+<b>Pixel Manipulation:</b> - Similar to rectangles, essentially you are building a shape, but it
+is entirely a pixel drawing and not a series of defined lines that happen to be filled.
+
+<b>Compositing:</b> - Change the transparency or overlap and manipulation of existing images
+
+<b>Other:</b> - Some miscellaneous commands such as saving the state and restoring previous save.
+					</code></pre>
+					
+					<p>Now that we have that down, let's make a working example!  I spent a bunch of time getting all of these points just right so I'm not going to let anyone mess with it.
+					Here's the code though.  Looking at it you should be able to appreciate all the trial and error that went into making the shape look right.</p>
+					
 					<pre><code>
 &lt!DOCTYPE HTML&gt;
 &lthtml lang="en-us"&gt;
 &lthead&gt;
 &ltmeta charset="utf-8"&gt;
-&lttitle&gt;Powers of Two and Binary&lt/title&gt;
-&ltscript src="PowersOf2.js"&gt;&lt/script&gt;
+&lttitle&gt;Adding and Removing Elements&lt/title&gt;
+&ltscript src="element.js"&gt;&lt/script&gt;
 &lt/head&gt;
-
 &ltbody&gt;
-	&lth1&gt;Powers Of Two&lt/h1&gt;
-    &ltp&gt;
-	What is 2^&ltinput type="text" id="txt1" size="3"&gt;? &ltbutton type="button" onclick="calc()"&gt;GO&lt/button&gt;
-	&lt/p&gt;
-	&ltdiv id="outputDiv"&gt;&lt;/div&gt;
+&ltcanvas id="ImAstar" width="500" height="500"/&gt"My Magnificent Star is hidden because your browser doesn't support Canvases"&lt/canvas&gt
+
+&ltscript&gt
+
+var c = document.getElementById("ImAstar");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(200, 150);
+ctx.lineTo(250, 50);
+ctx.lineTo(300, 150);
+ctx.lineTo(400, 150);
+ctx.lineTo(350, 250);
+ctx.lineTo(400, 350);
+ctx.lineTo(300, 350);
+ctx.lineTo(250, 450);
+ctx.lineTo(200, 350);
+ctx.lineTo(100, 350);
+ctx.lineTo(150, 250);
+ctx.lineTo(100, 150);
+ctx.lineTo(200, 150);
+ctx.stroke();
+ctx.fillStyle = "yellow";
+ctx.fill();
+
+&lt/script&gt
+
 &lt/body&gt;
 &lt/html&gt;
-						</code></pre>
+					</code></pre>
 
-						<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
+					<p>Want to see how this looks?  I know I sure do!</p>
+					
+					<pre><code>
+<div align="center">
+<canvas id="ImAstar" width="500" height="500"/>"My Magnificent Star is hidden because your browser doesn't support Canvases"</canvas>
+</div>
+<script>
+
+var c = document.getElementById("ImAstar");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(200, 150);
+ctx.lineTo(250, 50);
+ctx.lineTo(300, 150);
+ctx.lineTo(400, 150);
+ctx.lineTo(350, 250);
+ctx.lineTo(400, 350);
+ctx.lineTo(300, 350);
+ctx.lineTo(250, 450);
+ctx.lineTo(200, 350);
+ctx.lineTo(100, 350);
+ctx.lineTo(150, 250);
+ctx.lineTo(100, 150);
+ctx.lineTo(200, 150);
+ctx.stroke();
+ctx.fillStyle = "yellow";
+ctx.fill();
+</script>
+					</code></pre>
+					
+					<p>So that's all for now on HTML.  Check out one of my other awesome sections if you are starved for more.  For now, thanks for viewing!</p>
 
 				</div>
 			</section>
