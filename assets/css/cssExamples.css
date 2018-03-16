@@ -1,0 +1,74 @@
+/*CSS page Scripts and Examples*/
+.shape1 {
+    width: 1000px;
+    height: 150px;
+	border-radius: 10px;
+    background: #1111FF;
+	transition: background 2s;
+	text-align:center;
+	vertical-align: middle;
+	line-height: 150px;
+	color: white;
+}
+
+.shape1:hover {
+	background: #FF1111;
+}
+.shape2 {
+    width: 1000px;
+    height: 150px;
+	border-radius: 10px;
+    background: #112255;
+	transition: background 2s;
+	text-align:center;
+	vertical-align: middle;
+	line-height: 150px;
+	color: white;
+}
+
+.shape2:hover {
+	background: #11FF11;
+}
+.text1 {
+    color: black;
+}
+
+.text1:hover {
+	color: #66ffff;
+	background: #0066cc;
+}
+.text2 {
+    color: red;
+}
+
+.text2:hover {
+	color: #ffff66;
+	background: #cc6600;
+}
+.circle {
+  background-color: green;
+  height: 100px;
+  width: 100px;
+  left:0px; top:0px;
+  border-radius: 55px;
+}
+
+.transform {
+	background-color:green;
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+  transition: 3s;
+  margin-left: 0% !important;
+}
+
+.transform-active {
+	background-color:blue;
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+  transition: 3s;
+  margin-left: 93% !important;
+}
