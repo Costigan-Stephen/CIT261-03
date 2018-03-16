@@ -55,68 +55,83 @@
 					<header>
 						<h2>Lesson 3</h2>
 						<p>JSON Parse, Stringify</p>
-							
 					</header>
-						<p>This lesson can be best understood by a few short scripts written for a few different outcomes.  The first script is written to better look at all 
-						elements of the lesson except for Arrays and Associative Arrays, which we will cover hereafter.  The script will ask the user to input a number that 
-						will be raised to the power of 2 and then display all iterations of that calculation until we reach the answer.  This is done so that the repetitions
-						can be seen and understood as they happen rather than simply assuming they were or having to follow them in a script debugger.</p>
+					<p>At first glance, JSON seems an unnecessary language that does not give as much as it gets, but you might be surprised to learn that JSON provides a vital
+						and useful function as a go between that exchanges data to and from a server.  Why is this useful you might wonder?  It turns out that data received from a
+						server is received as a string and therefore it us up to JSON to decode that for use with JavaScript and other applications.</p>
 						
-						<p>In the spirit of simplification, we will look at the scripts as two different elements, JavaScript and HTML.  The files can be combined by replacing
-						the reference to an external script with the script itself, but for our purposes we will look at them separately.  If you look at the JavaScript function,
-						to which there is only one in this JavaScript, you will notice the condition asking if the input (t1) is greater than 0.  If the statement is true, it
-						will begin a while loop, which could just as easily be substituted for a For loop , but I like While loops and so this was done with that.  The loop uses
-						a temporary variable of i to increment each time until it is the same as t1 and then it quits.
-						
-						<h5>JavaScript - (PowersOf2.js)</h5>
+					<p>JSON Parse quite literally means take a string and turn it into an array.  A string received from a webserver will likely look a lot like this:
 					<pre><code>
-function calc() {
+'{ "make":"nissan", "model":pulsar, "year":"2001", "mileage":"120000"}'
+					</code></pre>
+						
+					<p>I went with a car example as that is what I used in the JavaScript examples and it seemed only right to keep that going.  This string of values means nothing
+					to JavaScript as a value, but to JSON it might as well be an Associative Array with the properties of Make, Model, Year, and Mileage.  If we were to convert this,
+					it would be as simple as this:
+						
+					<pre><code>
+var car = JSON.parse('{ "make":"nissan", "model":pulsar, "year":"2001", "mileage":"120000"}');
+					</code></pre>
+					
+					<p>After it has been turned into an Array, we can deal with it as we would any other Array.  If we wanted to make changes and send that information right back 
+					to the server, we would do something similar known as Stringify, which is quite literally turning the array into a string.  Turns out it's rather simple so let's give
+					it a whirl! Let's make an array of values and Stringify them! The code would look something like this:</p>
 
-   	/* 		Defining Table
-	* Input: 		None.
-	* Processing: 	Determine all values between 2^0 to 2^31.
-	* Output: 		Display result of calculation.
-	*/     
-	var cal = 0;
-	var i = 0;
-	var output = "";
-	var t1 = document.getElementById('txt1').value;
-	t1 = parseFloat(t1);
+					<h5>JavaScript - Stringify.js</h5>
+					<pre><code>
+function string() {
+
+	var make = document.getElementById('txt1').value;
+	var model = document.getElementById('txt2').value;
+	var year = document.getElementById('txt3').value;
+	var mileage = document.getElementById('txt4').value;
 	
-	//Only run when t1 > 0
-	if (t1 > 0){
-		while(i <= t1){
-			cal = Math.pow(2, i);
-			output += "2^" + i + " = " + cal + "<br/>";
-			i += 1;
-		}
-	}
+	var cars = {"Make":make,"Model":model,"Year":year,"Mileage":mileage}
+	var string = JSON.stringify(cars)
 
-	document.getElementById('outputDiv').innerHTML = output;
+	document.getElementById('outputDiv').innerHTML = string;
 }
-						</code></pre>
-						<h5>HTML</h5>
+					</code></pre>
+
+					<h5>HTML</h5>
 					<pre><code>
 &lt!DOCTYPE HTML&gt;
 &lthtml lang="en-us"&gt;
 &lthead&gt;
 &ltmeta charset="utf-8"&gt;
-&lttitle&gt;Powers of Two and Binary&lt/title&gt;
-&ltscript src="PowersOf2.js"&gt;&lt/script&gt;
-&lt/head&gt;
 
-&ltbody&gt;
-	&lth1&gt;Powers Of Two&lt/h1&gt;
-    &ltp&gt;
-	What is 2^&ltinput type="text" id="txt1" size="3"&gt;? &ltbutton type="button" onclick="calc()"&gt;GO&lt/button&gt;
-	&lt/p&gt;
-	&ltdiv id="outputDiv"&gt;&lt;/div&gt;
-&lt/body&gt;
-&lt/html&gt;
-						</code></pre>
+&lttitle>JSON Stringify&lt/title&gt
+&ltscript src="stringify.js"&gt&lt/script&gt
+&lt/head&gt
 
-						<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
+&ltbody&gt
 
+		Make :  &ltinput type="text" id="txt1" size="6"&gt 
+		Model : &ltinput type="text" id="txt2" size="6"&gt
+		Year :  &ltinput type="text" id="txt3" size="6"&gt
+		Miles : &ltinput type="text" id="txt4" size="6"&gt
+		
+		&ltbutton type="button" onclick="miles()"&gtSTRINGIFY&lt/button&gt
+	&ltdiv id="output"&gt&lt/div&gt
+&lt/body&gt
+&lt/html&gt
+					</pre></code>
+						
+					<p>So, let's put it to the test!  Why not, right?</p>
+					<pre><code>
+<script src="stringify.js"></script>
+<div align="center">
+Make<input type="text" id="txt1" size="4">
+Model<input type="text" id="txt2" size="4">
+Year<input type="text" id="txt3" size="4">
+Miles<input type="text" id="txt4" size="8">
+<ul class="actions">
+<li><a href="JavaScript:string()" class="button">STRINGIFY</a>  <a href="JavaScript:string2()" class="button">DEMO</a></li></ul></div>
+<div id="outputDiv"></div>
+					</code></pre>
+					
+					<p>And that's all there is to it!  Pretty neat right?</p>
+					
 				</div>
 			</section>
 			
@@ -178,41 +193,35 @@ function miles(){
 &lthead&gt;
 &ltmeta charset="utf-8"&gt;
 
-&lttitle>More fun with Arrays&lt/title&gt
-&ltscript src="assocArray.js"&gt&lt/script&gt
+&lttitle>JSON Stringify&lt/title&gt
+&ltscript src="stringify.js"&gt&lt/script&gt
 &lt/head&gt
 
 &ltbody&gt
-	&lth1&gtAssociative Arrays&lt/h1&gt
-	&ltp&gt
 
 		Make :  &ltinput type="text" id="txt1" size="6"&gt 
 		Model : &ltinput type="text" id="txt2" size="6"&gt
 		Year :  &ltinput type="text" id="txt3" size="6"&gt
 		Miles : &ltinput type="text" id="txt4" size="6"&gt
-		&ltbr&gt
-		&ltbr&gt
 		
-		&ltbutton type="button" onclick="miles()"&gtVehicle Assessment&lt/button&gt
-		&ltbr>&ltbr&gt
+		&ltbutton type="button" onclick="miles()"&gtSTRINGIFY&lt/button&gt
 	&ltdiv id="output"&gt&lt/div&gt
-	&lt/p&gt
 &lt/body&gt
 &lt/html&gt
-						</pre></code>
+					</pre></code>
 						
 					<p>So, let's put it to the test!  Why not, right?</p>
 					<pre><code>
-<script src="assocArray.js"></script>
-<div align="Center">
-Make : <input type="text" id="txt1" size="6"> 
-Model : <input type="text" id="txt2" size="6"> 
-Year : <input type="text" id="txt3" size="6"> 
-Miles : <input type="text" id="txt4" size="6"> 
-<button type="button" onclick="miles()">Vehicle Assessment</button>
-<div id="output"></div></div>
-</pre></code>
-						
+<script src="stringify.js"></script>
+<div align="center">
+Make<input type="text" id="txt1" size="4">
+Model<input type="text" id="txt2" size="4">
+Year<input type="text" id="txt3" size="4">
+Miles<input type="text" id="txt4" size="8">
+<ul class="actions">
+<li><a href="JavaScript:string()" class="button">STRINGIFY</a>  <a href="JavaScript:string2()" class="button">DEMO</a></li></ul></div>
+<div id="outputDiv"></div>
+					</code></pre>
 					
 				</div>
 			</section>
