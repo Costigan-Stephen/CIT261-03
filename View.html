@@ -1,0 +1,509 @@
+<!DOCTYPE HTML>
+<!--
+	Spatial by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Stephen Costigan CIT 261</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/cssExamples.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<h1><strong><a href="index.html">CSS</a></strong> by Stephen Costigan</h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">HOME</a></li>
+						<li><a href="JavaScript.html">JAVASCRIPT</a></li>
+						<li><a href="JSON.html">JSON</a></li>
+						<li><a href="HTML.html">HTML</a></li>
+						<li><a href="CSS.html">CSS</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" class="wrapper"> <!--Heading with Lesson List -->
+				<div class="container">
+					<header class="major special">
+						<section id="two" class="wrapper style2 special">
+							<div class="container">
+								<h2>CSS</h2>
+								<p>
+									<h4>This section discusses the lessons 7, 8, 11, 12, and 13.  The topics that this will cover are:</h4>
+									<ul class="alt">
+									<li></li>
+									<li>Lesson 7: Manipulating CSS Class Properties Using JavaScript.</li>
+									<li>Lesson 8: Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript.</li>
+									<li>Lesson 11: Designing, Defining, and Triggering CSS3 Transitions without Custom Libraries (Thought Library).</li>
+									<li>Lesson 12: Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries (Thought Library).</li>
+									<li>Lesson 13: Designing, Defining, and Triggering CSS3 Animations without Custom Libraries (Thought Library).</li>
+									<li></li>
+								</p>
+							</ul>
+							</div>
+						</section>
+					</header>
+				</div>
+				<!-- Text -->
+			<section id="three" class="wrapper style1"> <!--Lesson 7 -->
+				<div class="container">
+					<header>
+					<h2>Lesson 7</h2>
+					<p>Manipulating CSS Class Properties Using JavaScript</p>
+					</header>
+					
+					<p>Coming into this semester I must admit, CSS was my weakest subject.  I am happy to say though, after some time learning it more, that I truly overestimated
+					how complicated it is.  This section represents not only some cool CSS, but my growth with CSS as a whole.  So strap yourself in, we're in for a wild ride.</p>
+						
+					<p>First, let's look at some simple text manipulation.  Let's have some fun with it.</p>
+						
+					<pre><code>
+
+&lt!DOCTYPE HTML&gt
+&lthtml lang="en-us"&gt
+&lthead&gt
+&ltmeta charset="utf-8"&gt
+&lttitle&gt;Fun wiht Buttons and Text&lt/title&gt
+&lt/head&gt
+&ltbody&gt
+&ltp id="text"&gt
+Random innocuous statement about how mondays are the worst.
+&lt/p&gt
+
+&ltinput type="button" value="Red" onclick="document.getElementById('text').style.color ='red'"&gt
+&ltinput type="button" value="Green" onclick="document.getElementById('text').style.color ='Green'"&gt
+&ltinput type="button" value="Blue" onclick="document.getElementById('text').style.color ='blue'"&gt
+&ltinput type="button" value="Black" onclick="document.getElementById('text').style.color ='black'"&gt
+&ltinput type="button" value="Hide" onclick="document.getElementById('text').style.visibility='hidden'"&gt
+&ltinput type="button" value="Show" onclick="document.getElementById('text').style.visibility='visible'"&gt
+
+&lt/body&gt
+&lt/html&gt
+					</code></pre>
+						
+					<p>So that wasn't technically with JavaScript, but I had fun messing with it so I thought I'd include it.  We'll get into JS in a moment though.  For now,
+					here's an example of the above code in action:</p>
+						
+					<pre><code>	
+<div align="center"><h2 id="text">Random innocuous statement about how mondays are the worst.</h2>
+<input type="button" value="Red" onclick="document.getElementById('text').style.color = 'red'">  <input type="button" value="Green" onclick="document.getElementById('text').style.color = 'Green'">  <input type="button" value="Blue" onclick="document.getElementById('text').style.color = 'blue'">  <input type="button" value="Black" onclick="document.getElementById('text').style.color = 'black'">  <input type="button" value="Hide" onclick="document.getElementById('text').style.visibility='hidden'">  <input type="button" value="Show" onclick="document.getElementById('text').style.visibility='visible'">
+</div>					
+					</code></pre>
+					
+					<p>That was fun!  We could have done those changes with JavaScript without much difficulty, but I was having fun with it anyway.  To demonstrate how we can
+					change the class of an object with javaScript, lets look at a new example.  This next example will turn an object from a box into a circle.  It will do this
+					by changing the CSS class of the object.  Want to see how that works?  Let's take a look!</p>
+					
+					<h5>JAVASCRIPT - CircleClass.js</h5>
+					<pre><code>
+function cir(x) {
+	
+	if (x.className == "BoxA"){
+		x.className = "BoxB";
+
+	}else if(x.className == "BoxB"){
+		x.className = "BoxA";
+		
+	}
+}
+					</code></pre>
+					
+					<h5>HTML</h5>
+					<pre><code>
+&lt!DOCTYPE HTML&gt
+&lthtml lang="en-us"&gt
+&lthead&gt
+&ltstyle&gt 
+.BoxA {
+  background-color: green;
+  height: 100px;
+  width: 100px;
+  left:0px; top:0px;
+  border-radius: 2px;
+}
+.BoxB {
+  background-color: blue;
+  height: 100px;
+  width: 100px;
+  left:0px; top:0px;
+  border-radius: 55px;
+}
+&lt/style&gt
+&ltmeta charset="utf-8"&gt
+&lttitle&gtBoxToCircle&lt/title&gt
+&ltscript src="circleClass.js"&gt&lt/script&gt
+&lt/head&gt
+
+&ltbody&gt
+	&ltdiv class="BoxA" id="ShapeChange" onClick="cir(this)"&gt&lt;/div&gt
+&lt/body&gt
+&lt/html&gt
+					</code></pre>
+					
+					<p>Let's look at this in action!</p>
+					
+					<pre><code>
+<script src="circleClass.js"></script>
+<div align="center"><div class="BoxA" id="ShapeChange" onClick="cir(this)"></div></div>
+					</code></pre>
+					
+					<p>This brings us to the end of Lesson 7, however, which is a bummer.  Let's move on to Lesson 8 where we cover initially some similar stuff!</p>
+					
+				</div>
+			</section>
+			
+			<section id="two" class="wrapper style2 special"> <!--Lesson 8 -->
+				<div class="container" align="left">
+					<header>
+					<h2>Lesson 8</h2>
+					<p>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</p>
+					</header>
+						
+					<p>Let us first look into Triggers and Transitions.  The code you are about to look at is for a simple button that changes color each time it is
+					pressed and when the mouse is hovered/not hovered over it.  The button triggers a change in the CSS class of the object back and forth and could
+					just as easily be tied into an animation if we feel like it.  To keep it simple, we will post the animation after this.  You will notice the javaScript
+					is similar to the example in the previous lesson.  Turns out it's a good simple way to flip flop styles.</p>				
+					
+					<h5>JavaScript - text.js</h5>
+					<pre><code>
+function change(x) {
+	
+	if (x.className == "text1"){
+		x.className = "text2";
+	}else if(x.className == "text2"){
+		x.className = "text1";
+	}
+}
+					</code></pre>
+					
+					<h5>HTML</h5>
+					<pre><code>
+&lt!DOCTYPE HTML&gt;
+&lthtml lang="en-us"&gt;
+&lthead&gt;
+&ltstyle&gt 
+.text1 {
+    color: black;
+}
+.text1:hover {
+	color: #66ffff;
+	background: #0066cc;
+}
+.text2 {
+    color: red;
+}
+.text2:hover {
+	color: #ffff66;
+	background: #cc6600;
+}
+&lt/style&gt
+&ltmeta charset="utf-8"&gt
+&lttitle&gt;Mondays&lt/title&gt
+&ltscript src="text.js"&gt;&lt/script&gt
+&lt/head&gt
+
+&ltbody&gt;
+	&ltdiv align="center"&gt&lth2 id="text" class="text1" onclick="change(this)"&gtRandom innocuous statement about how mondays are the worst.&lt/h2&gt&lt/div&gt
+&lt/body&gt
+&lt/html&gt
+						</code></pre>
+
+					<p>Let's see that in action then shall we?  Click on it and watch the magic happen.  It has a hover effect and a click change, which is worth mentioning.</p>
+						
+					<pre><code>
+<script src="text.js"></script>
+<div align="center"><h2 id="text" class="text1" onclick="change(this)">Random innocuous statement about how mondays are the worst.</h2></div>
+					</code></pre>
+				
+					<p>That was fun.  Now let's move on to Animations, which are just as fun!  First, we need to cover a basic concept, that of KeyFrames.
+					KeyFrames are basically motion points for an object, which make the animation process a lot easier because we don't need to design every single frame
+					of the object.  We specify a start point, some optional middle points, and an end point and CSS does the rest.  Pretty nifty really.  This next one was a
+					lot of fun, it is literally a sphere that runs away from your mouse!  Cool right?  Let's look at
+					an example!
+					
+					<h5>JavaScript - sphere.js</h5>
+					<pre><code>
+function move(x) {
+	
+	if (x.className == "circle transform"){
+		x.className = "circle transform-active";
+	}else if(x.className == "circle transform-active"){
+		x.className = "circle transform";
+	}
+}
+					</code></pre>
+					
+					<h5>HTML and CSS Style</h5>
+					<pre><code>
+&lt!DOCTYPE HTML&gt
+&lthtml lang="en-us"&gt
+&lthead&gt
+&ltstyle&gt 
+.circle {
+  background-color: green;
+  height: 100px;
+  width: 100px;
+  left:0px; top:0px;
+  border-radius: 55px;
+}
+
+.transform {
+	background-color:green;
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+  transition: 3s;
+  margin-left: 0% !important;
+}
+
+.transform-active {
+	background-color:blue;
+  -webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+  transition: 3s;
+  margin-left: 93% !important;
+} 
+&lt/style&gt
+&ltmeta charset="utf-8"&gt
+&lttitle&gt;Chase the Sphere!&lt/title&gt
+&ltscript src="color.js"&gt&lt/script&gt
+&lt/head&gt
+
+&ltbody&gt
+	&ltdiv class="circle transform" id="sphere" onmouseover="move(this)"&gt&lt/div&gt
+&lt/body&gt
+&lt/html&gt
+						</code></pre>
+
+					<p>Alright, catch that sphere!  It will run away from you so you gotta be fast!.</p>
+						
+					<pre><code>
+<script src="sphere.js"></script>
+<div class="circle transform" id="sphere" onmouseover="move(this)"></div> 
+					</code></pre>
+					
+					<p>That was a fun way to end this chapter! Let's see what Chapters 11 to 13 have for us!</p>
+				</div>
+			</section>
+			
+			<section id="three" class="wrapper style1"> <!--Lesson 11-13 -->
+				<div class="container">
+					<header>
+						<h2>Lessons 11-13</h2>
+						<p>Designing, Defining, and Triggering CSS3 Transitions, Transforms, and Animations without Custom Libraries</p>
+							
+					</header>
+					<p>Call me crazy, but I feel like we've already covered these things.  My Transitions and Animations in the previous two sections did not rely on any
+					custom libraries and so we should be okay to cover the same kinds of things.  For that purpose, I will focus this section on Transforms, which I did not
+					give any attention to in the previous sections.  To be safe, I'll include an example of Transitions and Animations so that I don't bomb on this last topic.</p>
+						
+					<p>to start with, let's have some fun with rotation!  That's something we have yet to cover and so it will be a fun little avenue of exploration.  the
+					program below is a circle that flips over when you hover your mouse on it.  Neat huh?  Since this utilizes the same JavaScript type of flip flop as we've seen 
+					over the past 2 examples, let's focus on the CSS.</p>
+						
+					<h5>CSS</h5>
+					<pre><code>
+.flip {
+  background-color: Yellow;
+  height: 100px;
+  width: 100px;
+  border-radius: 55px;
+}
+
+.coin {
+	background-color:Yellow;
+	transition: 2s;
+  transform: rotateY(180deg);
+}
+
+.coin-active {
+	background-color:Orange;
+	transition: 2s;
+  transform: rotateZ(180deg);
+} 
+					</code></pre>
+						
+					<p>And here is our example! I skipped out on the HTML as it greatly resembled the previous example and so doesn't add any new information. VIOLA!</p>
+						
+					<pre><code>
+<style> 
+.flip {
+  background-color: Yellow;
+  height: 100px;
+  width: 100px;
+  border-radius: 55px;
+}
+
+.coin {
+	background-color:Yellow;
+	transition: 2s;
+  transform: rotateY(180deg);
+}
+
+.coin-active {
+	background-color:Orange;
+	transition: 2s;
+  transform: rotateZ(180deg);
+} 
+</style>
+<script src="flip.js"></script>
+<div align="center"><div class="flip coin" id="coin" onmouseover="flip(this)"></div></div>
+						</code></pre>
+					
+					<p>Next, we're going to look at a Animations!  We did a really awesome one last lesson, but I think we need to add a new one for this one so let's have fun with other stuff!.
+					For the sake of simplicity, I went with an animation that just goes and goes.  I did this because when I was first learning about animations I didn't realize that you could
+					have them move indefinitely.  I've gone with a nice pleasing box for our purposes here.  Since no JavaScript is used in this, I'll show the CSS and then give an example of the
+					animation itself.</p>
+					
+					<h5>CSS</h5>
+					<pre><code>
+div {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: relative;
+	animation-iteration-count: infinite;
+    animation-name: animated;
+    animation-duration: 4s;
+}
+@keyframes animated {
+    0%   {background-color:blue; left:0px; top:0px;}
+    50%  {background-color:black; left:1230px; top:0px;}
+    100% {background-color:blue; left:0px; top:0px;}
+}
+					</code></pre>					
+					
+					<pre><code>
+<div class="animate" id="sphere" onClick="move(this)"></div> 
+					</code></pre>	
+					
+					<p>Kinda soothing, I might just fall asleep on my keyboard!  Next, we're going to look at a Transition!  For this we will replicate a hover effect.</p>
+								
+					<h5>JavaScript - color.js</h5>
+					<pre><code>
+function alternate(x) {
+	
+	if (x.className == "shape1"){
+		x.className = "shape2";
+	}else if(x.className == "shape2"){
+		x.className = "shape1";
+	}
+}
+					</code></pre>
+					
+					<h5>HTML and CSS Style</h5>
+					<pre><code>
+&lt!DOCTYPE HTML&gt;
+&lthtml lang="en-us"&gt;
+&lthead&gt;
+&ltstyle&gt 
+.shape1 {
+    width: 300px;
+    height: 100px;
+	border-radius: 10px;
+    background: #1111FF;
+	transition: background 2s;
+}
+
+.shape1:hover {
+	background: #FF1111;
+}
+.shape2 {
+    width: 300px;
+    height: 100px;
+	border-radius: 10px;
+    background: #112255;
+	transition: background 2s;
+}
+
+.shape2:hover {
+	background: #11FF11;
+}
+&lt/style&gt
+&ltmeta charset="utf-8"&gt;
+&lttitle&gt;Shapes N Stuff&lt/title&gt;
+&ltscript src="color.js"&gt;&lt/script&gt;
+&lt/head&gt;
+
+&ltbody&gt;
+	&ltdiv class="shape1" onclick="alternate(this)"&gt&lt;/div&gt;
+&lt/body&gt;
+&lt/html&gt;
+						</code></pre>
+
+					<p>Let's see that in action then shall we?  Remember, click on it and watch the magic happen.</p>
+						
+					<pre><code>
+<script src="color.js"></script>
+<div align="center"><div class="shape1" onclick="alternate(this)">Click On Me!</div></div>
+					</code></pre>
+					
+					<p>We could add more colors and transitions if we need to, but this is a good demonstration about using JavaScript to change CSS in a design. So I think 
+					that's about it.  If you think I missed anything let me know.</p>
+
+				</div>
+			</section>
+			
+			<section id="two" class="wrapper style2 special"> <!--RESOURCES -->
+				<div class="container" align="left">
+						<section id="two" class="wrapper style2 special">
+							<div class="container">
+								<h2>[ R e s o u r c e s ]</h2>
+								<p>
+									<h4>While the code that was used is mine, some parts may have been influenced by:</h4>
+									<ul class="alt">
+									<li></li>
+									<li><a href="https://www.w3schools.com/default.asp">W3 Schools - Excellent Guides and Examples</a></li>
+									<li><a href="https://www.kirupa.com/">Kirupa - Great tutorials in laymans terms</a></li>
+									<li><a href="https://developer.mozilla.org">Mozilla - "Resources for developers, by developers".</a></li>
+									<li></li>
+								</p>
+							</ul>
+							</div>
+						</section>
+				</div>
+			</section>
+			
+			<section id="three" class="wrapper style1"> <!--BLANK for separator -->
+				<div class="container">
+				<!-- Separator so that the footer doesn't have the same color as the text above! -->
+				</div>
+			</section>
+			
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="copyright">
+				<ul>
+						<li><a href="index.html">HOME</a></li>
+						<li><a href="JavaScript.html">JAVASCRIPT</a></li>
+						<li><a href="JSON.html">JSON</a></li>
+						<li><a href="HTML.html">HTML</a></li>
+						<li><a href="CSS.html">CSS</a></li>
+					</ul>
+				<ul class="copyright">
+					<li>&copy; Stephen Costigan 2018</li>
+					<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+				</ul>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			</div>
+		</footer>
+	</body>
+</html>
