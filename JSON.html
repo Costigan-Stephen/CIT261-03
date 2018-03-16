@@ -142,49 +142,63 @@ Miles<input type="text" id="txt4" size="8">
 						<p>Using XML HTTP Request to Consume a JSON Web Service</p>
 					</header>
 						
-					<p>Let us consider the following array:</p>
-					<pre><code>
-var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
-						</pre></code>
-						
-					<p>You may notice that each variable in the Array has this format X:"Y", this is where the array becomes no more a series of values, but a series of objects.  The car 
-					is no longer comprised of {ford,falcon,2010,80000}, but of a Make, Model, Year, and Mileage that can be parsed as objects that are associated with the array and not simply
-					as destinations in an array (such as cars[1] and cars[2]...).</p>
+					<p>This is where JSON starts to get a little more complicated.  The XML HTTP Request is used to refresh information without refreshing a page.  This might be useful in a
+					lot of different ways, but a particularly useful one might be stock lists on sites such as Amazon, where a product might have limited stocks and which requires the ability
+					to reload stock quantities without refreshing your session every few seconds.  Such an action would not only slow your system, but take away from your experience.</p>
 					
-					<p>So let's look at this in terms of a script.  If we were to create a very simple script that took the values of the vehicle and determined if you needed to start saving
-					for a new car, what would it look for?  For arguments sake, lets say that regardless of vehicle Make or Model, the yardstick was the mileage of the vehicle.  When the vehicle
-					went over 100,000 miles it would alert the driver that they should start saving for a new car.  Ideally you might want to start much sooner, but for our purposes of simplicity
-					let's assume this is an acceptable time to do this.  The script for such an event might look something like this:</p>
-						
-					<h5>JavaScript - (assocArray.js)</h5>
+					<p>One way that JSON can do this is by storing that information in an easily accessible place.  That data can also be modified relatively simply much like you would with
+					local storage or session storage (see HTML Lesson 5).  I won't go much more into that, but I will show a simple text file, as an example, that could be read by a JSON HTTP 
+					Request.  You will notice we are continuing with cars for continuity, but also because online car sales are a possible avenue for this kind of request to be made.</p>
 					<pre><code>
-function miles(){
-	
-	var t1 = document.getElementById('txt1').value;
-	var t2 = document.getElementById('txt2').value;
-	var t3 = document.getElementById('txt3').value;
-	var t4 = document.getElementById('txt4').value;
-	
-	if(t4.length > 0){
-		t4 = parseFloat(t4);
-	}
-	var output;
-		
-	//Regular Array >> var cars = ["Ford", "Falcon", "2010", 80000];
-	//var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
-	var cars = {Make: t1, Model: t2, Year: t3, Mileage: t4};
-	
-	if(cars.Mileage > 100000){
-		output = "Wow, over 100,000 miles! You might want to start saving up for a new car";
-	}else if(cars.Mileage.length == 0){
-		output = "";
-	}else{
-		output = "Only " + cars.Mileage + " miles, You're still good";
-	}
-	
-	document.getElementById('output').innerHTML = output;
+{
+  "Cars" : [
+    { 
+      "Make" : "Holden",
+      "Model" : "Commodore"
+	  "Year" : "2000"
+	  "Mileage" : "90000"
+      },
+    { 
+      "Make" : "Honda",
+      "Model" : "Civic"
+	  "Year" : "1995"
+	  "Mileage" : "143000"
+      },
+    { 
+      "Make" : "Subaru",
+      "Model" : "Legacy"
+	  "Year" : "2003"
+	  "Mileage" : "76000"
+      },
+  ]
 }
 						</pre></code>
+						
+					<p>So, great, we have 3 different sets of vehicles with properties, what can we possibly do with that?  A lot quite honestly.  If data like this can be read easily
+					by a program then it means that there can be an external storing of data and theoretically an extensive database.  Information stored will appear in similar format to this
+					and will be readable by XML HTTP Requests.  I won't go into that too heavily, but I want to have a little fun.</p>
+					
+					<p>Let's play a game!  I have here a simple XML HTTP Request script that can guess where you are from.  Want to see if I can get it right?
+						
+					<h5>JavaScript - (location.js)</h5>
+					<pre><code>
+function WhereareYou(position) {
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open('GET', "https://ipinfo.io/json", true);
+	xhr.send();
+	
+	xhr.addEventListener("readystatechange", processRequest, false);
+	
+	function processRequest(x) {
+	     if (xhr.readyState == 4 && xhr.status == 200) {
+			var notify = JSON.parse(xhr.responseText);
+			document.getElementById('OutputDiv').innerHTML = "You live in " + notify.city + ", " + notify.region + " right?";
+		}
+	}
+    
+}
+					</pre></code>
 						
 					<h5>HTML</h5>
 					<pre><code>
@@ -193,35 +207,29 @@ function miles(){
 &lthead&gt;
 &ltmeta charset="utf-8"&gt;
 
-&lttitle>JSON Stringify&lt/title&gt
-&ltscript src="stringify.js"&gt&lt/script&gt
+&lttitle&gtJSON Location&lt/title&gt
+&ltscript src="location.js"&gt&lt/script&gt
 &lt/head&gt
 
 &ltbody&gt
 
-		Make :  &ltinput type="text" id="txt1" size="6"&gt 
-		Model : &ltinput type="text" id="txt2" size="6"&gt
-		Year :  &ltinput type="text" id="txt3" size="6"&gt
-		Miles : &ltinput type="text" id="txt4" size="6"&gt
-		
-		&ltbutton type="button" onclick="miles()"&gtSTRINGIFY&lt/button&gt
-	&ltdiv id="output"&gt&lt/div&gt
+	&ltli&gt&lta href="JavaScript:WhereareYou()" class="button"&gtWhere Do I Live?&lt/a&gt&lt/li&gt
+	
+	&ltdiv id="OutputDiv"&gt&lt/div&gt
 &lt/body&gt
 &lt/html&gt
 					</pre></code>
 						
-					<p>So, let's put it to the test!  Why not, right?</p>
-					<pre><code>
-<script src="stringify.js"></script>
-<div align="center">
-Make<input type="text" id="txt1" size="4">
-Model<input type="text" id="txt2" size="4">
-Year<input type="text" id="txt3" size="4">
-Miles<input type="text" id="txt4" size="8">
-<ul class="actions">
-<li><a href="JavaScript:string()" class="button">STRINGIFY</a>  <a href="JavaScript:string2()" class="button">DEMO</a></li></ul></div>
-<div id="outputDiv"></div>
-					</code></pre>
+					<p>So, would you like to play?  Seems simple enough right?</p>
+					
+					<pre><code><div align="center">
+					<script src="location.js"></script>
+<a href="JavaScript:WhereareYou()" class="button">Where Do I Live?</a>
+
+<div id="OutputDiv"></div>
+					</div></pre></code>
+					
+					<p>Was I right?  Pretty neat huh?  At any rate, that's all we have for now on JSON elements.  Check one of the other pages for more cool stuff!</p>
 					
 				</div>
 			</section>
