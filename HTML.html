@@ -177,95 +177,216 @@ Session Storage
 					layout are part of a structure, a Document Object Model.  What you might not know though is that the DOM can be CHANGED!  Woah right?  
 					<u>But what exactly does it mean?</u></p>
 					
-					<div align="center"><iframe width="800" height="600" src="https://www.youtube.com/embed/OQSNhk5ICTI?t=76" frameborder="0"; encrypted-media" allowfullscreen></iframe></div>
+					<div align="center"><iframe width="600" height="400" src="https://www.youtube.com/embed/OQSNhk5ICTI?t=76" frameborder="0"; encrypted-media" allowfullscreen></iframe></div>
 					<br>
-					<p>It means that we can reorganize the objects on the layout! Or more than that, make new ones or remove them entirely!</p>
-					<pre><code>
-var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
-						</pre></code>
-						
-					<p>You may notice that each variable in the Array has this format X:"Y", this is where the array becomes no more a series of values, but a series of objects.  The car 
-					is no longer comprised of {ford,falcon,2010,80000}, but of a Make, Model, Year, and Mileage that can be parsed as objects that are associated with the array and not simply
-					as destinations in an array (such as cars[1] and cars[2]...).</p>
+					<p>It means that we can reorganize the objects on the layout! Or more than that, make new ones or remove them entirely!  So let's start 
+					with Creating new Elements!  It’s easy to create elements, all you need to do is something like this in JavaScript:</p>
 					
-					<p>So let's look at this in terms of a script.  If we were to create a very simple script that took the values of the vehicle and determined if you needed to start saving
-					for a new car, what would it look for?  For arguments sake, lets say that regardless of vehicle Make or Model, the yardstick was the mileage of the vehicle.  When the vehicle
-					went over 100,000 miles it would alert the driver that they should start saving for a new car.  Ideally you might want to start much sooner, but for our purposes of simplicity
-					let's assume this is an acceptable time to do this.  The script for such an event might look something like this:</p>
-						
-					<h5>JavaScript - (assocArray.js)</h5>
 					<pre><code>
-function miles(){
-	
-	var t1 = document.getElementById('txt1').value;
-	var t2 = document.getElementById('txt2').value;
-	var t3 = document.getElementById('txt3').value;
-	var t4 = document.getElementById('txt4').value;
-	
-	if(t4.length > 0){
-		t4 = parseFloat(t4);
-	}
-	var output;
-		
-	//Regular Array >> var cars = ["Ford", "Falcon", "2010", 80000];
-	//var cars {Make: "ford", Model: "falcon", Year: 2010, Mileage: 80000}
-	var cars = {Make: t1, Model: t2, Year: t3, Mileage: t4};
-	
-	if(cars.Mileage > 100000){
-		output = "Wow, over 100,000 miles! You might want to start saving up for a new car";
-	}else if(cars.Mileage.length == 0){
-		output = "";
-	}else{
-		output = "Only " + cars.Mileage + " miles, You're still good";
-	}
-	
-	document.getElementById('output').innerHTML = output;
-}
-						</pre></code>
+document.createElement("elementName");
+
+//Example
+document.createElement(“theFifth”);
+					</pre></code>
 						
+					<p>So we create an element called "The Fifth", pun intended, but what now?  “theFifth” element does not exist on our layout, we need to 
+					go ahead and add it somewhere</p>
+					
+					<p>To do that, we need to do something like this</p>
+						
+					<pre><code>
+&ltscript&gt
+	var newElement = document.createElement(“theFifth”);
+	newElement.textContent = “My name is a pun”;
+
+	document.body.appendChild(newElement);
+&lt/script&gt
+					</pre></code>
+					
+					<p>So, in case you didn't pick up on what just happened, this places our new element at the bottom of the Body element.  The Fifth Element now exists
+					as an element of our DOM.  Credit to Kirupa for the original design of this model, changed slightly from theirs.</p>
+					
+					<div align="center"><img src="images/DOM.png"></div>
+					
+					<p>Just as it is easy to add elements, it’s just as easy to remove them.  To remove “theFifth” we simply need to do the following 
+
+					<pre><code>
+document.body.removeChild(newElement);
+					</pre></code>
+					
+					<p>You may notice that we used the variable name from our create element script rather than the element name, this is something worth remembering.  
+					Again, you can use this to remove objects that are native to the layout such as h1 etc.  Removing an object, it also removes all of it’s children.</p>
+					
+					<p>What if we wanted to clone an element?  This is a bit more complicated, but not by much.  It requires a little extra explanation.  Let’s start 
+					by looking at this code: </p>
+					
+					<pre><code>
+&ltdiv id="footer"&gt
+        &ltdiv class="share"&gt
+            &ltp&gtSomething&lt/p&gt
+            &ltimg alt="#" src="blah.png"/&gt
+        &lt/div&gt
+&lt/div&gt
+ 					
+&ltscript&gt
+        var share = document.querySelector(".share");
+        var shareClone = share.cloneNode(false);  // False means only clone this
+ 
+        document.querySelector("#footer").appendChild(shareClone);
+&lt/script&gt
+					</pre></code>
+					
+					<p>It should look something like this if done correctly.  Note, these changes don’t modify the original code.</p>
+
+					<pre><code>
+&ltdiv id="footer"&gt
+        &ltdiv class="share"&gt
+            &ltp&gtSomething&lt/p&gt
+            &ltimg alt="#" src="blah.png"/&gt
+        &lt/div&gt
+
+        &ltdiv class="shareClone"&gt
+            &ltp&gtSomething&lt/p&gt
+            &ltimg alt="#" src="blah.png"/&gt
+        &lt/div&gt
+&lt/div&gt
+					</pre></code>
+					
+					<p>Looking at this code again, we notice that the cloned element was added, or appended, to the footer using <b>appendChild</b>.  
+					Its uses are not limited to cloning, but otherwise is pretty self explanatory.</p>
+
+					<pre><code>
+&ltdiv id="footer"&gt
+        &ltdiv class="share"&gt
+            &ltp&gtSomething&lt/p&gt
+            &ltimg alt="#" src="blah.png"/&gt
+        &lt/div&gt
+&lt/div&gt
+
+&ltscript&gt
+        var share = document.querySelector(".share");
+        var shareClone = share.cloneNode(false);  // False means only clone this
+ 
+        document.querySelector("#footer").appendChild(shareClone);
+&lt/script&gt
+					</pre></code>
+					
+					<p>The native function of <b>insertBefore</b> will allow you to move an element to anywhere you think might look best within
+					the same parent.  For example, if I wanted “theFifth” element to be placed before the heading, I would use the following code:</p>
+
+					<pre><code>
+&ltbody&gt
+    &lth1 id="theTitle" class="highlight Movies"&gtMovie Mondays!&lt/h1&gt
+ 
+    &ltscript&gt
+        var newElement = document.createElement(“theFifth”);
+        newElement.textContent = “My name is a pun”;
+ 
+        var h1Element = document.querySelector(“h1”);
+        document.body.insertBefore(newElement, h1Element);
+    &lt/script&gt
+&lt/body&gt
+					</pre></code>
+					
+					<p>So let's play around with creating and removing elements!  For this one I decided to go with the topics of this assignment, namely: CSS, JAVASCRIPT, JSON, and HTML.  
+					I went a little overboard with this as I wanted the values to rotate between them and utilized session storage for added fun.</p>
+					
+					<h5>JavaScript - (element.js)</h5>
+					<pre><code>
+function add() {
+	var x = "";
+	var v = sessionStorage.getItem("v");
+	v = parseInt(v);
+	if(v gt; 0 && v &lt 5){
+		if ( v == 1){
+			v = 2;
+			x = "CSS";
+		}else if(v == 2){
+			v = 3;
+			x = "HTML";
+		}else if(v == 3){
+			v = 4;
+			x = "JSON";
+		}else if(v == 4){
+			v = 1;
+			x = "JAVASCRIPT";
+		}
+	}else{
+		v = 1;
+		x = "JAVASCRIPT";
+	}
+	
+	sessionStorage.setItem("v",v);
+    var ListElement = document.createElement("LI");
+    var add = document.createTextNode(x);
+    ListElement.appendChild(add);
+    document.getElementById("ItemList").appendChild(ListElement);
+}
+
+function insert() {
+	var x = "";
+	var v = sessionStorage.getItem("v");
+	v = parseInt(v);
+	if(v gt; 0 && v &lt 5){
+		if ( v == 1){
+			v = 2;
+			x = "CSS";
+		}else if(v == 2){
+			v = 3;
+			x = "HTML";
+		}else if(v == 3){
+			v = 4;
+			x = "JSON";
+		}else if(v == 4){
+			v = 1;
+			x = "JAVASCRIPT";
+		}
+	}else{
+		v = 1;
+		x = "JAVASCRIPT";
+	}
+	
+	sessionStorage.setItem("v",v);
+	var ListElement = document.createElement("LI");
+	
+    var before = document.createTextNode(x);
+    ListElement.appendChild(before);
+
+    var list = document.getElementById("ItemList");
+    list.insertBefore(ListElement, list.childNodes[0]);
+}
+
+function remove() {
+    var list = document.getElementById("ItemList");
+    list.removeChild(list.childNodes[0]);
+}
+						</code></pre>
+					
 					<h5>HTML</h5>
 					<pre><code>
 &lt!DOCTYPE HTML&gt;
 &lthtml lang="en-us"&gt;
 &lthead&gt;
 &ltmeta charset="utf-8"&gt;
+&lttitle&gt;Adding and Removing Elements&lt/title&gt;
+&ltscript src="element.js"&gt;&lt/script&gt;
+&lt/head&gt;
 
-&lttitle>More fun with Arrays&lt/title&gt
-&ltscript src="assocArray.js"&gt&lt/script&gt
-&lt/head&gt
+&ltbody&gt;
+    &ltp&gt;
+	&ltdiv align="center"&gt&ltbutton onclick="add()"&gtAdd Item&lt/button&gt  &ltbutton onclick="remove()"&gtRemove Item&lt/button&gt  &ltbutton onclick="insert()"&gtInsert  Before&lt/button&gt&lt/div&gt;
+	&ltul id="ItemList" align="center"&gt&ltli id ="insert"&gtJSON&lt/li&gt&ltli id="remove"&gtJAVASCRIPT&lt/li&gt&lt/ul&gt;
+&lt/body&gt;
+&lt/html&gt;
+						</code></pre>
 
-&ltbody&gt
-	&lth1&gtAssociative Arrays&lt/h1&gt
-	&ltp&gt
-
-		Make :  &ltinput type="text" id="txt1" size="6"&gt 
-		Model : &ltinput type="text" id="txt2" size="6"&gt
-		Year :  &ltinput type="text" id="txt3" size="6"&gt
-		Miles : &ltinput type="text" id="txt4" size="6"&gt
-		&ltbr&gt
-		&ltbr&gt
-		
-		&ltbutton type="button" onclick="miles()"&gtVehicle Assessment&lt/button&gt
-		&ltbr>&ltbr&gt
-	&ltdiv id="output"&gt&lt/div&gt
-	&lt/p&gt
-&lt/body&gt
-&lt/html&gt
-						</pre></code>
+						<p>Shall we give it a try? Be my guest!  Simply enter a number in the field below and press "GO" to start</p>
 						
-					<p>So, let's put it to the test!  Why not, right?</p>
-					<pre><code>
-<script src="assocArray.js"></script>
-<div align="Center">
-Make : <input type="text" id="txt1" size="6"> 
-Model : <input type="text" id="txt2" size="6"> 
-Year : <input type="text" id="txt3" size="6"> 
-Miles : <input type="text" id="txt4" size="6"> 
-<button type="button" onclick="miles()">Vehicle Assessment</button>
-<div id="output"></div></div>
-</pre></code>
-						
-					
+						<pre><code>
+<script src="element.js"></script>
+<div align="center"><button onclick="add()">Add Item</button>  <button onclick="remove()">Remove Item</button>  <button onclick="insert()">Insert  Before</button></div>
+<ul id="ItemList" align="center"><li id ="insert">JSON</li><li id="remove">JAVASCRIPT</li></ul>
+						</code></pre>
 				</div>
 			</section>
 			
@@ -276,16 +397,11 @@ Miles : <input type="text" id="txt4" size="6">
 						<p>HTML5 Tags - Video, Audio, and Canvas</p>
 							
 					</header>
-						<p>This lesson can be best understood by a few short scripts written for a few different outcomes.  The first script is written to better look at all 
-						elements of the lesson except for Arrays and Associative Arrays, which we will cover hereafter.  The script will ask the user to input a number that 
-						will be raised to the power of 2 and then display all iterations of that calculation until we reach the answer.  This is done so that the repetitions
-						can be seen and understood as they happen rather than simply assuming they were or having to follow them in a script debugger.</p>
+						<p>Phew!  We're left with the easier HTML fucntions!  What a relief!  and what a wild wild rate.</p>
 						
-						<p>In the spirit of simplification, we will look at the scripts as two different elements, JavaScript and HTML.  The files can be combined by replacing
-						the reference to an external script with the script itself, but for our purposes we will look at them separately.  If you look at the JavaScript function,
-						to which there is only one in this JavaScript, you will notice the condition asking if the input (t1) is greater than 0.  If the statement is true, it
-						will begin a while loop, which could just as easily be substituted for a For loop , but I like While loops and so this was done with that.  The loop uses
-						a temporary variable of i to increment each time until it is the same as t1 and then it quits.
+						<p>So let's kick off straignt into Video.  As you might have seen in the previous section with my fun
+						double rainbow video inclusion, this is not difficult to do.  Most websites that make videos these days
+						will even give you an embed code.  So let's look at some code!</p>
 						
 						<h5>JavaScript - (PowersOf2.js)</h5>
 					<pre><code>
