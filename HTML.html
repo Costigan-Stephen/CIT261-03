@@ -23,6 +23,7 @@
 						<li><a href="JSON.html">JSON</a></li>
 						<li><a href="HTML.html">HTML</a></li>
 						<li><a href="CSS.html">CSS</a></li>
+						<li><a href="Journal.html">JOURNAL</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -184,7 +185,6 @@ Session Storage
 					
 					<pre><code>
 document.createElement("elementName");
-
 //Example
 document.createElement(“theFifth”);
 					</pre></code>
@@ -198,7 +198,6 @@ document.createElement(“theFifth”);
 &ltscript&gt
 	var newElement = document.createElement(“theFifth”);
 	newElement.textContent = “My name is a pun”;
-
 	document.body.appendChild(newElement);
 &lt/script&gt
 					</pre></code>
@@ -209,7 +208,6 @@ document.createElement(“theFifth”);
 					<div align="center"><img src="images/DOM.png"></div>
 					
 					<p>Just as it is easy to add elements, it’s just as easy to remove them.  To remove “theFifth” we simply need to do the following 
-
 					<pre><code>
 document.body.removeChild(newElement);
 					</pre></code>
@@ -222,69 +220,64 @@ document.body.removeChild(newElement);
 					
 					<pre><code>
 &ltdiv id="footer"&gt
-        &ltdiv class="share"&gt
-            &ltp&gtSomething&lt/p&gt
-            &ltimg alt="#" src="blah.png"/&gt
-        &lt/div&gt
+        &ltdiv class="share"&gt
+            &ltp&gtSomething&lt/p&gt
+            &ltimg alt="#" src="blah.png"/&gt
+        &lt/div&gt
 &lt/div&gt
- 					
+ 					
 &ltscript&gt
-        var share = document.querySelector(".share");
-        var shareClone = share.cloneNode(false);  // False means only clone this
- 
-        document.querySelector("#footer").appendChild(shareClone);
+        var share = document.querySelector(".share");
+        var shareClone = share.cloneNode(false);  // False means only clone this
+ 
+        document.querySelector("#footer").appendChild(shareClone);
 &lt/script&gt
 					</pre></code>
 					
 					<p>It should look something like this if done correctly.  Note, these changes don’t modify the original code.</p>
-
 					<pre><code>
 &ltdiv id="footer"&gt
-        &ltdiv class="share"&gt
-            &ltp&gtSomething&lt/p&gt
-            &ltimg alt="#" src="blah.png"/&gt
-        &lt/div&gt
-
-        &ltdiv class="shareClone"&gt
-            &ltp&gtSomething&lt/p&gt
-            &ltimg alt="#" src="blah.png"/&gt
-        &lt/div&gt
+        &ltdiv class="share"&gt
+            &ltp&gtSomething&lt/p&gt
+            &ltimg alt="#" src="blah.png"/&gt
+        &lt/div&gt
+        &ltdiv class="shareClone"&gt
+            &ltp&gtSomething&lt/p&gt
+            &ltimg alt="#" src="blah.png"/&gt
+        &lt/div&gt
 &lt/div&gt
 					</pre></code>
 					
 					<p>Looking at this code again, we notice that the cloned element was added, or appended, to the footer using <b>appendChild</b>.  
 					Its uses are not limited to cloning, but otherwise is pretty self explanatory.</p>
-
 					<pre><code>
 &ltdiv id="footer"&gt
-        &ltdiv class="share"&gt
-            &ltp&gtSomething&lt/p&gt
-            &ltimg alt="#" src="blah.png"/&gt
-        &lt/div&gt
+        &ltdiv class="share"&gt
+            &ltp&gtSomething&lt/p&gt
+            &ltimg alt="#" src="blah.png"/&gt
+        &lt/div&gt
 &lt/div&gt
-
 &ltscript&gt
-        var share = document.querySelector(".share");
-        var shareClone = share.cloneNode(false);  // False means only clone this
- 
-        document.querySelector("#footer").appendChild(shareClone);
+        var share = document.querySelector(".share");
+        var shareClone = share.cloneNode(false);  // False means only clone this
+ 
+        document.querySelector("#footer").appendChild(shareClone);
 &lt/script&gt
 					</pre></code>
 					
 					<p>The native function of <b>insertBefore</b> will allow you to move an element to anywhere you think might look best within
 					the same parent.  For example, if I wanted “theFifth” element to be placed before the heading, I would use the following code:</p>
-
 					<pre><code>
 &ltbody&gt
-    &lth1 id="theTitle" class="highlight Movies"&gtMovie Mondays!&lt/h1&gt
- 
-    &ltscript&gt
-        var newElement = document.createElement(“theFifth”);
-        newElement.textContent = “My name is a pun”;
- 
-        var h1Element = document.querySelector(“h1”);
-        document.body.insertBefore(newElement, h1Element);
-    &lt/script&gt
+    &lth1 id="theTitle" class="highlight Movies"&gtMovie Mondays!&lt/h1&gt
+ 
+    &ltscript&gt
+        var newElement = document.createElement(“theFifth”);
+        newElement.textContent = “My name is a pun”;
+ 
+        var h1Element = document.querySelector(“h1”);
+        document.body.insertBefore(newElement, h1Element);
+    &lt/script&gt
 &lt/body&gt
 					</pre></code>
 					
@@ -322,7 +315,6 @@ function add() {
     ListElement.appendChild(add);
     document.getElementById("ItemList").appendChild(ListElement);
 }
-
 function insert() {
 	var x = "";
 	var v = sessionStorage.getItem("v");
@@ -351,11 +343,9 @@ function insert() {
 	
     var before = document.createTextNode(x);
     ListElement.appendChild(before);
-
     var list = document.getElementById("ItemList");
     list.insertBefore(ListElement, list.childNodes[0]);
 }
-
 function remove() {
     var list = document.getElementById("ItemList");
     list.removeChild(list.childNodes[0]);
@@ -371,7 +361,6 @@ function remove() {
 &lttitle&gt;Adding and Removing Elements&lt/title&gt;
 &ltscript src="element.js"&gt;&lt/script&gt;
 &lt/head&gt;
-
 &ltbody&gt;
     &ltp&gt;
 	&ltdiv align="center"&gt&ltbutton onclick="add()"&gtAdd Item&lt/button&gt  &ltbutton onclick="remove()"&gtRemove Item&lt/button&gt  &ltbutton onclick="insert()"&gtInsert  Before&lt/button&gt&lt/div&gt;
@@ -379,7 +368,6 @@ function remove() {
 &lt/body&gt;
 &lt/html&gt;
 						</code></pre>
-
 						<p>Shall we give it a try? Be my guest!  there are 3 buttons to play with an no limits.  Go nuts!</p>
 						
 					<pre><code>
@@ -448,28 +436,19 @@ Your browser does not support the audio element.
 					<pre><code>
 <b>Colors, Styles, and Shadows:</b> - Different ways to create color, whether from gradients or 
 static and including possibility for shadows
-
 <b>Line Styles:</b> - Creating neat designs with plotted lines, heck that even rhymed.
-
 <b>Rectangles:</b> - Creating rectangles (or squares) using dimensions of height and width. also,
 choices for different fill you might use with a rectangle.
-
 <b>Paths:</b> - Similar to lines, but with this you have the option of filling an area you have
 drawn over.  Also, manipulation of points can change a shape.  Also, you can create arcs, which is
 pretty cool really.  We will play with this one later as it is a lot of fun!
-
 <b>Transformations:</b> - Your basic rotation, scale, and manipulations of an existing shape.
-
 <b>Text:</b> - Self explanatory, you can change the font and style of the text as well.
-
 <b>Image Drawing:</b> - Originally thought this would be a canvas for accepting mouse drawings,
 but turns out it's a place you can put in an image (i.e a painting).
-
 <b>Pixel Manipulation:</b> - Similar to rectangles, essentially you are building a shape, but it
 is entirely a pixel drawing and not a series of defined lines that happen to be filled.
-
 <b>Compositing:</b> - Change the transparency or overlap and manipulation of existing images
-
 <b>Other:</b> - Some miscellaneous commands such as saving the state and restoring previous save.
 					</code></pre>
 					
@@ -486,9 +465,7 @@ is entirely a pixel drawing and not a series of defined lines that happen to be 
 &lt/head&gt;
 &ltbody&gt;
 &ltcanvas id="ImAstar" width="500" height="500"/&gt"My Magnificent Star is hidden because your browser doesn't support Canvases"&lt/canvas&gt
-
 &ltscript&gt
-
 var c = document.getElementById("ImAstar");
 var ctx = c.getContext("2d");
 ctx.beginPath();
@@ -508,13 +485,10 @@ ctx.lineTo(200, 150);
 ctx.stroke();
 ctx.fillStyle = "yellow";
 ctx.fill();
-
 &lt/script&gt
-
 &lt/body&gt;
 &lt/html&gt;
 					</code></pre>
-
 					<p>Want to see how this looks?  I know I sure do!</p>
 					
 					<pre><code>
@@ -522,7 +496,6 @@ ctx.fill();
 <canvas id="ImAstar" width="500" height="500"/>"My Magnificent Star is hidden because your browser doesn't support Canvases"</canvas>
 </div>
 <script>
-
 var c = document.getElementById("ImAstar");
 var ctx = c.getContext("2d");
 ctx.beginPath();
@@ -546,7 +519,6 @@ ctx.fill();
 					</code></pre>
 					
 					<p>Turned out pretty good if I do say so myself.  No background either, which is nice.  So that's all for now on HTML.  Check out one of my other awesome sections if you are starved for more.  For now, thanks for viewing!</p>
-
 				</div>
 			</section>
 			
@@ -585,18 +557,17 @@ ctx.fill();
 						<li><a href="JSON.html">JSON</a></li>
 						<li><a href="HTML.html">HTML</a></li>
 						<li><a href="CSS.html">CSS</a></li>
+						<li><a href="Journal.html">JOURNAL</a></li>
 					</ul>
 				<ul class="copyright">
 					<li>&copy; Stephen Costigan 2018</li>
 					<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
 				</ul>
-
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
 			</div>
 		</footer>
 	</body>
