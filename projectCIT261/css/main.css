@@ -2,6 +2,22 @@ body {
     background-color: #ccffcc;
 }
 
+.bodyNav {
+    background-color: #ccffcc;
+	padding-top: 56px;
+
+}
+
+header{
+	height: 4.5em;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10000;
+	z-index: 10001;
+}
+
 h1 {
     color: white;
     text-align: center;
@@ -60,4 +76,40 @@ h5 {
 h6 {
 	font-size: 0.7em;
 	line-height: 1.5em;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+	position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li a {
+	font-family: verdana;
+    font-size: 16px;
+	display: block;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	padding-top: 16px;
+	padding-right: 16px;
+	padding-bottom: 14px;
+	padding-left: 16px;
+	left: 0;
+	top: 0;
+	width: auto;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
 }
