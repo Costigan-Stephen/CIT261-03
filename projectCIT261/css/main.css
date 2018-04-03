@@ -14,7 +14,7 @@ p {
 
 img {
 	/* Auto Scale Images */
-    width: 100%;
+    width: auto;
     height: auto;
 }
 
