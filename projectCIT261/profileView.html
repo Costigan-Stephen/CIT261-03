@@ -1,33 +1,40 @@
 <!DOCTYPE html>
-
 <html>
-    
-    <head>
+	<head>
         <title>Profile View</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/main.css">
     </head>
     
-    <body>
+    <body class="bodyNav">
+        <header>
         <div>
-            <a href="profileList.html"><img src="images/Back.png" alt="" width="20" height="20"></a>
+		<ul>
+         	<li><a href="ProfileList.html">Back</a></li>
+        	<li style="float:right"><a href="">Delete</a></li>
+		</ul>
+        </div>
+        </header>
+        <div class="container" align="left">
         <form>
-            Profile Name:
-            <input type="text" name="profile"><br>
-            Username:
-            <input type="text" name="user"><br>
-            Password:
-            <input type="text" name="password"><br>      
-            eMail:
-            <input type="text" name="email"><br>  
-            Notes:
-            <textarea rows="4" cols="50"> Recovery Questions, additional information etc.</textarea><br> 
-            <input type="submit" value="Save"><br>
-            
+            <h4>Profile Name:<br>
+            <input type="text" name="profile"></h4>
+            <h4>Username:<br>
+            <input type="text" name="user"></h4>
+            <h4>Password:<br>
+            <input type="text" name="password"></h4>
+            <h4>eMail:<br>
+            <input type="text" name="email"></h4>
+          <h4>Notes:<br>
+            <textarea rows="4" cols="40"> Recovery Questions, additional information etc.</textarea></h4><br> 
+    <div align="center"><input type="submit" class="Fullbutton" value="Save"></div>
+           
         </form>
         </div>
+        <br>
         <footer>
-            <h6>This app belongs to the best team for CIT261           copyright 2018 &#174;</h6>
+            <div align="center"><h6>This app belongs to the best team for CIT261           copyright 2018 &#174;</h6></div>
         </footer>
         
     </body>
