@@ -13,7 +13,36 @@ p {
 }
 
 img {
-    /* Force images to Auto Scale */
+	/* Auto Scale Images */
     width: 100%;
     height: auto;
+}
+
+.button {
+    background-color: #0066cc; /* Dark Blue */
+    border: none;
+    color: white;
+    padding: 15px 92px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #484848;
+	font-weight: 700;
+	line-height: 1em;
+	margin: 0 0 1em 0;
+	text-transform: uppercase;
+}
+
+h5 {
+	font-size: 0.9em;
+	line-height: 1.5em;
+}
+
+h6 {
+	font-size: 0.7em;
+	line-height: 1.5em;
 }
