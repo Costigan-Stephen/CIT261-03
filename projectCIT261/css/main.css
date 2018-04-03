@@ -1,5 +1,5 @@
 body {
-    background-color: #33ccff;
+    background-color: #e6ffe6;
 }
 
 h1 {
@@ -19,7 +19,7 @@ img {
 }
 
 .button {
-    background-color: #0066cc; /* Dark Blue */
+    background-color: #004020; /* Dark Green */
     border: none;
     color: white;
     padding: 15px 30px;
