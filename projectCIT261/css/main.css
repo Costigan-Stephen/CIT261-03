@@ -33,6 +33,7 @@ p {
 }
 
 .Fullbutton {
+    -webkit-appearance: none; /* Prevent change of buttons on iOS */
     background-color: #004020; /* Dark Green */
     border: none;
     color: white;
@@ -50,6 +51,7 @@ p {
 }
 
 .button {
+    -webkit-appearance: none; /* Prevent change of buttons on iOS */
     background-color: #004020; /* Dark Green */
     border: none;
     color: white;
