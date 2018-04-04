@@ -36,7 +36,10 @@ p {
     background-color: #004020; /* Dark Green */
     border: none;
     color: white;
-    padding: 15px 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 30px;
+	padding-left: 30px;
 	width:  80%;
     text-align: center;
     text-decoration: none;
@@ -50,7 +53,10 @@ p {
     background-color: #004020; /* Dark Green */
     border: none;
     color: white;
-    padding: 15px 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 30px;
+	padding-left: 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -97,9 +103,7 @@ p {
 .tableElmA {
     background-color: #adebad;
     list-style-type: none;
-    border: 1px solid #eee;
     margin: 0px;
-    border-bottom: 1px solid #eee;
     padding: 15px;
     text-align: Left;
 }
@@ -107,9 +111,7 @@ p {
 .tableElmB {
     background-color: #c1f0c1;
     list-style-type: none;
-    border: 1px solid #eee;
     margin: 0px;
-    border-bottom: 1px solid #eee;
     padding: 15px;
     text-align: Left;
 }
@@ -187,8 +189,8 @@ li a {
 	text-align: center;
 	text-decoration: none;
 	padding-top: 16px;
-	padding-right: 16px;
 	padding-bottom: 14px;
+	padding-right: 16px;
 	padding-left: 16px;
 	left: 0px;
 	top: 0px;
