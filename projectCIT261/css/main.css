@@ -4,8 +4,11 @@ body {
 
 .bodyNav {
     background-color: #ccffcc;
-	padding-top: 56px;
+	padding-top: 39px;
+}
 
+.bodyList {
+    background-color: #e6e6e6;
 }
 
 header{
@@ -60,6 +63,57 @@ p {
 	padding: 10px 30px;
 }
 
+.containerList{
+	position: fixed;
+    left: 0px;
+    top: 87px;
+    width: 100%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+    background-color: #498327;
+    color: white;
+    text-align: center;
+	display: inline-block;
+	z-index: 10000;
+	z-index: 10001;
+}
+
+.containerSch{
+	position: fixed;
+    left: 0px;
+    top: 50px;
+    width: 100%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+    background-color: #484848;
+    color: white;
+    text-align: center;
+	display: inline-block;
+	z-index: 10000;
+	z-index: 10001;
+}
+
+.tableElmA {
+    background-color: #adebad;
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0px;
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+    text-align: Left;
+}
+
+.tableElmB {
+    background-color: #c1f0c1;
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0px;
+    border-bottom: 1px solid #eee;
+    padding: 15px;
+    text-align: Left;
+}
+
+
 h1, h2, h3, h4, h5, h6 {
 	color: #484848;
 	font-weight: 700;
@@ -78,15 +132,47 @@ h6 {
 	line-height: 1.5em;
 }
 
+.hcolor {
+	color: white;
+}
+
 ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+	padding-bottom: 12px;
     overflow: hidden;
     background-color: #333;
 	position: fixed;
-    top: 0;
+    top: 0px;
     width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style the list (remove margins and bullets, etc) */
+.ulTop {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style the list items */
+ul li {
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+}
+
+/* Add a light grey background color on hover */
+ul li:hover {
+	background-color: #333;
 }
 
 li {
@@ -104,12 +190,52 @@ li a {
 	padding-right: 16px;
 	padding-bottom: 14px;
 	padding-left: 16px;
-	left: 0;
-	top: 0;
+	left: 0px;
+	top: 0px;
 	width: auto;
 }
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #111;
+}
+
+.footer{
+	position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+	padding-top: 10px;
+    background-color: #313131;
+    color: white;
+    text-align: center;
+}
+
+.table{
+	top: 122px;
+	width: 100%;
+	left: 0px;
+	position: fixed;
+	border-collapse: collapse;
+}
+
+tr {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+tr td {
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+}
+
+tr td:hover {
+  background-color: #80ff80;
 }
