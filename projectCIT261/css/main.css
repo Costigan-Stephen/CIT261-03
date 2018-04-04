@@ -67,7 +67,7 @@ p {
 .containerList{
 	position: fixed;
     left: 0px;
-    top: 87px;
+    top: 85px;
     width: 100%;
 	padding-top: 8px;
 	padding-bottom: 8px;
@@ -82,7 +82,7 @@ p {
 .containerSch{
 	position: fixed;
     left: 0px;
-    top: 50px;
+    top: 48px;
     width: 100%;
 	padding-top: 8px;
 	padding-bottom: 8px;
@@ -212,7 +212,7 @@ li a:hover {
 }
 
 .table{
-	top: 122px;
+	top: 120px;
 	width: 100%;
 	left: 0px;
 	position: fixed;
