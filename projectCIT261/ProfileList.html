@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <title>Profile View</title>
+        <title>Profile List</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/main.css">
     </head>
     
-    <body class="bodyNav">
-        <header>
+<body>
+    
+    <header>
         <div>
 		<ul>
-         	<li><a href="ProfileList.html">Back</a></li>
-        	<li style="float:right"><a href="">Delete</a></li>
+         	<li><a href="Settings.html">Settings</a></li>
+            <li><a href="">Log Out</a></li>
+            <li style="float:right"><a href="">+ New</a></li>
 		</ul>
         </div>
-        </header>
-        <div class="container" align="left">
-        <form>
-            <h4>Profile Name:<br>
-            <input type="text" name="profile"></h4>
-            <h4>Username:<br>
-            <input type="text" name="user"></h4>
-            <h4>Password:<br>
-            <input type="text" name="password"></h4>
-            <h4>eMail:<br>
-            <input type="text" name="email"></h4>
-          <h4>Notes:<br>
-            <textarea rows="4" cols="40"></textarea></h4><br> 
-    <div align="center"><input type="submit" class="Fullbutton" value="Save"></div>
-           
-        </form>
-        </div>
-        <br>
-        <footer>
-            <div align="center" class="footer"><h6 class="hcolor">This app belongs to the best team for CIT261
-			<br>copyright 2018 &#174;</h6></div>
-    	</footer>
-        
+    </header>
+    <div class="containerSch">Search &nbsp; <input type="text" name="search"> &nbsp;&nbsp; <img src="images/searchw.png" onclick="" alt="logo" width="10" height="10" ></div>
+    <div class="containerList">Profile Name</div>
+	<table class="table">
+    <br><br>
+          <tr>
+            <td class="tableElmB">Profile 1</td>
+          </tr>
+          <tr>
+            <td class="tableElmA">Profile 2</td>
+          </tr>
+          <tr>
+            <td class="tableElmB">Etc</td>
+          </tr>
+        </table>
+	<br>
+    <footer>
+        <div align="center" class="footer"><h6 class="hcolor">This app belongs to the best team for CIT261
+		<br>copyright 2018 &#174;</h6></div>
+    </footer>
+      
     </body>
 </html>
