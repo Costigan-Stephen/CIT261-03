@@ -1,5 +1,5 @@
 function getList(){
-	var myArray = ["Facebook", "Hotmail", "GMail", "BYUI"];
+	var myArray = ["Facebook", "Hotmail", "GMail", "BYUI"]; //Change this to the PHP values
 	
 	var result = makeTableHTML(myArray);
 	
@@ -8,14 +8,18 @@ function getList(){
 
 function makeTableHTML(myArray) {
     var result = "<table class=\"table\"><br><br>";
+	var tableStart = "";
+	var tableEnd = "";
 	
     for(var i=0; i < myArray.length; i++) {
         result += "<tr>";
-        
+		tableStart = "<td class=\"tableElm";
+		tableEnd = "id=\"list"+ i +"\" onclick=\"showTrash(trash"+ i +")\">"+myArray[i]+"<img class=\"trashHide\" align=\"right\" id=\"trash"+i+"\" onclick=\"delete(list"+ i +")\" src=\"images/trash.png\"></td>";
+		
 		if(i % 2 == 0) {
-           	result += "<td class=\"tableElmB\" onclick=\"showTrash(trash"+ i +")\">"+myArray[i]+"<img class=\"trashHide\" align=\"right\" id=\"trash"+i+"\" src=\"images/trash.png\"></td>";
+           	result += tableStart + "A\"" + tableEnd;
 		} else {
-			result += "<td class=\"tableElmA\" onclick=\"showTrash(trash"+ i +")\">"+myArray[i]+"<img class=\"trashHide\" align=\"right\" id=\"trash"+i+"\" src=\"images/trash.png\"></td>";
+			result += tableStart + "B\"" + tableEnd;
 		}
         
         result += "</tr>";
