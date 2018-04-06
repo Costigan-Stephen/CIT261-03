@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/main.css">
+        <script src="js/listFunctions.js" type="text/javascript"></script>
+        <script type="text/javascript">window.onload = getList;</script>
     </head>
     
 <body>
@@ -20,18 +22,7 @@
     </header>
     <div class="containerSch">Search &nbsp; <input type="text" name="search"> &nbsp;&nbsp; <img src="images/searchw.png" onclick="" alt="logo" width="10" height="10" ></div>
     <div class="containerList">Profile Name</div>
-	<table class="table">
-    <br><br>
-          <tr>
-            <td class="tableElmB">Profile 1</td>
-          </tr>
-          <tr>
-            <td class="tableElmA">Profile 2</td>
-          </tr>
-          <tr>
-            <td class="tableElmB">Etc</td>
-          </tr>
-        </table>
+    <div id="outputDiv"></div>
 	<br>
     <footer>
         <div align="center" class="footer"><h6 class="hcolor">This app belongs to the best team for CIT261
