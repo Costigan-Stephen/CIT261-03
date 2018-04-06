@@ -1,5 +1,5 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=misstyle_todo';
+    $dsn = 'mysql:host=localhost;dbname=passwordsApp';
     //$username = 'misstyle_iAdmin';
     //$password = 'K)q?RyOb*}^X';
     $username = 'rootroot';
