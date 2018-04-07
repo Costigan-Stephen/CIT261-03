@@ -47,42 +47,15 @@
 	
 <script>
 function login() {
-	import java.util.Scanner;
-
-	public class LoginMain {
-
-		public static void main(String[] args) {
-
-			String Username;
-			String Password;
-
-			Password = "cit261user";
-			Username = "Winter2018";
-
-			Scanner input1 = new Scanner(System.in);
-			System.out.println("Enter Username : ");
-			String username = input1.next();
-
-			Scanner input2 = new Scanner(System.in);
-			System.out.println("Enter Password : ");
-			String password = input2.next();
-
-			if (username.equals(Username) && password.equals(Password)) {
-
-			System.out.println("Access Granted! Welcome!");
-			window.location.href="ProfileList.html";	
-			}
-
-			else if (username.equals(Username)) {
-				System.out.println("Invalid Password!");
-			} else if (password.equals(Password)) {
-				System.out.println("Invalid Username!");
-			} else {
-			 System.out.println("Invalid Username & Password!");
-			}
-
-		}
-
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	if ( username == "cit261user" && password == "Winter2018"){
+		alert ("Login successfully");
+		window.location = "ProfileList.html"; 
+		return false;
+	}
+	else{
+	 document.write("Invalid credentials. Please try again using login instructions.");
 	}
 }
 </script>
