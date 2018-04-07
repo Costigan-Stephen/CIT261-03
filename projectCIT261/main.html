@@ -18,7 +18,7 @@
 					<h4>Username:
 					<input type="text" id="username" size="20"></h4>
 					<h4>Password:
-					<input type="text" id="password"></h4> 
+					<input type="password" id="password"></h4> 
 					<input type="button" class="Fullbutton" onclick="loadXMLDoc()" value="GET LOGIN INSTRUCTIONS"><br>
 					<p></p>
 					<input type="button" class="Fullbutton" onclick="login()" value="LOGIN"/><br>
@@ -47,14 +47,14 @@
 	
 <script>
 function login() {
-	var username = document.getElementById("username").innerHTML;
-	var password = document.getElementById("password").innerHTML;
+	var username = document.getElementById('username').value;
+	var password = document.getElementById('password').value;
 	if ( username == "cit261user" && password == "Winter2018"){
 		alert ("Login successfully");
 		window.location = "ProfileList.html"; 
 	}
 	else{
-	 document.write("Invalid credentials. Please try again using login instructions.");
+	 	alert("Invalid credentials. Please try again using login instructions.");
 	}
 }
 </script>
