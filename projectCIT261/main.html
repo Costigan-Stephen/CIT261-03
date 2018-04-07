@@ -56,8 +56,8 @@ function login() {
 			String Username;
 			String Password;
 
-			Password = "123";
-			Username = "wisdom";
+			Password = "cit261user";
+			Username = "Winter2018";
 
 			Scanner input1 = new Scanner(System.in);
 			System.out.println("Enter Username : ");
@@ -70,6 +70,7 @@ function login() {
 			if (username.equals(Username) && password.equals(Password)) {
 
 			System.out.println("Access Granted! Welcome!");
+			window.location.href="ProfileList.html";	
 			}
 
 			else if (username.equals(Username)) {
