@@ -1,23 +1,34 @@
 <?php include '../view/header.php'; ?>
-//update with our database information
 <main>
-    <h1>Edit task</h1>
-    <form action="index.php" method="post" id="edit_task_form">
-        <input type="hidden" name="action" value="edit_task">
+    <h1>Edit Profile</h1>
+    <form action="index.php" method="post" id="edit_profile_form">
+        <input type="hidden" name="action" value="edit_profile">
 
-        <label>Name:</label>
-        <input type="text" name="name" value="<?php echo $task['taskName']; ?>" required/>
+        <label>Profile Name:</label>
+        <input type="text" name="ProfileName" value="<?php echo $profiles['ProfileName']; ?>" required/>
         <br>
 
-        <label>Notes:</label>
-        <input type="text" name="notes" value="<?php echo $task['taskNotes']; ?>" required/>
+        <label>Username:</label>
+        <input type="text" name="Username" value="<?php echo $profiles['Username']; ?>" required/>
         <br>
 
-        <label>List time:</label>
-        <input type="text" name="time" value="<?php echo $task['taskTime']; ?>" required/>
+        <label>Password:</label>
+        <input type="text" name="Password" value="<?php echo $profiles['Password']; ?>" required/>
         <br>
         
-        <input type="hidden" name="task_id" value="<?php echo $task['taskID']; ?>" required/>
+        <label>Email:</label>
+        <input type="text" name="Email" value="<?php echo $profiles['Email']; ?>" required/>
+        <br>
+        
+        <label>Notes:</label>
+        <input type="text" name="Notes" value="<?php echo $profiles['Notes']; ?>" required/>
+        <br>
+        
+        <label>Account ID:</label>
+        <input type="text" name="Account_accountID" value="<?php echo $profiles['Account_accountID']; ?>" required/>
+        <br>
+        
+        <input type="hidden" name="ProfileID" value="<?php echo $profiles['ProfileID']; ?>" required/>
 
         <label>&nbsp;</label>
         <input type="submit" value="Save Changes"/>
@@ -25,7 +36,7 @@
         <br>
     </form>
     <p class="last_paragraph">
-        <a href="index.php?action=list_tasks">View task List</a>
+        <a href="index.php?action=list_profiles">View Profile List</a>
     </p>
 
 </main>

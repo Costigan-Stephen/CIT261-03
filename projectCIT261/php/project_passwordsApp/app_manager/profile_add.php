@@ -1,30 +1,40 @@
 <?php include '../view/header.php'; ?>
-//update with our database information
 <main>
     <h1>Add task</h1>
-    <form action="index.php" method="post" id="add_task_form">
-        <input type="hidden" name="action" value="add_task">
+    <form action="index.php" method="post" id="add_profile_form">
+        <input type="hidden" name="action" value="add_profile">
         
-    
-        <label>Name:</label>
-        <input type="text" name="name" required/>
+    	<label>Profile Name:</label>
+        <input type="text" name="ProfileName" required/>
         <br>
 
+        <label>Username:</label>
+        <input type="text" name="Username" required/>
+        <br>
+
+        <label>Password:</label>
+        <input type="text" name="Password" required/>
+        <br>
+        
+        <label>Email:</label>
+        <input type="text" name="Email" required/>
+        <br>
+        
         <label>Notes:</label>
-        <input type="text" name="notes" required/>
+        <input type="text" name="Notes" required/>
         <br>
-
-        <label>List time:</label>
-        <input type="text" name="time" required/>
+        
+        <label>Account ID:</label>
+        <input type="text" name="Account_accountID" required/>
         <br>
-
+       
         <label>&nbsp;</label>
-        <input type="submit" value="Add task"/>
+        <input type="submit" value="Add profile"/>
         
         <br>
     </form>
-    <p class="last_paragraph">
-        <a href="index.php?action=list_tasks">View task List</a>
+    <p>
+        <a href="index.php?action=list_profiles">View Profile List</a>
     </p>
 
 </main>

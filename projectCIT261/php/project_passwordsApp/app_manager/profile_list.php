@@ -1,42 +1,45 @@
 <?php include '../view/header.php'; ?>
-//update with our database information
 <main>
-    <h1>To-Do List</h1>
+    <h1>Profile List</h1>
 
     <section>
-        <!-- display a table of tasks -->
+        <!-- display a table of profiles -->
         <table>
             <tr>
-                <th>Task</th>
+                <th>Profile ID</th>
+                <th>Profile Name</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Email</th>
                 <th>Notes</th>
-                <th class="right">Time</th>
+                <th>Account ID</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
-            <?php foreach ($tasks as $task) : ?>
+            <?php foreach ($profiles as $profile) : ?>
             <tr>
-                <td><?php echo $task['taskName']; ?></td>
-                <td><?php echo $task['taskNotes']; ?></td>
-                <td class="right"><?php echo $task['taskTime']; ?></td>
+                <td><?php echo $profile['ProfileName']; ?></td>
+                <td><?php echo $profile['Username']; ?></td>
+                <td><?php echo $profile['Password']; ?></td>
+                <td><?php echo $profile['Email']; ?></td>
+                <td><?php echo $profile['Notes']; ?></td>
+                <td><?php echo $profile['AccountID']; ?></td>
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
-                           value="delete_task">
-                    <input type="hidden" name="task_id"
-                           value="<?php echo $task['taskID']; ?>">
-                    <input type="submit" value="Complete" class='complete'>
+                           value="delete_profile">
+                    <input type="hidden" name="ProfileID"
+                           value="<?php echo $profile['ProfileID']; ?>">
                 </form></td> 
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
-                           value="edit_task_form">
-                    <input type="hidden" name="task_id"
-                           value="<?php echo $task['taskID']; ?>">
+                           value="edit_profile_form">
+                    <input type="hidden" name="ProfileID"
+                           value="<?php echo $profile['ProfileID']; ?>">
                     <input type="submit" value="Edit" class='edit'>
                 </form></td> 
             </tr>
             <?php endforeach; ?>
         </table>
-        <p><a href="?action=show_add_form">Add task</a></p> 
-        <p><a href="?action=view_completed_tasks">View Completed Tasks</a></p>     
-    </section>
+        <p><a href="?action=show_add_form">Add profile</a></p> 
 </main>
 <?php include '../view/footer.php'; ?>

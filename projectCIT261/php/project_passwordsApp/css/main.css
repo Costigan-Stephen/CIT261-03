@@ -1,0 +1,291 @@
+body {
+    background-color: #ccffcc;
+}
+
+.bodyNav {
+    background-color: #ccffcc;
+	padding-top: 40px;
+	position: relative;
+}
+
+.bodyList {
+    background-color: #e6e6e6;
+}
+
+header{
+	height: 4.5em;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10000;
+	z-index: 10001;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+.Fullbutton {
+	-webkit-appearance: none; /* Prevent change of buttons on iOS */
+    background-color: #004020; /* Dark Green */
+    border: none;
+    color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 30px;
+	padding-left: 30px;
+	width:  80%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	text-transform: uppercase;
+	font-size: 0.6em;
+}
+
+.button {
+	-webkit-appearance: none; /* Prevent change of buttons on iOS */
+    background-color: #004020; /* Dark Green */
+    border: none;
+    color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 30px;
+	padding-left: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	text-transform: uppercase;
+	font-size: 0.6em;
+}
+
+.container{
+	background-color: #e6ffe6;
+	padding: 10px 30px;
+}
+
+.containerList{
+	position: fixed;
+    left: 0px;
+    top: 85px;
+    width: 100%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+    background-color: #498327;
+    color: white;
+    text-align: center;
+	display: inline-block;
+	z-index: 10000;
+	z-index: 10001;
+}
+
+.containerSch{
+	position: fixed;
+    left: 0px;
+    top: 48px;
+    width: 100%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+    background-color: #484848;
+    color: white;
+    text-align: center;
+	display: inline-block;
+	z-index: 10000;
+	z-index: 10001;
+}
+
+/* Table slot Background */
+.tableSlot {
+    background-color: #dddddd;
+    list-style-type: none;
+    text-align: Left;
+	padding-top: -20px;
+	padding-bottom: -20px;
+	padding-right: -30px;
+	padding-left: -	30px;
+}
+
+/* Table variation 1 */
+.tableElmA {
+    background-color: #adebad;
+    list-style-type: none;
+    margin: 0px;
+    padding: 15px;
+    text-align: Left;
+}
+
+/* Swipe gestures */
+.tableElmAHide {
+	width: 80%;
+    background-color: #adffad;
+    list-style-type: none;
+    margin: 0px;
+    padding: 15px;
+    text-align: Left;
+}
+
+/* Table variation 2 */
+.tableElmB {
+    background-color: #c1f0c1;
+    list-style-type: none;
+    margin: 0px;
+    padding: 15px;
+    text-align: Left;
+}
+
+/* Swipe gestures */
+.tableElmBHide {
+	width: 80%;
+    background-color: #c1ffc1;
+    list-style-type: none;
+    margin: 0px;
+    padding: 15px;
+    text-align: Left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #484848;
+	font-weight: 700;
+	line-height: 1em;
+	margin: 0 0 1em 0;
+	text-transform: uppercase;
+}
+
+h5 {
+	font-size: 0.9em;
+	line-height: 1.5em;
+}
+
+h6 {
+	font-size: 0.7em;
+	line-height: 1.5em;
+}
+
+.hcolor {
+	color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: #333;
+	position: fixed;
+    top: 0px;
+    width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style the list (remove margins and bullets, etc) */
+.ulTop {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style the list items */
+ul li {
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+}
+
+/* Add a light grey background color on hover */
+ul li:hover {
+	background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+	font-family: verdana;
+    font-size: 16px;
+	display: block;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	padding-top: 16px;
+	padding-bottom: 14px;
+	padding-right: 16px;
+	padding-left: 16px;
+	left: 0px;
+	top: 0px;
+	width: auto;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+.footer{
+	position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+	padding-top: 10px;
+    background-color: #313131;
+    color: white;
+    text-align: center;
+}
+
+.table{
+	top: 120px;
+	width: 100%;
+	left: 0px;
+	position: fixed;
+	border-collapse: collapse;
+}
+
+tr {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+tr td {
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+}
+
+tr td:hover {
+  background-color: #80ff80;
+}
+
+
+.trash{
+	width: 20px;
+    height: 20px;
+	vertical-align: middle;
+}
+
+/* Swipe gestures */
+.trashHide{
+	width: 0px;
+    height: 0px;
+	vertical-align: middle;
+}

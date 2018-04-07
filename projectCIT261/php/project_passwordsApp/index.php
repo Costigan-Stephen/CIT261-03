@@ -1,4 +1,4 @@
-<?php include 'view/header.php'; ?>
+<?php include '/project_passwordsApp/view/header.php'; ?>
 <main>
     <ul>
         <li>
@@ -6,4 +6,4 @@
         </li>
     </ul>
 </main>
-<?php include 'view/footer.php'; ?>
+<?php include '/project_passwordsApp/view/footer.php'; ?>

@@ -1,9 +1,7 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=passwordsApp';
-    //$username = 'misstyle_iAdmin';
-    //$password = 'K)q?RyOb*}^X';
-    $username = 'rootroot';
-    $password = 'rootroot';
+    $dsn = 'mysql:host=localhost;dbname=misstyle_passwordsApp';
+    $username = 'misstyle_roots';
+    $password = 'roots';
 
     try {
         $db = new PDO($dsn, $username, $password);
