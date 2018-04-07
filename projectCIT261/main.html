@@ -47,8 +47,8 @@
 	
 <script>
 function login() {
-	var username = document.getElementById("username").value;
-	var password = document.getElementById("password").value;
+	var username = document.getElementById("username").innerHTML;
+	var password = document.getElementById("password").innerHTML;
 	if ( username == "cit261user" && password == "Winter2018"){
 		alert ("Login successfully");
 		window.location = "ProfileList.html"; 
