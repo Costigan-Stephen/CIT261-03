@@ -1,5 +1,5 @@
 function getList(){
-	var myArray = ["Facebook", "Hotmail", "GMail", "BYUI"]; //Change this to the PHP values
+	var myArray = ["Facebook", "Hotmail", "GMail", "BYUI"]; 
 	var result = makeTableHTML(myArray);
 	document.getElementById('outputDiv').innerHTML = result;
 }
