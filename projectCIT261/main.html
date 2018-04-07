@@ -45,39 +45,46 @@
 		}	
 	</script>
 	
-	<script>
-		function login() {
-			String pass;
-			String user;
-			user = txtUser.getText();
-			pass = txtPass.getText();
+<script>
+function login() {
+	import java.util.Scanner;
 
-			if(pass.equals("Winter2018") && user.equals("cit261user") ){
-    			lblDisplay.setText("Credentials Accepted.");
+	public class LoginMain {
+
+		public static void main(String[] args) {
+
+			String Username;
+			String Password;
+
+			Password = "123";
+			Username = "wisdom";
+
+			Scanner input1 = new Scanner(System.in);
+			System.out.println("Enter Username : ");
+			String username = input1.next();
+
+			Scanner input2 = new Scanner(System.in);
+			System.out.println("Enter Password : ");
+			String password = input2.next();
+
+			if (username.equals(Username) && password.equals(Password)) {
+
+			System.out.println("Access Granted! Welcome!");
 			}
-			else{
-    			lblDisplay.setText("Please try again.");
-			}  
 
-			import java.util.Scanner;
-
-
-   			Scanner scan = new Scanner (new File("the\\dir\\ProfileList.html"));
-    			Scanner keyboard = new Scanner (System.in);
-    			String user = scan.nextLine();
-    			String pass = scan.nextLine(); 
-
-    			String inpUser = keyboard.nextLine();
-    			String inpPass = keyboard.nextLine();
-
-    			if (inpUser.equals(user) && inpPass.equals(pass)) {
-        		System.out.print("Credentials Accepted");
-    			} else {
-       			  System.out.print("Please try again.");
-   			}	
+			else if (username.equals(Username)) {
+				System.out.println("Invalid Password!");
+			} else if (password.equals(Password)) {
+				System.out.println("Invalid Username!");
+			} else {
+			 System.out.println("Invalid Username & Password!");
+			}
 
 		}
-	</script>
+
+	}
+}
+</script>
 	    
     <footer>
         <div align="center" class="footer"><h6 class="hcolor">This app belongs to the best team for CIT261
