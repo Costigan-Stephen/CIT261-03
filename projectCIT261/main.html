@@ -18,15 +18,30 @@
 					<h4>Username:
 					<input type="text" name="username" size="20"></h4>
 					<h4>Password:
-					<input type="text" name="password"></h4>    
-					<input type="button" class="Fullbutton" onclick="" value="SUBMIT"><br>
+					<input type="text" name="password"></h4> 
+					<input type="button" class="Fullbutton" onclick="loadXMLDoc()" value="GET LOGIN INSTRUCTIONS"><br>
+					<input type="button" class="Fullbutton" onclick="Profilelist.html" value="LOGIN"><br>
 				</form>
 				
 				<br>
 				<h5><a href="signup.html">Sign Up</a> &nbsp;&nbsp;&nbsp; <a href="Recovery.html">Password Recovery</a></h5>
             </div>
         </div>
-		
+	<p id="instructions"></p>
+
+	<script>
+		function loadXMLDoc() {
+  		var xhttp = new XMLHttpRequest();
+ 		xhttp.onreadystatechange = function() {
+    		if (this.readyState == 4 && this.status == 200) {
+      			document.getElementById("instructions").innerHTML =
+      			this.responseText;
+    			}
+  		};
+  		xhttp.open("GET", "instructions.txt", true);
+ 		xhttp.send();
+		}	
+	</script>
     <footer>
         <div align="center" class="footer"><h6 class="hcolor">This app belongs to the best team for CIT261
 	<br>copyright 2018 &#174;</h6></div>
