@@ -1,0 +1,3 @@
+To login, use these credentials:
+Username= cit261user
+Password= Winter2018
