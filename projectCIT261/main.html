@@ -21,7 +21,7 @@
 					<input type="text" name="password"></h4> 
 					<input type="button" class="Fullbutton" onclick="loadXMLDoc()" value="GET LOGIN INSTRUCTIONS"><br>
 					<p></p>
-					<input type="button" class="Fullbutton" onclick="window.location.href='ProfileList.html'" value="LOGIN"/><br>
+					<input type="button" class="Fullbutton" onclick="login()" value="LOGIN"/><br>
 		
 				</form>
 				
@@ -44,6 +44,41 @@
  		xhttp.send();
 		}	
 	</script>
+	
+	<script>
+		function login() {
+			String pass;
+			String user;
+			user = txtUser.getText();
+			pass = txtPass.getText();
+
+			if(pass.equals("Winter2018") && user.equals("cit261user") ){
+    			lblDisplay.setText("Credentials Accepted.");
+			}
+			else{
+    			lblDisplay.setText("Please try again.");
+			}  
+
+			import java.util.Scanner;
+
+
+   			Scanner scan = new Scanner (new File("the\\dir\\ProfileList.html"));
+    			Scanner keyboard = new Scanner (System.in);
+    			String user = scan.nextLine();
+    			String pass = scan.nextLine(); 
+
+    			String inpUser = keyboard.nextLine();
+    			String inpPass = keyboard.nextLine();
+
+    			if (inpUser.equals(user) && inpPass.equals(pass)) {
+        		System.out.print("Credentials Accepted");
+    			} else {
+       			  System.out.print("Please try again.");
+   			}	
+
+		}
+	</script>
+	    
     <footer>
         <div align="center" class="footer"><h6 class="hcolor">This app belongs to the best team for CIT261
 	<br>copyright 2018 &#174;</h6></div>
