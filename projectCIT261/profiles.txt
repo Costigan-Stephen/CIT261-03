@@ -1,0 +1,20 @@
+{
+  "profiles" : [
+    { 
+      "Facebook" : "jacksonavery@gmail.com",
+      "jacksonavery" : "ilovefacebook"
+      },
+    { 
+      "Hotmail" : "janesmith@hotmail.com",
+      "janesmith" : "54321"
+      },
+    { 
+      "Gmail" : "johndoe@gmail.com",
+      "johndoe" : "12345" 
+      },
+    { 
+      "BYUI" : "student@byui.edu",
+      "student" : "schoolrocks"
+      }
+  ]
+}
