@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `passwordsApp`.`Account` (
   `accountID` INT NOT NULL AUTO_INCREMENT,
   `masterUsername` VARCHAR(20) NOT NULL,
   `masterPassword` VARCHAR(20) NOT NULL,
-  `recoveryQ1` VARCHAR(20) NULL,
+  `recoveryQuestion1` VARCHAR(20) NULL,
   `recoveryAnswer1` VARCHAR(20) NULL,
   `recoveryQuestion2` VARCHAR(20) NULL,
   `recoveryAnswer2` VARCHAR(20) NULL,
