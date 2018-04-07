@@ -1,7 +1,16 @@
 function getList(){
-	var myArray = ["Facebook", "Hotmail", "GMail", "BYUI"]; 
+	var myArray = readJson(); //Change this to the PHP values
 	var result = makeTableHTML(myArray);
 	document.getElementById('outputDiv').innerHTML = result;
+}
+
+function readJson(){
+	var mydata = JSON.parse(data);
+	var array = [];
+	
+	for(var i=0; i < Object.keys(data).length; i++) {
+        array[i] = mydata.id[i];
+    }
 }
 
 function makeTableHTML(myArray) {
@@ -32,5 +41,18 @@ function showTrash(x) {
 		x.className = "trashHide";
 	}else if(x.className == "trashHide"){
 		x.className = "trash";
+	}
+}
+
+function swipeList(x) {
+	// Hide/Show trash icon after swipe
+	if (x.className == "tableElmA"){
+		x.className = "tableElmAHide";
+	}else if(x.className == "tableElmAHide"){
+		x.className = "tableElmA";
+	}else if (x.className == "tableElmB"){
+		x.className = "tableElmBHide";
+	}else if(x.className == "tableElmBHide"){
+		x.className = "tableElmB";
 	}
 }
