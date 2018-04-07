@@ -1,20 +1,32 @@
 {
   "profiles" : [
     { 
-      "Facebook" : "jacksonavery@gmail.com",
-      "jacksonavery" : "ilovefacebook"
+      "id"  : "Facebook",
+      "user" : "jacksonavery@gmail.com",
+      "pass" : "ilovefacebook",
+      "email" : "jacksonavery@gmail.com",
+      "notes" : ""
       },
     { 
-      "Hotmail" : "janesmith@hotmail.com",
-      "janesmith" : "54321"
+      "id"  : "Hotmail",
+      "user" : "janesmith@hotmail.com",
+      "pass" : "janesmith54321",
+      "email" : "janesmith@hotmail.com",
+      "notes" : ""
       },
     { 
-      "Gmail" : "johndoe@gmail.com",
-      "johndoe" : "12345" 
+      "id"  : "Gmail",
+      "user" : "johndoe@gmail.com",
+      "pass" : "johndoe12345",
+      "email" : "johndoe@gmail.com",
+      "notes" : ""
       },
     { 
-      "BYUI" : "student@byui.edu",
-      "student" : "schoolrocks"
+      "id"  : "BYUI",
+      "user" : "student",
+      "pass" : "letsStudyCIT261",
+      "email" : "student@byui.edu",
+      "notes" : ""
       }
   ]
 }
