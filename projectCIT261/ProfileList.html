@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/main.css">
-        <script type="text/javascript">window.onload = getList;</script>
+        <script type="text/javascript">window.onload = init;</script>
 	<script src="addprofiles.js"></script>
     </head> 
 <body>  
@@ -18,25 +18,7 @@
 		</ul>
         </div>
     </header>
-	
-    <script>
-	function getProfileData() {
-    			var request = new XMLHttpRequest();
-    			request.open("GET", "listFunctions.js");
-   		request.onreadystatechange = function() {
-        		if (this.readyState == this.DONE && this.status == 200) {
-            			if (this.responseText) { 
-                		parseProfileItems(this.responseText);
-                		addProfilesToPage();
-            			}
-            			else {
-                		console.log("Error: Data is empty");
-            			}
-       			 }
-   		 };
-    	request.send();
-	}
-    </script>
+
     <div class="containerSch">Search &nbsp; <input type="text" name="search"> &nbsp;&nbsp; <img src="images/searchw.png" onclick="" alt="logo" width="10" height="10" ></div>
     <div class="containerList">Profile Name</div>
     <div id="outputDiv"></div>
