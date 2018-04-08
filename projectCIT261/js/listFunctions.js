@@ -1,9 +1,21 @@
 function startup(){
-	var myArray = readJson(); 
+	var data = loadDoc();
+	var array = JSON.parse(data);
 	var result = makeTableHTML(myArray);
 	document.getElementById('outputDiv').innerHTML = result;
 }
-		
+
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "profiles.txt", true);
+  xhttp.send();
+}
+
 function readTextFile(file, callback) {
 	var rawFile = new XMLHttpRequest();
 	rawFile.overrideMimeType("application/json");
@@ -14,20 +26,6 @@ function readTextFile(file, callback) {
 		}
 	}
 	rawFile.send(null);
-}
-
-	//usage:
-function readJson(){
-	readTextFile("profiles.json", function(text){
-		var data = JSON.parse(text);
-		console.log(data);
-	});
-				
-	var array = [];
-				
-	for(var i=0; i < Object.keys(data).length; i++) {
-		array[i] = mydata.id[i];
-	}
 }
 
 function makeTableHTML(myArray) {
