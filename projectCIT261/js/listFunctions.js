@@ -6,26 +6,24 @@ function startup(){
 }
 
 function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("demo").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "profiles.txt", true);
-  xhttp.send();
-}
+	var xhr;
+	if (window.XMLHttpRequest) xhr = new XMLHttpRequest(); 		// all browsers except IE
+	else xhr = new ActiveXObject("Microsoft.XMLHTTP"); 		// for IE
 
-function readTextFile(file, callback) {
-	var rawFile = new XMLHttpRequest();
-	rawFile.overrideMimeType("application/json");
-	rawFile.open("GET", file, true);
-	rawFile.onreadystatechange = function() {
-		if (rawFile.readyState === 4 && rawFile.status == "200") {
-			callback(rawFile.responseText);
+	xhr.open('GET', 'profiles.json', false);
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState===4 && xhr.status===200) {			
+			var items = JSON.parse(xhr.responseText);
+			var output = '<ul>';
+			for (var key in items) {
+				output += '<li>' + items[key].name + '</li>';
+			}
+			output += '</ul>';
+			document.getElementById('update').innerHTML = output;
 		}
 	}
-	rawFile.send(null);
+	xhr.send();
+	return xhr;
 }
 
 function makeTableHTML(myArray) {
