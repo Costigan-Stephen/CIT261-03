@@ -4,7 +4,6 @@ function Profile(profile, user, password, email, notes) {
     this.password = password;
     this.email = email;
     this.notes = notes;
-    this.done = false;
 }
 
 var profiles = new Array();
