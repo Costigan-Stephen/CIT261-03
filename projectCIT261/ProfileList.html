@@ -19,6 +19,25 @@
 		</ul>
         </div>
     </header>
+	
+    <script>
+	function getProfileData() {
+    			var request = new XMLHttpRequest();
+    			request.open("GET", "profiles.json");
+   		request.onreadystatechange = function() {
+        		if (this.readyState == this.DONE && this.status == 200) {
+            			if (this.responseText) { 
+                		parseProfileItems(this.responseText);
+                		addProfilesToPage();
+            			}
+            			else {
+                		console.log("Error: Data is empty");
+            			}
+       			 }
+   		 };
+    	request.send();
+	}
+    </script>
     <div class="containerSch">Search &nbsp; <input type="text" name="search"> &nbsp;&nbsp; <img src="images/searchw.png" onclick="" alt="logo" width="10" height="10" ></div>
     <div class="containerList">Profile Name</div>
     <div id="outputDiv"></div>
