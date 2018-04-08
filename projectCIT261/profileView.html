@@ -17,20 +17,31 @@
         </div>
         </header>
 	<h3>Add a new profile to your account:</h3>
+	    <ul id="profileList">
+	    </ul>
         <div class="container" align="left">
         <form>
             <h4>Profile Name:<br>
-            <input type="text" name="profile"></h4>
+	    	<label for="profile">Profile Name: </label>
+            <input type="text" id="profile" name="profile"></h4>
+		
             <h4>Username:<br>
-            <input type="text" name="user"></h4>
+		    <label for="user">Username: </label>
+            <input type="text"id="user" name="user"></h4>
+		
             <h4>Password:<br>
-            <input type="text" name="password"></h4>
+		    <label for="password">Password: </label>
+            <input type="text" id="password" name="password"></h4>
+		
             <h4>eMail:<br>
-            <input type="text" name="email"></h4>
-          <h4>Notes:<br>
-            <textarea rows="4" cols="40"></textarea></h4><br> 
-    <div align="center"><input type="submit" class="Fullbutton" value="Save"></div>
-           
+		    <label for="email">Email: </label>
+            <input type="text" id="email" name="email"></h4>
+		
+            <h4>Notes:<br>
+		  <label for="notes">Notes: </label>
+            <textarea rows="4" cols="40" id="notes"></textarea></h4><br> 
+		
+            <div align="center"><input type="submit" class="Fullbutton" value="Save"></div>    
         </form>
         </div>
         <br>
