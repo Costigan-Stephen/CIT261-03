@@ -17,9 +17,9 @@ function readTextFile(file, callback) {
 }
 
 	//usage:
-	function readJson(){
-		readTextFile("profiles.json", function(text){
-	var data = JSON.parse(text);
+function readJson(){
+	readTextFile("profiles.json", function(text){
+		var data = JSON.parse(text);
 		console.log(data);
 	});
 				
