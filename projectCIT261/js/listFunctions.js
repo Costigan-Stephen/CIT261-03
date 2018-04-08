@@ -1,29 +1,31 @@
-function startup(){
+document.addEventListener("DOMContentLoaded", function startup(){
 	var data = loadDoc();
 	var array = JSON.parse(data);
 	var result = makeTableHTML(myArray);
 	document.getElementById('outputDiv').innerHTML = result;
-}
+});
 
 function loadDoc() {
 	var xhr;
+	async: true;
+	
+	xhr = new XMLHttpRequest();
+	/*
 	if (window.XMLHttpRequest) xhr = new XMLHttpRequest(); 		// all browsers except IE
 	else xhr = new ActiveXObject("Microsoft.XMLHTTP"); 		// for IE
-
+	*/
 	xhr.open('GET', 'profiles.json', false);
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState===4 && xhr.status===200) {			
 			var items = JSON.parse(xhr.responseText);
-			var output = '<ul>';
+			var array = [];
 			for (var key in items) {
-				output += '<li>' + items[key].name + '</li>';
+				array[key] = items[key].id;
 			}
-			output += '</ul>';
-			document.getElementById('update').innerHTML = output;
+			return array;
 		}
 	}
 	xhr.send();
-	return xhr;
 }
 
 function makeTableHTML(myArray) {
