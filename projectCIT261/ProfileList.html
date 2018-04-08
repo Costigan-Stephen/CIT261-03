@@ -5,8 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/main.css">
-        <script type="text/javascript" src="profiles.json"></script>
-        <script type="text/javascript">window.onload = init;</script>
+        <script type="text/javascript">window.onload = getList;</script>
 	<script src="addprofiles.js"></script>
     </head> 
 <body>  
@@ -23,7 +22,7 @@
     <script>
 	function getProfileData() {
     			var request = new XMLHttpRequest();
-    			request.open("GET", "profiles.json");
+    			request.open("GET", "listFunctions.js");
    		request.onreadystatechange = function() {
         		if (this.readyState == this.DONE && this.status == 200) {
             			if (this.responseText) { 
