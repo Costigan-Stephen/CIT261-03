@@ -45,7 +45,7 @@ function parseProfileItems(profilesJSON) {
     }
     for (var i = 0; i < profilesArray.length; i++) {
         var profileItem = profilesArray[i];
-        profile.push(profileItem);
+        profiles.push(profileItem);
     }
 }
 
