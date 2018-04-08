@@ -1,3 +1,11 @@
+function Profile(profile, user, password, email, notes) {
+    this.profile = profile;
+    this.user = user;
+    this.password = password;
+    this.email = email;
+    this.notes = notes;
+    this.done = false;
+}
 
 var profiles = new Array();
 
@@ -69,6 +77,9 @@ function getFormData() {
     if (checkInputText(notes, "Please enter any notes you will need concerning this profile.")) return;
   
     console.log("New profile: " + profile + user + password + email + notes);
+    var profileItem = new Profile(profile, user, password, email, notes);
+    profiles.push(profileItem);
+    addProfileToPage(profileItem);
 }
 
 function checkInputText(value, msg) {
@@ -77,4 +88,13 @@ function checkInputText(value, msg) {
         return true;
     }
     return false;
-}         
+}  
+
+function addProfileToPage(profileItem) {
+    var ul = document.getElementById("profileList");
+    var li = document.createElement("li");
+    li.innerHTML =
+        profileItem.profile + profileItem.user + profileItem.password + profileItem.email + profileItem.notes;
+    ul.appendChild(li);
+    document.forms[0].reset();
+}
