@@ -80,6 +80,7 @@ function getFormData() {
     var profileItem = new Profile(profile, user, password, email, notes);
     profiles.push(profileItem);
     addProfileToPage(profileItem);
+    saveProfileData();
 }
 
 function checkInputText(value, msg) {
@@ -97,4 +98,14 @@ function addProfileToPage(profileItem) {
         profileItem.profile + profileItem.user + profileItem.password + profileItem.email + profileItem.notes;
     ul.appendChild(li);
     document.forms[0].reset();
+}
+
+function saveProfileData() {
+    var profilesJSON = JSON.stringify(profiles);
+    var request = new XMLHttpRequest();
+    var URL = "save.php?data=" + encodeURI(profilesJSON);
+    request.open("GET", URL);
+    request.setRequestHeader("Content-Type",
+                             "text/plain;charset=UTF-8");
+    request.send();
 }
