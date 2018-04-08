@@ -1,16 +1,33 @@
-function getList(){
-	var myArray = readJson(); //Change this to the PHP values
+function startup(){
+	var myArray = readJson(); 
 	var result = makeTableHTML(myArray);
 	document.getElementById('outputDiv').innerHTML = result;
 }
+		
+function readTextFile(file, callback) {
+	var rawFile = new XMLHttpRequest();
+	rawFile.overrideMimeType("application/json");
+	rawFile.open("GET", file, true);
+	rawFile.onreadystatechange = function() {
+		if (rawFile.readyState === 4 && rawFile.status == "200") {
+			callback(rawFile.responseText);
+		}
+	}
+	rawFile.send(null);
+}
 
-function readJson(){
-	var mydata = JSON.parse(data);
+	//usage:
+	function readJson(){
+		readTextFile("profiles.json", function(text){
+	var data = JSON.parse(text);
+		console.log(data);
+	});
+				
 	var array = [];
-	
+				
 	for(var i=0; i < Object.keys(data).length; i++) {
-        array[i] = mydata.id[i];
-    }
+		array[i] = mydata.id[i];
+	}
 }
 
 function makeTableHTML(myArray) {
