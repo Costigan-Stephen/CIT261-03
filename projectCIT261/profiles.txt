@@ -1,0 +1,32 @@
+{
+  "profiles" [
+    { 
+      "id"  : "Facebook",
+      "user" : "jacksonavery@gmail.com",
+      "pass" : "ilovefacebook",
+      "email" : "jacksonavery@gmail.com",
+      "notes" : ""
+      },
+    { 
+      "id"  : "Hotmail",
+      "user" : "janesmith@hotmail.com",
+      "pass" : "janesmith54321",
+      "email" : "janesmith@hotmail.com",
+      "notes" : ""
+      },
+    { 
+      "id"  : "Gmail",
+      "user" : "johndoe@gmail.com",
+      "pass" : "johndoe12345",
+      "email" : "johndoe@gmail.com",
+      "notes" : ""
+      },
+    { 
+      "id"  : "BYUI",
+      "user" : "student",
+      "pass" : "letsStudyCIT261",
+      "email" : "student@byui.edu",
+      "notes" : ""
+      }
+  ]
+}
