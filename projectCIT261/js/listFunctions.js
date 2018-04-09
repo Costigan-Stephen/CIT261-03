@@ -7,6 +7,13 @@ document.onload = function startup(){
 	}
 };
 
+function manualReset(){
+	var data = loadStorage();
+	//var array = JSON.parse(data);
+	var result = makeTableHTML(data);
+	document.getElementById('outputDiv').innerHTML = result;
+}
+
 function loadStorage() {
 	var obj = { 
 		"profiles" : [
