@@ -136,5 +136,5 @@ function Local() {
 	localStorage.setItem("key", data); 
 	
 	var test = localStorage.getItem("key");
-    document.getElementById('local').value = test;
+    document.getElementById('outputDiv').value = test;
 }	
