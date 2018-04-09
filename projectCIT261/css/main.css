@@ -52,14 +52,7 @@ p {
 	 transition: all 0.5s;
 }
 
-.Fullbutton span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.Fullbutton span:after {
+.Fullbutton:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -68,11 +61,11 @@ p {
   transition: 0.5s;
 }
 
-.Fullbutton:hover span {
+.Fullbutton:hover {
   padding-right: 25px;
 }
 
-.Fullbutton:hover span:after {
+.Fullbutton:hover:after {
   opacity: 1;
   right: 0;
 }
@@ -93,16 +86,10 @@ p {
 	text-transform: uppercase;
 	font-size: 0.6em;
 	cursor: pointer;
+	 transition: 0.5s;
 }
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
+.button:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -111,11 +98,11 @@ p {
   transition: 0.5s;
 }
 
-.button:hover span {
+.button:hover {
   padding-right: 25px;
 }
 
-.button:hover span:after {
+.button:hover:after {
   opacity: 1;
   right: 0;
 }
@@ -257,6 +244,8 @@ ul li {
   color: black;
   display: block;
   position: relative;
+	transition: all 0.5s;
+    cursor: pointer;
 }
 
 /* Add a light grey background color on hover */
@@ -284,6 +273,8 @@ li a {
 	left: 0px;
 	top: 0px;
 	width: auto;
+	transition: all 0.5s;
+    cursor: pointer;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -327,6 +318,8 @@ tr td {
   color: black;
   display: block;
   position: relative;
+	transition: all 0.5s;
+    cursor: pointer;
 }
 
 tr td:hover {
