@@ -1,4 +1,4 @@
-window.onload = function startup(){
+function startup(){
 	if (localStorage.profiles.id){
 		//nothing
 	}else{	
@@ -7,7 +7,7 @@ window.onload = function startup(){
 		var result = makeTableHTML(data);
 		document.getElementById('outputDiv').innerHTML = result;
 	}
-};
+}
 
 function manualReset(){
 	var data = loadStorage();
