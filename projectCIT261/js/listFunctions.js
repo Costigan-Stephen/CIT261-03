@@ -1,5 +1,7 @@
-document.onload = function startup(){
-	if (localStorage.profiles.id){	
+window.onload = function startup(){
+	if (localStorage.profiles.id){
+		//nothing
+	}else{	
 		var data = loadStorage();
 		//var array = JSON.parse(data);
 		var result = makeTableHTML(data);
