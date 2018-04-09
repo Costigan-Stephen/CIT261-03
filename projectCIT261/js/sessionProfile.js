@@ -19,7 +19,7 @@ function Start(){
 			document.getElementById('notes').value = localStorage[profiles[idN].notes];
 		}
 	}
-};
+}
 
 function loadStorage() {
 	
