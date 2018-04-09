@@ -1,12 +1,10 @@
 function Start(){
-	
-	if (localStorage.profiles.id){	
+	if (localStorage.profiles.id){
+		//nothing
+	}else{	
 		var data = loadStorage();
-
-	}else{
+		//var array = JSON.parse(data);
 		if (sessionStorage.id){
-			//Session storage is empty, do Nothing
-		}else{
 			var idN = sessionStorage[id];
 		
 			var test = [localStorage[profiles[idN].id],localStorage[profiles[idN].user],localStorage[profiles[idN].pass],localStorage[profiles[idN].email],localStorage[profiles[idN].notes]];
