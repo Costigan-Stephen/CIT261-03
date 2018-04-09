@@ -49,6 +49,7 @@ p {
 	text-transform: uppercase;
 	font-size: 0.6em;
 	cursor: pointer;
+	 transition: all 0.5s;
 }
 
 .Fullbutton span {
@@ -261,6 +262,8 @@ ul li {
 /* Add a light grey background color on hover */
 ul li:hover {
 	background-color: #333;
+	 transition: all 0.5s;
+	cursor: pointer;
 }
 
 li {
@@ -286,6 +289,8 @@ li a {
 /* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #111;
+    transition: all 0.5s;
+    cursor: pointer;
 }
 
 .footer{
@@ -326,6 +331,8 @@ tr td {
 
 tr td:hover {
   background-color: #80ff80;
+   transition: all 0.5s;
+   cursor: pointer;
 }
 
 
