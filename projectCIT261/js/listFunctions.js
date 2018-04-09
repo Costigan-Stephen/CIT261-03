@@ -126,7 +126,7 @@ function Local() {
   var data = document.getElementById('user').value;
 	localStorage.setItem("key", data); 
   
-  var data = document.getElementById('pass').value;
+  var data = document.getElementById('password').value;
 	localStorage.setItem("key", data); 
   
   var data = document.getElementById('email').value;
