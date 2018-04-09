@@ -44,7 +44,7 @@ function loadStorage() {
 			profile[2] = obj.profiles[2];
 			profile[3] = obj.profiles[3];
 		
-		localStorage.setItem("profiles", profile)	
+		localStorage.setItem("profiles", profile);	
 	}else{
 		var profile = localStorage["profiles"];
 	}
@@ -66,7 +66,7 @@ function makeTableHTML(myArray) {
     for(var i=0; i < myArray.length; i++) {
         result += "<tr>";
 		tableStart = "<td class=\"tableElm";
-		tableEnd = "id=\"list"+ i +"\" onclick=\"swipeList(list"+ i +")\">"+myArray[i]+"<img class=\"trashHide\" align=\"right\" id=\"trash"+i+"\" onclick=\"delete(list"+ i +")\" src=\"images/trash.png\"></td>";
+		tableEnd = "id=\"list"+ i +"\" draggable=\"true\" ondrag=\"swipeList(list"+ i +")\"  onclick=\"openProfile("+ i +")\">"+myArray[i]+"<img class=\"trashHide\" align=\"right\" id=\"trash"+i+"\" onclick=\"delete(list"+ i +")\" src=\"images/trash.png\"></td>";
 		
 		if(i % 2 == 0) {
            	result += tableStart + "A\"" + tableEnd;
@@ -79,6 +79,13 @@ function makeTableHTML(myArray) {
 	return result;
 }
 
+function openProfile(x) {
+	// Hide/Show trash icon after swipe
+	var profile = localStorage["profiles"];
+	sessionStorage.setItem("profiles", profile);	
+	window.location.href = 'profileView.html';
+	
+}
 
 function showTrash(x) {
 	// Hide/Show trash icon after swipe
@@ -87,17 +94,27 @@ function showTrash(x) {
 	}else if(x.className == "trashHide"){
 		x.className = "trash";
 	}
+	
 }
 
 function swipeList(x) {
+	
+	var filtered = parseInt(x);
+	
+	var img = "trash" + filtered;
+	
 	// Hide/Show trash icon after swipe
 	if (x.className == "tableElmA"){
 		x.className = "tableElmAHide";
+		//document.getElementById(img).classList.add('trashHide');
 	}else if(x.className == "tableElmAHide"){
 		x.className = "tableElmA";
+		//document.getElementById(img).classList.add('trash');
 	}else if (x.className == "tableElmB"){
 		x.className = "tableElmBHide";
+		//document.getElementById(img).classList.add('trashHide');
 	}else if(x.className == "tableElmBHide"){
 		x.className = "tableElmB";
+		//document.getElementById(img).classList.add('trash');
 	}
 }
