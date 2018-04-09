@@ -9,35 +9,35 @@ function loadStorage() {
 	if (window.localStorage.length){
 		var obj = { 
 			"profiles" : [
-				{ 
-					"id"  : "Facebook",
-					"user" : "jacksonavery@gmail.com",
-					"pass" : "ilovefacebook",
-					"email" : "jacksonavery@gmail.com",
-					"notes" : ""
-				},
-				{ 
-					"id"  : "Hotmail",
-					"user" : "janesmith@hotmail.com",
-					"pass" : "janesmith54321",
-					"email" : "janesmith@hotmail.com",
-					"notes" : ""
-				},
-				{ 
-					"id"  : "Gmail",
-					"user" : "johndoe@gmail.com",
-					"pass" : "johndoe12345",
-					"email" : "johndoe@gmail.com",
-					"notes" : ""
-				},
-				{ 
-					"id"  : "BYUI",
-					"user" : "student",
-					"pass" : "letsStudyCIT261",
-					"email" : "student@byui.edu",
-					"notes" : ""
-				}
-			]};
+			{ 
+				"id"  : "Facebook",
+				"user" : "jacksonavery@gmail.com",
+				"pass" : "ilovefacebook",
+				"email" : "jacksonavery@gmail.com",
+				"notes" : ""
+			},
+			{ 
+				"id"  : "Hotmail",
+				"user" : "janesmith@hotmail.com",
+				"pass" : "janesmith54321",
+				"email" : "janesmith@hotmail.com",
+				"notes" : ""
+			},
+			{ 
+				"id"  : "Gmail",
+				"user" : "johndoe@gmail.com",
+				"pass" : "johndoe12345",
+				"email" : "johndoe@gmail.com",
+				"notes" : ""
+			},
+			{ 
+				"id"  : "BYUI",
+				"user" : "student",
+				"pass" : "letsStudyCIT261",
+				"email" : "student@byui.edu",
+				"notes" : ""
+			}
+		]};
 		var profile = new Array(4);
 			profile[0] = obj.profiles[0];
 			profile[1] = obj.profiles[1];
@@ -66,7 +66,7 @@ function makeTableHTML(myArray) {
     for(var i=0; i < myArray.length; i++) {
         result += "<tr>";
 		tableStart = "<td class=\"tableElm";
-		tableEnd = "id=\"list"+ i +"\" onclick=\"showTrash(trash"+ i +")\">"+myArray[i]+"<img class=\"trashHide\" align=\"right\" id=\"trash"+i+"\" onclick=\"delete(list"+ i +")\" src=\"images/trash.png\"></td>";
+		tableEnd = "id=\"list"+ i +"\" onclick=\"swipeList(list"+ i +")\">"+myArray[i]+"<img class=\"trashHide\" align=\"right\" id=\"trash"+i+"\" onclick=\"delete(list"+ i +")\" src=\"images/trash.png\"></td>";
 		
 		if(i % 2 == 0) {
            	result += tableStart + "A\"" + tableEnd;
