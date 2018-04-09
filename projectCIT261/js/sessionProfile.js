@@ -4,12 +4,15 @@ document.addEventListener("DOMContentLoaded", function startup(){
 		var data = loadStorage();
 
 	}else{
-		var id = sessionStorage[id];
-		document.getElementById('profile').value = localStorage[profiles[id].id];
-		document.getElementById('user').value = localStorage[profiles[id].user];
-		document.getElementById('password').value = localStorage[profiles[id].pass];
-		document.getElementById('email').value = localStorage[profiles[id].email];
-		document.getElementById('notes').value = localStorage[profiles[id].notes];
+		var idN = sessionStorage[id];
+		var test = {localStorage[profiles[idN].id],localStorage[profiles[idN].user],localStorage[profiles[idN].pass],localStorage[profiles[idN].email],localStorage[profiles[idN].notes]};
+		alert (test);
+		
+		document.getElementById('profile').value = localStorage[profiles[idN].id];
+		document.getElementById('user').value = localStorage[profiles[idN].user];
+		document.getElementById('password').value = localStorage[profiles[idN].pass];
+		document.getElementById('email').value = localStorage[profiles[idN].email];
+		document.getElementById('notes').value = localStorage[profiles[idN].notes];
 	}
 });
 
