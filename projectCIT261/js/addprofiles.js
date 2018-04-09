@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", function init() {
+document.onload = function init() {
     var saveButton = document.getElementById("Save");
     saveButton.onclick = getFormData;
     getProfileData();
-});		
+};		
 	
 function Profile(profile, user, password, email, notes) {
     this.profile = profile;
