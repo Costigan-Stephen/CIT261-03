@@ -4,8 +4,13 @@ function startup(){
 	}else{	
 		var data = loadStorage();
 		//var array = JSON.parse(data);
-		var result = makeTableHTML(data);
-		document.getElementById('outputDiv').innerHTML = result;
+		
+		var output = document.getElementById('outputDiv'); //only run where this element is present
+
+		if (output) {
+			var result = makeTableHTML(data);
+			document.getElementById('outputDiv').innerHTML = result;
+		}
 	}
 }
 
@@ -134,27 +139,30 @@ function Local() {
 		data[2] = document.getElementById('password').value;
 		data[3] = document.getElementById('email').value;
 		data[4] = document.getElementById('notes').value;
-		
-	localStorage.setItem("profiles.id", data[0]); 
-	localStorage.setItem("profiles.user", data[1]); 
-	localStorage.setItem("profiles.password", data[2]); 
-	localStorage.setItem("profiles.email", data[3]); 
-	localStorage.setItem("profiles.notes", data[4]); 
-	localStorage.getItem("profiles")
+
+	var z = localStorage.length;	
+	alert(z);
 	
-	var test = localStorage.getItem("profiles.id");
+	localStorage.setItem("profiles[z].id", data[0]); 
+	localStorage.setItem("profiles[z].user", data[1]); 
+	localStorage.setItem("profiles[z].password", data[2]); 
+	localStorage.setItem("profiles[z].email", data[3]); 
+	localStorage.setItem("profiles[z].notes", data[4]); 
+	localStorage.getItem("profiles[z]")
+	
+	var test = localStorage.getItem("profiles[z].id");
     alert(test);
 	
-	test = localStorage.getItem("profiles.user");
+	test = localStorage.getItem("profiles[z].user");
    	alert(test);
 	
-	test = localStorage.getItem("profiles.password");
+	test = localStorage.getItem("profiles[z].password");
     alert(test);
 	
-	test = localStorage.getItem("profiles.email");
+	test = localStorage.getItem("profiles[z].email");
     alert(test);
 	
-	test = localStorage.getItem("profiles.notes");
+	test = localStorage.getItem("profiles[z].notes");
     alert(test);
 	
 }	
