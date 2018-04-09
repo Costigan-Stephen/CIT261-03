@@ -1,31 +1,61 @@
 document.addEventListener("DOMContentLoaded", function startup(){
-	var data = loadDoc();
-	var array = JSON.parse(data);
-	var result = makeTableHTML(myArray);
+	var data = loadStorage();
+	//var array = JSON.parse(data);
+	var result = makeTableHTML(data);
 	document.getElementById('outputDiv').innerHTML = result;
 });
 
-function loadDoc() {
-	var xhr;
-	async: true;
-	
-	xhr = new XMLHttpRequest();
-	/*
-	if (window.XMLHttpRequest) xhr = new XMLHttpRequest(); 		// all browsers except IE
-	else xhr = new ActiveXObject("Microsoft.XMLHTTP"); 		// for IE
-	*/
-	xhr.open('GET', 'profiles.json', false);
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState===4 && xhr.status===200) {			
-			var items = JSON.parse(xhr.responseText);
-			var array = [];
-			for (var key in items) {
-				array[key] = items[key].id;
-			}
-			return array;
-		}
+function loadStorage() {
+	if (window.localStorage.length){
+		var obj = { 
+			"profiles" : [
+				{ 
+					"id"  : "Facebook",
+					"user" : "jacksonavery@gmail.com",
+					"pass" : "ilovefacebook",
+					"email" : "jacksonavery@gmail.com",
+					"notes" : ""
+				},
+				{ 
+					"id"  : "Hotmail",
+					"user" : "janesmith@hotmail.com",
+					"pass" : "janesmith54321",
+					"email" : "janesmith@hotmail.com",
+					"notes" : ""
+				},
+				{ 
+					"id"  : "Gmail",
+					"user" : "johndoe@gmail.com",
+					"pass" : "johndoe12345",
+					"email" : "johndoe@gmail.com",
+					"notes" : ""
+				},
+				{ 
+					"id"  : "BYUI",
+					"user" : "student",
+					"pass" : "letsStudyCIT261",
+					"email" : "student@byui.edu",
+					"notes" : ""
+				}
+			]};
+		var profile = new Array(4);
+			profile[0] = obj.profiles[0];
+			profile[1] = obj.profiles[1];
+			profile[2] = obj.profiles[2];
+			profile[3] = obj.profiles[3];
+		
+		localStorage.setItem("profiles", profile)	
+	}else{
+		var profile = localStorage["profiles"];
 	}
-	xhr.send();
+	
+	
+	var array = [];
+	
+	for(var i=0; i < profile.length; i++) {
+        array[i] = profile[i].id;
+    }
+	return array;
 }
 
 function makeTableHTML(myArray) {
