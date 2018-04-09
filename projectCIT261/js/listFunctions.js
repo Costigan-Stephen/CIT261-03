@@ -122,7 +122,7 @@ function Local() {
 	var data = new Array(5);
 		data[0] = document.getElementById('profile').value;
 	 	data[1] = document.getElementById('user').value;
-		data[2] = document.getElementById('pass').value;
+		data[2] = document.getElementById('password').value;
 		data[3] = document.getElementById('email').value;
 		data[4] = document.getElementById('notes').value;
 		
@@ -139,7 +139,7 @@ function Local() {
 	test = localStorage.getItem("profiles.user");
    	alert(test);
 	
-	test = localStorage.getItem("profiles.pass");
+	test = localStorage.getItem("profiles.password");
     alert(test);
 	
 	test = localStorage.getItem("profiles.email");
