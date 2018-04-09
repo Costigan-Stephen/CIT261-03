@@ -1,56 +1,53 @@
-document.addEventListener("DOMContentLoaded", function startup(){
-	var data = loadStorage();
-	//var array = JSON.parse(data);
-	var result = makeTableHTML(data);
-	document.getElementById('outputDiv').innerHTML = result;
-});
+document.onload = function startup(){
+	if (localStorage.profiles.id){	
+		var data = loadStorage();
+		//var array = JSON.parse(data);
+		var result = makeTableHTML(data);
+		document.getElementById('outputDiv').innerHTML = result;
+	}
+};
 
 function loadStorage() {
-	if (window.localStorage.length){
-		var obj = { 
-			"profiles" : [
-			{ 
-				"id"  : "Facebook",
-				"user" : "jacksonavery@gmail.com",
-				"pass" : "ilovefacebook",
-				"email" : "jacksonavery@gmail.com",
-				"notes" : ""
-			},
-			{ 
-				"id"  : "Hotmail",
-				"user" : "janesmith@hotmail.com",
-				"pass" : "janesmith54321",
-				"email" : "janesmith@hotmail.com",
-				"notes" : ""
-			},
-			{ 
-				"id"  : "Gmail",
-				"user" : "johndoe@gmail.com",
-				"pass" : "johndoe12345",
-				"email" : "johndoe@gmail.com",
-				"notes" : ""
-			},
-			{ 
-				"id"  : "BYUI",
-				"user" : "student",
-				"pass" : "letsStudyCIT261",
-				"email" : "student@byui.edu",
-				"notes" : ""
-			}
-		]};
-		var profile = new Array(4);
-			profile[0] = obj.profiles[0];
-			profile[1] = obj.profiles[1];
-			profile[2] = obj.profiles[2];
-			profile[3] = obj.profiles[3];
+	var obj = { 
+		"profiles" : [
+		{ 
+			"id"  : "Facebook",
+			"user" : "jacksonavery@gmail.com",
+			"pass" : "ilovefacebook",
+			"email" : "jacksonavery@gmail.com",
+			"notes" : ""
+		},
+		{ 
+			"id"  : "Hotmail",
+			"user" : "janesmith@hotmail.com",
+			"pass" : "janesmith54321",
+			"email" : "janesmith@hotmail.com",
+			"notes" : ""
+		},
+		{ 
+			"id"  : "Gmail",
+			"user" : "johndoe@gmail.com",
+			"pass" : "johndoe12345",
+			"email" : "johndoe@gmail.com",
+			"notes" : ""
+		},
+		{ 
+			"id"  : "BYUI",
+			"user" : "student",
+			"pass" : "letsStudyCIT261",
+			"email" : "student@byui.edu",
+			"notes" : ""
+		}
+	]};
+	var profile = new Array(4);
+		profile[0] = obj.profiles[0];
+		profile[1] = obj.profiles[1];
+		profile[2] = obj.profiles[2];
+		profile[3] = obj.profiles[3];
+	
+	localStorage.setItem("profiles", profile);	
+	localStorage.getItem("profiles");	
 		
-		localStorage.setItem("profiles", profile);	
-		localStorage.getItem("profiles");	
-	}else{
-		var profile = localStorage["profiles"];
-	}
-	
-	
 	var array = [];
 	
 	for(var i=0; i < profile.length; i++) {
@@ -122,35 +119,33 @@ function swipeList(x) {
 }
 
 function Local() {
-	var data = document.getElementById('profile').value;
-	localStorage.setItem("profiles.id", data); 
-  
- 	var data = document.getElementById('user').value;
-	localStorage.setItem("profiles.user", data); 
-  
-  	var data = document.getElementById('pass').value;
-	localStorage.setItem("profiles.password", data); 
-  
-  	var data = document.getElementById('email').value;
-	localStorage.setItem("profiles.email", data); 
-  
-  	var data = document.getElementById('notes').value;
-	localStorage.setItem("profiles.notes", data); 
+	var data = new Array(5);
+		data[0] = document.getElementById('profile').value;
+	 	data[1] = document.getElementById('user').value;
+		data[2] = document.getElementById('pass').value;
+		data[3] = document.getElementById('email').value;
+		data[4] = document.getElementById('notes').value;
+		
+	localStorage.setItem("profiles.id", data[0]); 
+	localStorage.setItem("profiles.user", data[1]); 
+	localStorage.setItem("profiles.password", data[2]); 
+	localStorage.setItem("profiles.email", data[3]); 
+	localStorage.setItem("profiles.notes", data[4]); 
 	localStorage.getItem("profiles")
 	
 	var test = localStorage.getItem("profiles.id");
     alert(test);
 	
-	var test = localStorage.getItem("profiles.user");
+	test = localStorage.getItem("profiles.user");
    	alert(test);
 	
-	var test = localStorage.getItem("profiles.pass");
+	test = localStorage.getItem("profiles.pass");
     alert(test);
 	
-	var test = localStorage.getItem("profiles.email");
+	test = localStorage.getItem("profiles.email");
     alert(test);
 	
-	var test = localStorage.getItem("profiles.notes");
+	test = localStorage.getItem("profiles.notes");
     alert(test);
 	
 }	
