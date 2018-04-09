@@ -45,6 +45,7 @@ function loadStorage() {
 			profile[3] = obj.profiles[3];
 		
 		localStorage.setItem("profiles", profile);	
+		localStorage.getItem("profiles");	
 	}else{
 		var profile = localStorage["profiles"];
 	}
@@ -82,7 +83,8 @@ function makeTableHTML(myArray) {
 function openProfile(x) {
 	// Hide/Show trash icon after swipe
 	var profile = localStorage["profiles"];
-	sessionStorage.setItem("profiles", profile);	
+	sessionStorage.setItem("id", x);
+	sessionStorage.getItem("id");	
 	window.location.href = 'profileView.html';
 	
 }
@@ -134,6 +136,7 @@ function Local() {
   
   	var data = document.getElementById('notes').value;
 	localStorage.setItem("profiles.notes", data); 
+	localStorage.getItem("profiles")
 	
 	var test = localStorage.getItem("profiles.id");
     alert(test);
