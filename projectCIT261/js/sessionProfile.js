@@ -1,11 +1,11 @@
-document.onload = function startup(){
+function Start(){
 	
 	if (localStorage.profiles.id){	
 		var data = loadStorage();
 
 	}else{
 		if (sessionStorage.id){
-			//Nothing
+			//Session storage is empty, do Nothing
 		}else{
 			var idN = sessionStorage[id];
 		
