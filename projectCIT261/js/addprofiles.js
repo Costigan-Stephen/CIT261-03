@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", function init() {
+    var saveButton = document.getElementById("Save");
+    saveButton.onclick = getFormData;
+    getProfileData();
+});		
+	
 function Profile(profile, user, password, email, notes) {
     this.profile = profile;
     this.user = user;
@@ -7,14 +13,6 @@ function Profile(profile, user, password, email, notes) {
 }
 
 var profiles = new Array();
-
-window.onload = init;
-
-function init() {
-    var saveButton = document.getElementById("Save");
-    saveButton.onclick = getFormData;
-    getProfileData();
-}
 
 function getProfileData() {
     var request = new XMLHttpRequest();
