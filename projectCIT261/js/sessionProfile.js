@@ -5,7 +5,7 @@ function Start(){
 		var data = loadStorage();
 		//var array = JSON.parse(data);
 		if (sessionStorage.id){
-			var idN = sessionStorage[id];
+			var idN = sessionStorage.id;
 		
 			var test = [localStorage[profiles[idN].id],localStorage[profiles[idN].user],localStorage[profiles[idN].pass],localStorage[profiles[idN].email],localStorage[profiles[idN].notes]];
 			alert (test);
