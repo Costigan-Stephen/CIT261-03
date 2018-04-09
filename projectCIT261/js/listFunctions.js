@@ -121,32 +121,33 @@ function swipeList(x) {
 
 function Local() {
 	var data = document.getElementById('profile').value;
-	localStorage.setItem("key", data); 
+	localStorage.setItem("profiles.id", data); 
   
-  var data = document.getElementById('user').value;
-	localStorage.setItem("key", data); 
+ 	var data = document.getElementById('user').value;
+	localStorage.setItem("profiles.user", data); 
   
-  var data = document.getElementById('password').value;
-	localStorage.setItem("key", data); 
+  	var data = document.getElementById('pass').value;
+	localStorage.setItem("profiles.password", data); 
   
-  var data = document.getElementById('email').value;
-	localStorage.setItem("key", data); 
+  	var data = document.getElementById('email').value;
+	localStorage.setItem("profiles.email", data); 
   
-  var data = document.getElementById('notes').value;
-	localStorage.setItem("key", data); 
+  	var data = document.getElementById('notes').value;
+	localStorage.setItem("profiles.notes", data); 
 	
-	var test = localStorage.getItem("key");
-    document.getElementById('localProfile').value = test;
+	var test = localStorage.getItem("profiles.id");
+    alert(test);
 	
-	var test = localStorage.getItem("key");
-    document.getElementById('localUser').value = test;
+	var test = localStorage.getItem("profiles.user");
+   	alert(test);
 	
-	var test = localStorage.getItem("key");
-    document.getElementById('localPass').value = test;
+	var test = localStorage.getItem("profiles.pass");
+    alert(test);
 	
-	var test = localStorage.getItem("key");
-    document.getElementById('localEmail').value = test;
+	var test = localStorage.getItem("profiles.email");
+    alert(test);
 	
-	var test = localStorage.getItem("key");
-    document.getElementById('localNotes').value = test;
+	var test = localStorage.getItem("profiles.notes");
+    alert(test);
+	
 }	
