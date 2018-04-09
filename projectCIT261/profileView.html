@@ -5,11 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/main.css">
-	<script src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="profiles.json"></script>
-	<script src="addprofiles.js"></script>
-	<script src="js/listFunctions.js" type="text/javascript"></script>
-	<script src="js/sessionProfile.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/sessionProfile.js"></script>
+    <script type="text/javascript"></script>
+    <script src="js/listFunctions.js"></script>
     </head>
     
     <body class="bodyNav">
@@ -27,31 +25,25 @@
 	    </ul>
         <div class="container" align="left">
         <form>
-		<label id="profile" for="profile">Profile Name: </label><br>
-        	<input type="text" id="profile" name="profile"><br>
+		<label for="profile">Profile Name: </label><br>
+        	<input type="text" id="profile"><br>
 
-		<label id="user" for="user">Username: </label><br>
-        	<input type="text" id="user" name="user"><br>
+		<label for="user">Username: </label><br>
+        	<input type="text"id="user"><br>
 
-		<label id="password" for="password">Password: </label><br>
-        	<input type="text" id="password" name="password"><br>
+		<label for="password">Password: </label><br>
+        	<input type="text" id="password"><br>
 
-		<label id="email" for="email">Email: </label><br>
-            	<input type="text" id="email" name="email"><br>
+		<label for="email">Email: </label><br>
+            	<input type="text" id="email"><br>
 
-		<label id="notes" for="notes">Notes: </label><br>
+		<label for="notes">Notes: </label><br>
             	<textarea rows="4" cols="40" id="notes"></textarea><br>
 		
-            <div align="center"><input type="submit" onclick="Local()" class="Fullbutton"></div>    
+            <div align="center"><input type="submit" onclick="return Local()" class="Fullbutton"></div>    
         </form>
         </div>
-	<br>
-	    <input type="text" id="localProfile">
-	    <input type="text" id="localUser">
-	    <input type="text" id="localPass">
-	    <input type="text" id="localEmail">
-	    <input type="text" id="localNotes">
-       
+        <br>
         <footer>
             <div align="center" class="footer"><h6 class="hcolor">This app belongs to the best team for CIT261
 			<br>copyright 2018 &#174;</h6></div>
