@@ -11,7 +11,7 @@ function Start(){
 			alert (test);
 			
 			document.getElementById('profile').value = localStorage.profiles[idN].id;
-			document.getElementById('user').value = localStorage.profiles[idN].user.;
+			document.getElementById('user').value = localStorage.profiles[idN].user;
 			document.getElementById('password').value = localStorage.profiles[idN].password;
 			document.getElementById('email').value = localStorage.profiles[idN].email;
 			document.getElementById('notes').value = localStorage.profiles[idN].notes;
