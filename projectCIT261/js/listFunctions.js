@@ -136,5 +136,17 @@ function Local() {
 	localStorage.setItem("key", data); 
 	
 	var test = localStorage.getItem("key");
-    document.getElementById('local').value = test;
+    document.getElementById('localProfile').value = test;
+	
+	var test = localStorage.getItem("key");
+    document.getElementById('localUser').value = test;
+	
+	var test = localStorage.getItem("key");
+    document.getElementById('localPass').value = test;
+	
+	var test = localStorage.getItem("key");
+    document.getElementById('localEmail').value = test;
+	
+	var test = localStorage.getItem("key");
+    document.getElementById('localNotes').value = test;
 }	
