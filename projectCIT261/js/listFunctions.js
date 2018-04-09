@@ -118,3 +118,23 @@ function swipeList(x) {
 		//document.getElementById(img).classList.add('trash');
 	}
 }
+
+function Local() {
+	var data = document.getElementById('profile').value;
+	localStorage.setItem("key", data); 
+  
+  var data = document.getElementById('user').value;
+	localStorage.setItem("key", data); 
+  
+  var data = document.getElementById('pass').value;
+	localStorage.setItem("key", data); 
+  
+  var data = document.getElementById('email').value;
+	localStorage.setItem("key", data); 
+  
+  var data = document.getElementById('notes').value;
+	localStorage.setItem("key", data); 
+	
+	var test = localStorage.getItem("key");
+    document.getElementById('local').value = test;
+}	
