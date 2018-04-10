@@ -59,7 +59,7 @@ function loadStorage() {
 		profile[2] = obj.profiles[2];
 		profile[3] = obj.profiles[3];
 	
-	localStorage.setItem("profiles", profile);	
+	localStorage.setItem("profiles", JSON.Stringify(profile));	
 	localStorage.getItem("profiles");	
 		
 	var array = [];
@@ -140,29 +140,20 @@ function Local() {
 		data[3] = document.getElementById('email').value;
 		data[4] = document.getElementById('notes').value;
 
-	var z = localStorage.length;	
-	alert(z);
 	
-	localStorage.setItem("profiles[z].id", data[0]); 
-	localStorage.setItem("profiles[z].user", data[1]); 
-	localStorage.setItem("profiles[z].password", data[2]); 
-	localStorage.setItem("profiles[z].email", data[3]); 
-	localStorage.setItem("profiles[z].notes", data[4]); 
-	localStorage.getItem("profiles[z]")
+	var profile = JSON.parse(window.localStorage.getItem('profiles'));
 	
-	var test = localStorage.getItem("profiles[z].id");
-    alert(test);
+	if (profile){
+		var storage = profile.concat(strData);
+	}else{
+		var storage = profile;
+	}
 	
-	test = localStorage.getItem("profiles[z].user");
-   	alert(test);
+	var strData = JSON.stringify(storage);
 	
-	test = localStorage.getItem("profiles[z].password");
-    alert(test);
+	localStorage.setItem("profiles", strData); 
+	localStorage.getItem("profiles")
 	
-	test = localStorage.getItem("profiles[z].email");
-    alert(test);
-	
-	test = localStorage.getItem("profiles[z].notes");
-    alert(test);
+	alert(JSON.parse(window.localStorage.getItem('profiles')));
 	
 }	
