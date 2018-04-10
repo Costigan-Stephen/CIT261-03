@@ -15,7 +15,7 @@
 		<ul>
          	<li><a href="about.html">About Our Project</a></li>
             <li><a href="main.html">Log Out</a></li>
-            <li style="float:right"><a href="profileView.html">+ New</a></li>
+            <li style="float:right"><a href="javascript:newProfile()">+ New</a></li>
             <li style="float:right"><a href="javascript:manualReset()">Reset</a></li>
 		</ul>
         </div>
@@ -23,7 +23,8 @@
 	
     <div class="containerSch">Search &nbsp; <input type="text" name="search"> &nbsp;&nbsp; <img src="images/searchw.png" onclick="" alt="logo" width="10" height="10"></div>
     <div class="containerList">Profile Name</div>
-    <div id="outputDiv"></div>
+    <div style="height:100%;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;" scrolling="yes">
+    <div id="outputDiv"></div></div>
 	<br>
     <footer>
         <div align="center" class="footer"><h6 class="hcolor">This app belongs to the best team for CIT261
