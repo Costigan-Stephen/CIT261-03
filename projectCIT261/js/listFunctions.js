@@ -59,8 +59,10 @@ function loadStorage() {
 		profile[2] = obj.profiles[2];
 		profile[3] = obj.profiles[3];
 	
-	localStorage.setItem("profiles", JSON.Stringify(profile));	
-	localStorage.getItem("profiles");	
+	var storage = JSON.stringify(profile);
+
+	localStorage.setItem('profiles', storage);	
+	localStorage.getItem('profiles');	
 		
 	var array = [];
 	
@@ -134,17 +136,17 @@ function swipeList(x) {
 
 function Local() {
 	var data = new Array(5);
-		data[0] = document.getElementById('profile').value;
-	 	data[1] = document.getElementById('user').value;
-		data[2] = document.getElementById('password').value;
-		data[3] = document.getElementById('email').value;
-		data[4] = document.getElementById('notes').value;
+		data[0] = "id: " + document.getElementById('profile').value;
+	 	data[1] = "user: " + document.getElementById('user').value;
+		data[2] = "pass: " + document.getElementById('password').value;
+		data[3] = "email: " + document.getElementById('email').value;
+		data[4] = "notes: " + document.getElementById('notes').value;
 
 	
 	var profile = JSON.parse(window.localStorage.getItem('profiles'));
 	
 	if (profile){
-		var storage = profile.concat(strData);
+		var storage = profile.concat(data);
 	}else{
 		var storage = profile;
 	}
@@ -154,6 +156,6 @@ function Local() {
 	localStorage.setItem("profiles", strData); 
 	localStorage.getItem("profiles")
 	
-	alert(JSON.parse(window.localStorage.getItem('profiles')));
+	alert(strData);
 	
 }	
