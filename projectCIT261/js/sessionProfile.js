@@ -7,15 +7,15 @@ function Start(){
 		if (sessionStorage.id){
 			var idN = sessionStorage.id;
 		
-			var test = [localStorage.get(profiles[idN].id),localStorage.get(profiles[idN].user),localStorage.get(profiles[idN].pass),localStorage.get(profiles[idN].email),localStorage.get(profiles[idN].notes)];
+			var test = [localStorage.getItem(profiles[idN].id),localStorage.getItem(profiles[idN].user),localStorage.getItem(profiles[idN].pass),localStorage.getItem(profiles[idN].email),localStorage.getItem(profiles[idN].notes)];
 			alert (test);
 			
 			if (test){
-				document.getElementById('profile').value = localStorage.get(profiles[idN].id);
-				document.getElementById('user').value = localStorage.get(profiles[idN].user);
-				document.getElementById('password').value = localStorage.get(profiles[idN].password);
-				document.getElementById('email').value = localStorage.get(profiles[idN].email);
-				document.getElementById('notes').value = localStorage.get(profiles[idN].notes);
+				document.getElementById('profile').value = localStorage.getItem(profiles[idN].id);
+				document.getElementById('user').value = localStorage.getItem(profiles[idN].user);
+				document.getElementById('password').value = localStorage.getItem(profiles[idN].password);
+				document.getElementById('email').value = localStorage.getItem(profiles[idN].email);
+				document.getElementById('notes').value = localStorage.getItem(profiles[idN].notes);
 			}
 		}
 	}
