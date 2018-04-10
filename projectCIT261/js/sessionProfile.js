@@ -10,11 +10,13 @@ function Start(){
 			var test = [localStorage.profiles[idN].id,localStorage.profiles[idN].user,localStorage.profiles[idN].pass,localStorage.profiles[idN].email,localStorage.profiles[idN].notes];
 			alert (test);
 			
-			document.getElementById('profile').value = localStorage.profiles[idN].id;
-			document.getElementById('user').value = localStorage.profiles[idN].user;
-			document.getElementById('password').value = localStorage.profiles[idN].password;
-			document.getElementById('email').value = localStorage.profiles[idN].email;
-			document.getElementById('notes').value = localStorage.profiles[idN].notes;
+			if (test){
+				document.getElementById('profile').value = localStorage.profiles[idN].id;
+				document.getElementById('user').value = localStorage.profiles[idN].user;
+				document.getElementById('password').value = localStorage.profiles[idN].password;
+				document.getElementById('email').value = localStorage.profiles[idN].email;
+				document.getElementById('notes').value = localStorage.profiles[idN].notes;
+			}
 		}
 	}
 }
