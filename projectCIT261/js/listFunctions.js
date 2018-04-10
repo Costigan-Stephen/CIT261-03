@@ -1,8 +1,18 @@
 function startup(){
-	if (localStorage.profiles.id){
-		//nothing
-	}else{	
+	
+	//alert(window.localStorage.getItem('profiles'));
+	if (localStorage){
 		var data = loadStorage();
+		//var array = JSON.parse(data);
+		
+		var output = document.getElementById('outputDiv'); //only run where this element is present
+
+		if (output) {
+			var result = makeTableHTML(data);
+			document.getElementById('outputDiv').innerHTML = result;
+		}
+	}else{	
+		var data = defaultStorage();
 		//var array = JSON.parse(data);
 		
 		var output = document.getElementById('outputDiv'); //only run where this element is present
@@ -15,13 +25,35 @@ function startup(){
 }
 
 function manualReset(){
-	var data = loadStorage();
+	var data = defaultStorage();
 	//var array = JSON.parse(data);
 	var result = makeTableHTML(data);
 	document.getElementById('outputDiv').innerHTML = result;
 }
 
 function loadStorage() {
+	var obj = JSON.parse(window.localStorage.getItem('ids'));
+	if (obj){
+		var x = obj.length;
+		
+		var profile = new Array(x);
+		
+		for(var i=0; i < x; i++) { //All values in local storage
+			profile[i] = obj[i];
+		}
+			
+		var ids = [];
+		
+		for(var i=0; i < profile.length; i++) { //Only object ID's
+			ids[i] = profile[i];
+		}
+	}else{
+		var ids = defaultStorage();
+	}
+	return ids;
+}
+
+function defaultStorage() {
 	var obj = { 
 		"profiles" : [
 		{ 
@@ -59,17 +91,78 @@ function loadStorage() {
 		profile[2] = obj.profiles[2];
 		profile[3] = obj.profiles[3];
 	
-	var storage = JSON.stringify(profile);
-
-	localStorage.setItem('profiles', storage);	
-	localStorage.getItem('profiles');	
-		
-	var array = [];
+	//--------------------------------------------------------------
+	// STORING IDS IN LOCAL STORAGE
+	
+	var ids = [];
 	
 	for(var i=0; i < profile.length; i++) {
-        array[i] = profile[i].id;
+        ids[i] = profile[i].id;
     }
-	return array;
+	var result = ids;
+		
+	var storage = JSON.stringify(ids);
+
+	localStorage.setItem('ids', storage);	
+	localStorage.getItem('ids');	
+	
+	//--------------------------------------------------------------
+	// STORING USER IN LOCAL STORAGE
+	
+	var user = [];
+	
+	for(var i=0; i < profile.length; i++) {
+        user[i] = profile[i].user;
+    }
+	
+	storage = JSON.stringify(user);
+
+	localStorage.setItem('user', storage);	
+	localStorage.getItem('user');
+	
+	//--------------------------------------------------------------
+	// STORING PASS IN LOCAL STORAGE
+	
+	var pass = [];
+	
+	for(var i=0; i < profile.length; i++) {
+        pass[i] = profile[i].pass;
+    }
+	
+	storage = JSON.stringify(pass);
+
+	localStorage.setItem('pass', storage);	
+	localStorage.getItem('pass');
+	
+	//--------------------------------------------------------------
+	// STORING EMAIL IN LOCAL STORAGE
+	
+	var email = [];
+	
+	for(var i=0; i < profile.length; i++) {
+        email[i] = profile[i].email;
+    }
+	
+	storage = JSON.stringify(email);
+
+	localStorage.setItem('email', storage);	
+	localStorage.getItem('email');
+	
+	//--------------------------------------------------------------
+	// STORING NOTES IN LOCAL STORAGE
+	
+	var notes = [];
+	
+	for(var i=0; i < profile.length; i++) {
+        notes[i] = profile[i].notes;
+    }
+	
+	storage = JSON.stringify(notes);
+
+	localStorage.setItem('notes', storage);	
+	localStorage.getItem('notes');
+	
+	return result;
 }
 
 function makeTableHTML(myArray) {
@@ -93,9 +186,14 @@ function makeTableHTML(myArray) {
 	return result;
 }
 
+function newProfile(){
+	//Determine which layout is running the script
+	var z = openProfile("x");
+}
+
 function openProfile(x) {
-	// Hide/Show trash icon after swipe
-	var profile = localStorage["profiles"];
+
+	var profile = window.localStorage.getItem["ids"];
 	sessionStorage.setItem("id", x);
 	sessionStorage.getItem("id");	
 	window.location.href = 'profileView.html';
@@ -135,27 +233,137 @@ function swipeList(x) {
 }
 
 function Local() {
+	var obj = JSON.parse(window.localStorage.getItem('ids'));
+	var x = obj.length + 1;
+	var y = sessionStorage.getItem("id");
+	
+	
+	//--------------------------------------------------------------
+	// RETRIEVING DATA FROM FIELDS
+	
 	var data = new Array(5);
-		data[0] = "id: " + document.getElementById('profile').value;
-	 	data[1] = "user: " + document.getElementById('user').value;
-		data[2] = "pass: " + document.getElementById('password').value;
-		data[3] = "email: " + document.getElementById('email').value;
-		data[4] = "notes: " + document.getElementById('notes').value;
+		data[0] = document.getElementById('profile').value;
+	 	data[1] = document.getElementById('user').value;
+		data[2] = document.getElementById('password').value;
+		data[3] = document.getElementById('email').value;
+		data[4] = document.getElementById('notes').value;
+	
+	//--------------------------------------------------------------
+	// STORING DATA IN LOCAL STORAGE
+	
+	if (y < x){  //Replace existing values
+		var id 		= storageArray(1);
+		var user 	= storageArray(2);
+		var pass 	= storageArray(3);
+		var email 	= storageArray(4);
+		var notes 	= storageArray(5);
+		
+			id[y] 		= data[0];
+			user[y] 	= data[1];
+			pass[y] 	= data[2];
+			email[y] 	= data[3];
+			notes[y] 	= data[4];
+		
+		var storage = JSON.stringify(id);
+			localStorage.setItem("ids", storage); 
+			localStorage.getItem("ids")
+			
+			storage = JSON.stringify(user);
+			localStorage.setItem("user", storage); 
+			localStorage.getItem("user")
+			
+			storage = JSON.stringify(pass);
+			localStorage.setItem("pass", storage); 
+			localStorage.getItem("pass")
+			
+			storage = JSON.stringify(email);
+			localStorage.setItem("email", storage); 
+			localStorage.getItem("email")
+			
+			storage = JSON.stringify(notes);
+			localStorage.setItem("notes", storage); 
+			localStorage.getItem("notes")
+			
+			sessionStorage.setItem("id", y);
+			sessionStorage.getItem("id");
+	
+	//--------------------------------------------------------------		
+	}else{ //Create new values
+		var id 		= loadArray(window.localStorage.getItem('ids'));
+		var user 	= loadArray(window.localStorage.getItem('user'));
+		var pass 	= loadArray(window.localStorage.getItem('pass'));
+		var email 	= loadArray(window.localStorage.getItem('email'));
+		var notes 	= loadArray(window.localStorage.getItem('notes'));
+		
+			id[x] 		= data[0];
+			user[x] 	= data[1];
+			pass[x] 	= data[2];
+			email[x] 	= data[3];
+			notes[x] 	= data[4];
+		
+		var storage = JSON.stringify(id);
+			localStorage.setItem("ids", storage); 
+			localStorage.getItem("ids")
+			
+			storage = JSON.stringify(user);
+			localStorage.setItem("user", storage); 
+			localStorage.getItem("user")
+			
+			storage = JSON.stringify(pass);
+			localStorage.setItem("pass", storage); 
+			localStorage.getItem("pass")
+			
+			storage = JSON.stringify(email);
+			localStorage.setItem("email", storage); 
+			localStorage.getItem("email")
+			
+			storage = JSON.stringify(notes);
+			localStorage.setItem("notes", storage); 
+			localStorage.getItem("notes")
+			
+			sessionStorage.setItem("id", x);
+			sessionStorage.getItem("id");
+	}
+	//--------------------------------------------------------------
+	alert("Changes Saved")
+	window.location.replace('ProfileList.html');
+}	
 
+function loadArray(data) {
 	
-	var profile = JSON.parse(window.localStorage.getItem('profiles'));
+	var obj = JSON.parse(window.localStorage.getItem('ids'));
+	var x = obj.length + 1;
 	
-	if (profile){
-		var storage = profile.concat(data);
-	}else{
-		var storage = profile;
+	var result = new Array(x);
+	
+	for(var i=0; i < x; i++) { //turn values into an array
+        result[i] = data[i];
+    }
+		
+	return result;
+}
+
+function storageArray(z) {
+	
+	if(z == 1){
+		var data =  JSON.parse(window.localStorage.getItem('ids'));
+	}else if(z == 2){
+		var data =  JSON.parse(window.localStorage.getItem('user'));
+	}else if(z == 3){
+		var data =  JSON.parse(window.localStorage.getItem('pass'));
+	}else if(z == 4){
+		var data =  JSON.parse(window.localStorage.getItem('email'));
+	}else if(z == 5){
+		var data =  JSON.parse(window.localStorage.getItem('notes'));
 	}
 	
-	var strData = JSON.stringify(storage);
+	var x = data.length;
 	
-	localStorage.setItem("profiles", strData); 
-	localStorage.getItem("profiles")
+    var result = new Array(x);
 	
-	alert(strData);
+    for(var i=0; i < x; i++) {
+		result[i] = data[i] ;
+    }
 	
-}	
+	return result;
+}
