@@ -3,8 +3,6 @@ function startup(){
 	//alert(window.localStorage.getItem('profiles'));
 	if (localStorage){
 		var data = loadStorage();
-		//var array = JSON.parse(data);
-		
 		var output = document.getElementById('outputDiv'); //only run where this element is present
 
 		if (output) {
@@ -12,9 +10,7 @@ function startup(){
 			document.getElementById('outputDiv').innerHTML = result;
 		}
 	}else{	
-		var data = defaultStorage();
-		//var array = JSON.parse(data);
-		
+		var data = defaultStorage();		
 		var output = document.getElementById('outputDiv'); //only run where this element is present
 
 		if (output) {
@@ -23,6 +19,8 @@ function startup(){
 		}
 	}
 }
+
+//################################################################################
 
 function manualReset(){
 	var data = defaultStorage();
@@ -52,6 +50,8 @@ function loadStorage() {
 	}
 	return ids;
 }
+
+//################################################################################
 
 function defaultStorage() {
 	var obj = { 
@@ -165,6 +165,8 @@ function defaultStorage() {
 	return result;
 }
 
+//################################################################################
+
 function makeTableHTML(myArray) {
     var result = "<table class=\"table\"><br><br>";
 	var tableStart = "";
@@ -186,10 +188,14 @@ function makeTableHTML(myArray) {
 	return result;
 }
 
+//################################################################################
+
 function newProfile(){
 	//Determine which layout is running the script
 	var z = openProfile("x");
 }
+
+//################################################################################
 
 function openProfile(x) {
 
@@ -200,6 +206,8 @@ function openProfile(x) {
 	
 }
 
+//################################################################################
+
 function showTrash(x) {
 	// Hide/Show trash icon after swipe
 	if (x.className == "trash"){
@@ -209,6 +217,8 @@ function showTrash(x) {
 	}
 	
 }
+
+//################################################################################
 
 function swipeList(x) {
 	
@@ -231,6 +241,8 @@ function swipeList(x) {
 		//document.getElementById(img).classList.add('trash');
 	}
 }
+
+//################################################################################
 
 function Local() {
 	var obj = JSON.parse(window.localStorage.getItem('ids'));
@@ -289,12 +301,14 @@ function Local() {
 	
 	//--------------------------------------------------------------		
 	}else{ //Create new values
-		var id 		= loadArray(window.localStorage.getItem('ids'));
-		var user 	= loadArray(window.localStorage.getItem('user'));
-		var pass 	= loadArray(window.localStorage.getItem('pass'));
-		var email 	= loadArray(window.localStorage.getItem('email'));
-		var notes 	= loadArray(window.localStorage.getItem('notes'));
-		
+		var id 		= storageArray(1);
+		var user 	= storageArray(2);
+		var pass 	= storageArray(3);
+		var email 	= storageArray(4);
+		var notes 	= storageArray(5);
+			
+			x -= 1;
+			
 			id[x] 		= data[0];
 			user[x] 	= data[1];
 			pass[x] 	= data[2];
@@ -329,7 +343,77 @@ function Local() {
 	window.location.replace('ProfileList.html');
 }	
 
-function loadArray(data) {
+//################################################################################
+
+function deleteProfile(){
+		
+	var idN = sessionStorage.id
+	
+	if (idN == "x"){
+		var clear = newProfile();
+	}else{
+		var obj = JSON.parse(window.localStorage.getItem('ids'));
+		var x = obj.length;
+		
+		var id 		= storageArray(1);
+		var user 	= storageArray(2);
+		var pass 	= storageArray(3);
+		var email 	= storageArray(4);
+		var notes 	= storageArray(5);
+		
+		var z = x - 1;
+		
+		var id2 	= new Array(z);
+		var user2 	= new Array(z);
+		var pass2 	= new Array(z);
+		var email2 	= new Array(z);
+		var notes2 	= new Array(z);
+		var d = 0;
+		
+		for(var i=0; i < x; i++) { //All values in local storage
+			if(idN != i){
+				id2[d] = id[i];
+				user2[d] = user[i];
+				pass2[d] = pass[i];
+				email2[d] = email[i];
+				notes2[d] = notes[i];
+				d++;
+			}
+		}
+		
+		var storage = JSON.stringify(id2);
+			localStorage.setItem("ids", storage); 
+			localStorage.getItem("ids")
+			
+			storage = JSON.stringify(user2);
+			localStorage.setItem("user", storage); 
+			localStorage.getItem("user")
+			
+			storage = JSON.stringify(pass2);
+			localStorage.setItem("pass", storage); 
+			localStorage.getItem("pass")
+			
+			storage = JSON.stringify(email2);
+			localStorage.setItem("email", storage); 
+			localStorage.getItem("email")
+			
+			storage = JSON.stringify(notes2);
+			localStorage.setItem("notes", storage); 
+			localStorage.getItem("notes")
+			
+			sessionStorage.setItem("id", z);
+			sessionStorage.getItem("id");
+			
+			window.location.replace('ProfileList.html');
+			var result = makeTableHTML(data);
+			document.getElementById('outputDiv').innerHTML = result;
+			
+	}
+}
+
+//################################################################################
+
+function loadArray(data) { //Depreciated
 	
 	var obj = JSON.parse(window.localStorage.getItem('ids'));
 	var x = obj.length + 1;
@@ -342,6 +426,8 @@ function loadArray(data) {
 		
 	return result;
 }
+
+//################################################################################
 
 function storageArray(z) {
 	
