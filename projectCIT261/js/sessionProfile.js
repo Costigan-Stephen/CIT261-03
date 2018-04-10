@@ -1,27 +1,48 @@
 function Start(){
-	if (localStorage.profiles.id){
-		//nothing
+	
+	if (localStorage){
+		
+		if (sessionStorage.id){
+			data = session();
+		}
 	}else{	
-		var data = loadStorage();
+		var data = defaultStorage();
 		//var array = JSON.parse(data);
 		if (sessionStorage.id){
-			var idN = sessionStorage.id;
-		
-			var test = [localStorage.getItem(profiles[idN].id),localStorage.getItem(profiles[idN].user),localStorage.getItem(profiles[idN].pass),localStorage.getItem(profiles[idN].email),localStorage.getItem(profiles[idN].notes)];
-			alert (test);
-			
-			if (test){
-				document.getElementById('profile').value = localStorage.getItem(profiles[idN].id);
-				document.getElementById('user').value = localStorage.getItem(profiles[idN].user);
-				document.getElementById('password').value = localStorage.getItem(profiles[idN].password);
-				document.getElementById('email').value = localStorage.getItem(profiles[idN].email);
-				document.getElementById('notes').value = localStorage.getItem(profiles[idN].notes);
-			}
+			data = session();
 		}
 	}
 }
 
 function loadStorage() {
+	var ids = JSON.parse(window.localStorage.getItem('ids'));
+	var user = JSON.parse(window.localStorage.getItem('user'));
+	var pass = JSON.parse(window.localStorage.getItem('pass'));
+	var email = JSON.parse(window.localStorage.getItem('email'));
+	var notes = JSON.parse(window.localStorage.getItem('notes'));
+	
+	var x = ids.length;
+	
+	var profile = new Array(x);
+	
+	for(var i=0; i < x; i++) { //All values in local storage
+        profile[i].id 		= ids[i];
+		profile[i].user 	= user[i];
+		profile[i].pass 	= pass[i];
+		profile[i].email 	= email[i];
+		profile[i].notes 	= notes[i];
+		
+    }
+		
+	var array = [];
+	
+	for(var i=0; i < profile.length; i++) { //Only object ID's
+        array[i] = profile[i].id;
+    }
+	return array;
+}
+
+function defaultStorage() {
 	
 	var obj = { 
 		"profiles" : [
@@ -60,13 +81,159 @@ function loadStorage() {
 		profile[2] = obj.profiles[2];
 		profile[3] = obj.profiles[3];
 		
-	localStorage.setItem("profiles", profile);
-	localStorage.getItem("profiles");	
-		
-	var array = [];
+	//--------------------------------------------------------------
+	// STORING IDS IN LOCAL STORAGE
+	
+	var ids = [];
 	
 	for(var i=0; i < profile.length; i++) {
-        array[i] = profile[i].id;
+        ids[i] = profile[i].id;
     }
-	return array;
+	
+	var result = ids;
+		
+	var storage = JSON.stringify(ids);
+
+	localStorage.setItem('ids', storage);	
+	localStorage.getItem('ids');	
+	
+	//--------------------------------------------------------------
+	// STORING USER IN LOCAL STORAGE
+	
+	var user = [];
+	
+	for(var i=0; i < profile.length; i++) {
+        user[i] = profile[i].user;
+    }
+	
+	storage = JSON.stringify(user);
+
+	localStorage.setItem('user', storage);	
+	localStorage.getItem('user');
+	
+	//--------------------------------------------------------------
+	// STORING PASS IN LOCAL STORAGE
+	
+	var pass = [];
+	
+	for(var i=0; i < profile.length; i++) {
+        pass[i] = profile[i].pass;
+    }
+	
+	storage = JSON.stringify(pass);
+
+	localStorage.setItem('pass', storage);	
+	localStorage.getItem('pass');
+	
+	//--------------------------------------------------------------
+	// STORING EMAIL IN LOCAL STORAGE
+	
+	var email = [];
+	
+	for(var i=0; i < profile.length; i++) {
+        email[i] = profile[i].email;
+    }
+	
+	storage = JSON.stringify(email);
+
+	localStorage.setItem('email', storage);	
+	localStorage.getItem('email');
+	
+	//--------------------------------------------------------------
+	// STORING NOTES IN LOCAL STORAGE
+	
+	var notes = [];
+	
+	for(var i=0; i < profile.length; i++) {
+        notes[i] = profile[i].notes;
+	
+	}
+	
+	storage = JSON.stringify(notes);
+
+	localStorage.setItem('notes', storage);	
+	localStorage.getItem('notes');
+	return result;
+}
+
+function loadData() {
+
+	var profile = new Array(5);
+	
+        profile[0] = JSON.parse(window.localStorage.getItem('ids'));
+		profile[1] = JSON.parse(window.localStorage.getItem('user'));
+		profile[2] = JSON.parse(window.localStorage.getItem('pass'));
+		profile[3] = JSON.parse(window.localStorage.getItem('email'));
+		profile[4] = JSON.parse(window.localStorage.getItem('notes'));
+
+		
+	return profile;
+}
+
+function session(){
+	
+	var idN = sessionStorage.id;
+	
+	if (idN == "x"){ //clear fields
+	
+		document.getElementById('profile').value = "";
+		document.getElementById('user').value = "";
+		document.getElementById('password').value = "";
+		document.getElementById('email').value = "";
+		document.getElementById('notes').value = "";
+	}else{
+		var val = loadData();
+		var	id 		= JSON.parse(window.localStorage.getItem('ids'));
+		var	user 	= JSON.parse(window.localStorage.getItem('user'));
+		var	pass 	= JSON.parse(window.localStorage.getItem('pass'));
+		var	email 	= JSON.parse(window.localStorage.getItem('email'));
+		var	notes 	= JSON.parse(window.localStorage.getItem('notes'));
+		var test = new Array(5);
+		
+			test[0] = id[idN];
+			test[1] = user[idN];
+			test[2] = pass[idN];
+			test[3] = email[idN];
+			test[4] = notes[idN];
+		
+		//var test = val[idN];
+		
+		if(test[0]){}else{ test[0]="";}	
+		if(test[1]){}else{ test[1]="";}	
+		if(test[2]){}else{ test[2]="";}	
+		if(test[3]){}else{ test[3]="";}	
+		if(test[4]){}else{ test[4]="";}	
+				
+		if (test){
+			document.getElementById('profile').value 	= test[0];
+			document.getElementById('user').value 		= test[1];
+			document.getElementById('password').value 	= test[2];
+			document.getElementById('email').value 		= test[3];
+			document.getElementById('notes').value 		= test[4];
+			
+		}
+	}
+}
+
+function deleteProfile(){
+	var val = loadData();
+	
+	var x = sessionStorage.id
+	
+	if (x == "x"){
+		var clear = newProfile();
+	}else{
+		var z = x - 1;
+		var newArray = new Array(z);
+		
+		for(var i=0; i < x; i++) { //All values in local storage
+			if(x != i){
+				newArray[i] = val[i];
+			}
+		}
+		var strData = JSON.stringify(newArray);
+		
+		localStorage.setItem("ids", strData);
+		localStorage.getItem("ids");
+	}
 }
