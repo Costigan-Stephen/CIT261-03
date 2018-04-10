@@ -1,15 +1,17 @@
 body {
-    background-color: #ccffcc;
+    	background-color: #ccffcc;
+	overflow:auto;
 }
 
 .bodyNav {
-    background-color: #ccffcc;
+	background-color: #ccffcc;
 	padding-top: 40px;
 	position: relative;
 }
 
 .bodyList {
-    background-color: #e6e6e6;
+    	background-color: #e6e6e6;
+	height: 110%;
 }
 
 header{
