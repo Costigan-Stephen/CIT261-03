@@ -14,6 +14,8 @@ function Start(){
 	}
 }
 
+//################################################################################
+
 function loadStorage() {
 	var ids = JSON.parse(window.localStorage.getItem('ids'));
 	var user = JSON.parse(window.localStorage.getItem('user'));
@@ -41,6 +43,8 @@ function loadStorage() {
     }
 	return array;
 }
+
+//################################################################################
 
 function defaultStorage() {
 	
@@ -156,6 +160,8 @@ function defaultStorage() {
 	return result;
 }
 
+//################################################################################
+
 function loadData() {
 
 	var profile = new Array(5);
@@ -170,17 +176,26 @@ function loadData() {
 	return profile;
 }
 
+//################################################################################
+
 function session(){
 	
 	var idN = sessionStorage.id;
 	
-	if (idN == "x"){ //clear fields
+	if (idN == "x"){ //clear fields, create new
 	
 		document.getElementById('profile').value = "";
 		document.getElementById('user').value = "";
 		document.getElementById('password').value = "";
 		document.getElementById('email').value = "";
 		document.getElementById('notes').value = "";
+		
+		var obj = JSON.parse(window.localStorage.getItem('ids'));
+		var x = obj.length + 1;
+		
+		sessionStorage.setItem("id", x);
+		sessionStorage.getItem("id");	
+		
 	}else{
 		var val = loadData();
 		var	id 		= JSON.parse(window.localStorage.getItem('ids'));
@@ -212,28 +227,5 @@ function session(){
 			document.getElementById('notes').value 		= test[4];
 			
 		}
-	}
-}
-
-function deleteProfile(){
-	var val = loadData();
-	
-	var x = sessionStorage.id
-	
-	if (x == "x"){
-		var clear = newProfile();
-	}else{
-		var z = x - 1;
-		var newArray = new Array(z);
-		
-		for(var i=0; i < x; i++) { //All values in local storage
-			if(x != i){
-				newArray[i] = val[i];
-			}
-		}
-		var strData = JSON.stringify(newArray);
-		
-		localStorage.setItem("ids", strData);
-		localStorage.getItem("ids");
 	}
 }
